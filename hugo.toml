@@ -1,0 +1,114 @@
+baseURL = 'https://NeilMin.github.io/'
+# 设定默认语言为英文
+defaultContentLanguage = 'en'
+defaultContentLanguageInSubdir = false
+theme = 'PaperMod'
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+# ================= 全局参数 (双语共用) =================
+[params]
+  defaultTheme = 'auto'
+  ShowReadingTime = true
+  ShowShareButtons = true
+  ShowCodeCopyButtons = true
+  # 开启文章目录
+  ShowToc = true
+
+# ================= 英文配置 (English) =================
+[languages.en]
+  label = "EN"
+  locale = "en-US"
+  title = "Neil's Space"
+  weight = 1
+
+  [languages.en.params.profileMode]
+    enabled = true
+    title = "Hi, I'm Zeqian (Neil) 👋"
+    subtitle = "Software Engineer @ Google | UCSD CS | Java, Go, C++, Python"
+    imageUrl = "/football_me.jpg" 
+    imageWidth = 120
+    imageHeight = 120
+
+    [[languages.en.params.profileMode.buttons]]
+      name = "Blog"
+      url = "/posts"
+    [[languages.en.params.profileMode.buttons]]
+      name = "Resume"
+      url = "/resume"
+
+  [[languages.en.params.socialIcons]]
+    name = "linkedin"
+    url = "https://www.linkedin.com/in/neil-zeqian-min"
+  [[languages.en.params.socialIcons]]
+    name = "email"
+    url = "mailto:minzeqian@gmail.com"
+  [[languages.en.params.socialIcons]]
+    name = "github"
+    url = "https://github.com/NeilMin"
+
+  [[languages.en.menu.main]]
+    identifier = "posts"
+    name = "Blog"
+    url = "/posts/"
+    weight = 10
+  [[languages.en.menu.main]]
+    identifier = "resume"
+    name = "Resume"
+    url = "/resume/"
+    weight = 20
+  [[languages.en.menu.main]]
+    identifier = "search"
+    name = "Search"
+    url = "/search/"
+    weight = 30
+
+# ================= 中文配置 (Chinese) =================
+[languages.zh]
+  label = "中"
+  locale = "zh-CN"
+  hasCJKLanguage = true
+  title = "Neil的自留地"
+  weight = 2
+
+  [languages.zh.params.profileMode]
+    enabled = true
+    title = "你好，我是 Zeqian (Neil) 👋"
+    subtitle = "Google 软件工程师 | 加州大学圣地亚哥分校 CS | 熟悉 Java, Go, C++, Python"
+    imageUrl = "/football_me.jpg"
+    imageWidth = 120
+    imageHeight = 120
+
+    [[languages.zh.params.profileMode.buttons]]
+      name = "博客"
+      url = "/zh/posts"
+    [[languages.zh.params.profileMode.buttons]]
+      name = "简历"
+      url = "/zh/resume"
+
+  [[languages.zh.params.socialIcons]]
+    name = "linkedin"
+    url = "https://www.linkedin.com/in/neil-zeqian-min"
+  [[languages.zh.params.socialIcons]]
+    name = "email"
+    url = "mailto:minzeqian@gmail.com"
+  [[languages.zh.params.socialIcons]]
+    name = "github"
+    url = "https://github.com/NeilMin"
+
+  [[languages.zh.menu.main]]
+    identifier = "posts"
+    name = "博客"
+    url = "/zh/posts/"
+    weight = 10
+  [[languages.zh.menu.main]]
+    identifier = "resume"
+    name = "简历"
+    url = "/zh/resume/"
+    weight = 20
+  [[languages.zh.menu.main]]
+    identifier = "search"
+    name = "搜索"
+    url = "/zh/search/"
+    weight = 30
