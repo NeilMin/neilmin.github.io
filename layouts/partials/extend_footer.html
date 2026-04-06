@@ -89,29 +89,27 @@
   })();
 </script>
 {{- end }}
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<div id="busuanzi-post-counter" style="display: none; width: 100%; text-align: center; font-size: 0.9em; opacity: 0.7; margin-top: 6px;">
+{{ if and .IsPage (eq .Section "posts") }}
+<script defer src="https://vercount.one/js"></script>
+<div id="post-view-counter" style="width: 100%; text-align: center; font-size: 0.9em; opacity: 0.7; margin-top: 6px;">
   <span id="busuanzi_container_page_pv">
-    本文阅读量: <span id="busuanzi_value_page_pv"></span> 次
+    {{ if eq .Lang "zh" }}本文阅读量: <span id="busuanzi_value_page_pv">--</span> 次{{ else }}Post views: <span id="busuanzi_value_page_pv">--</span>{{ end }}
   </span>
 </div>
 <script>
   (() => {
-    const counter = document.getElementById('busuanzi-post-counter');
+    const counter = document.getElementById('post-view-counter');
     if (!counter) return;
 
-    const isPostPage = /^\/(?:zh\/)?posts\/[^/]+\/?$/.test(window.location.pathname);
-    if (isPostPage) {
-      const postFooter = document.querySelector('.post-footer');
-      const shareButtons = postFooter?.querySelector('.share-buttons');
+    const postFooter = document.querySelector('.post-footer');
+    if (!postFooter) return;
 
-      if (shareButtons) {
-        shareButtons.insertAdjacentElement('afterend', counter);
-      } else if (postFooter) {
-        postFooter.appendChild(counter);
-      }
-
-      counter.style.display = 'block';
+    const shareButtons = postFooter.querySelector('.share-buttons');
+    if (shareButtons) {
+      shareButtons.insertAdjacentElement('afterend', counter);
+    } else {
+      postFooter.appendChild(counter);
     }
   })();
 </script>
+{{ end }}
