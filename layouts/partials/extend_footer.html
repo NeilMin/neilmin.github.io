@@ -1,7 +1,91 @@
 {{- if or .IsHome (eq .Layout "search") }}
 <div class="bg-glow">
-  <div class="blob blob-1"></div>
-  <div class="blob blob-2"></div>
-  <div class="blob blob-3"></div>
+  <div class="blob-shell blob-shell-1" data-factor-x="-0.45" data-factor-y="-0.35">
+    <div class="blob blob-1"></div>
+  </div>
+  <div class="blob-shell blob-shell-2" data-factor-x="0.55" data-factor-y="-0.25">
+    <div class="blob blob-2"></div>
+  </div>
+  <div class="blob-shell blob-shell-3" data-factor-x="-0.25" data-factor-y="0.45">
+    <div class="blob blob-3"></div>
+  </div>
 </div>
+<script>
+  (() => {
+    const bg = document.querySelector('.bg-glow');
+    if (!bg || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const shells = Array.from(bg.querySelectorAll('.blob-shell'));
+    const states = shells.map(shell => ({
+      shell,
+      baseX: 0, baseY: 0,
+      currentX: 0, currentY: 0,
+      targetX: 0, targetY: 0
+    }));
+
+    let mouseX = 0, mouseY = 0, pointerActive = false;
+
+    // Physics constants for the "bubble" feel
+    const RADIUS = 450;    // Mouse influence radius
+    const MAX_PUSH = 120;  // Max displacement in pixels
+    const SMOOTHNESS = 0.03; // Lerp factor (lower = more viscous/water-like)
+
+    const updateBaseCenters = () => {
+      states.forEach(state => {
+        const rect = state.shell.getBoundingClientRect();
+        state.baseX = rect.left + rect.width / 2;
+        state.baseY = rect.top + rect.height / 2;
+      });
+    };
+
+    const render = () => {
+      states.forEach(state => {
+        if (pointerActive) {
+          const dx = state.baseX - mouseX;
+          const dy = state.baseY - mouseY;
+          const distance = Math.hypot(dx, dy);
+
+          if (distance < RADIUS) {
+            // Sine curve for smooth falloff (soft shield effect)
+            const intensity = Math.sin(((RADIUS - distance) / RADIUS) * (Math.PI / 2));
+            const safeDist = distance === 0 ? 1 : distance;
+
+            state.targetX = (dx / safeDist) * MAX_PUSH * intensity;
+            state.targetY = (dy / safeDist) * MAX_PUSH * intensity;
+          } else {
+            state.targetX = 0;
+            state.targetY = 0;
+          }
+        } else {
+          state.targetX = 0;
+          state.targetY = 0;
+        }
+
+        // Lerp for smooth, spring-like easing
+        state.currentX += (state.targetX - state.currentX) * SMOOTHNESS;
+        state.currentY += (state.targetY - state.currentY) * SMOOTHNESS;
+
+        state.shell.style.transform = `translate3d(${state.currentX.toFixed(2)}px, ${state.currentY.toFixed(2)}px, 0)`;
+      });
+
+      requestAnimationFrame(render);
+    };
+
+    window.addEventListener('mousemove', e => {
+      pointerActive = true;
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+
+    window.addEventListener('mouseleave', () => {
+      pointerActive = false;
+    });
+
+    window.addEventListener('resize', updateBaseCenters);
+    window.addEventListener('scroll', updateBaseCenters);
+
+    setTimeout(updateBaseCenters, 200);
+    render();
+  })();
+</script>
 {{- end }}
