@@ -11,6 +11,7 @@ theme = 'PaperMod'
 # ================= 全局参数 (双语共用) =================
 [params]
   defaultTheme = 'auto'
+  comments = true
   ShowReadingTime = true
   ShowShareButtons = true
   ShowCodeCopyButtons = true
