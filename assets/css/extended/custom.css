@@ -1,0 +1,63 @@
+/* Background container */
+.bg-glow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+/* Basic blob styling */
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: 0.5;
+    animation: float 10s infinite alternate ease-in-out;
+}
+
+/* Blob 1: Dark Purple */
+.blob-1 {
+    top: 20%;
+    left: 30%;
+    width: 400px;
+    height: 400px;
+    background: #8b5a83;
+    animation-delay: 0s;
+}
+
+/* Blob 2: Dark Olive */
+.blob-2 {
+    top: 40%;
+    right: 20%;
+    width: 350px;
+    height: 350px;
+    background: #6b6b47;
+    animation-delay: -2s;
+}
+
+/* Blob 3: Deep Maroon */
+.blob-3 {
+    bottom: 10%;
+    left: 40%;
+    width: 450px;
+    height: 450px;
+    background: #5c3a4d;
+    animation-delay: -4s;
+}
+
+/* Floating Animation */
+@keyframes float {
+    0% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(30px, -50px) scale(1.1); }
+    66% { transform: translate(-20px, 20px) scale(0.9); }
+    100% { transform: translate(40px, 40px) scale(1.05); }
+}
+
+/* Dark mode adjustment */
+.dark .blob {
+    opacity: 0.4;
+}
