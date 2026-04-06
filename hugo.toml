@@ -1,4 +1,5 @@
 baseURL = 'https://neilmin.com/'
+googleAnalytics = 'G-EWCKPKZT8L'
 # 设定默认语言为英文
 defaultContentLanguage = 'en'
 defaultContentLanguageInSubdir = false

@@ -89,3 +89,20 @@
   })();
 </script>
 {{- end }}
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div id="busuanzi-post-counter" style="display: none; text-align: center; font-size: 0.9em; opacity: 0.7; margin-top: 20px;">
+  <span id="busuanzi_container_page_pv">
+    本文阅读量: <span id="busuanzi_value_page_pv"></span> 次
+  </span>
+</div>
+<script>
+  (() => {
+    const counter = document.getElementById('busuanzi-post-counter');
+    if (!counter) return;
+
+    const isPostPage = /^\/(?:zh\/)?posts\/[^/]+\/?$/.test(window.location.pathname);
+    if (isPostPage) {
+      counter.style.display = 'block';
+    }
+  })();
+</script>
