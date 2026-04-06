@@ -1,5 +1,7 @@
+{{- if or .IsHome (eq .Layout "search") }}
 <div class="bg-glow">
   <div class="blob blob-1"></div>
   <div class="blob blob-2"></div>
   <div class="blob blob-3"></div>
 </div>
+{{- end }}
