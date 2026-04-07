@@ -1,6 +1,9 @@
 +++
 date = '2026-04-06T13:30:00-07:00'
 title = 'How I Vibe-Coded This Blog Website Just to Publish One Post'
+description = 'How I built a bilingual Hugo blog on GitHub Pages with PaperMod, Vercount analytics, Giscus comments, a custom domain, and a few lessons from debugging a frustrating 404 deployment issue.'
+keywords = ['Hugo', 'GitHub Pages', 'PaperMod', 'Vercount', 'Giscus', 'SEO', 'bilingual blog', 'custom domain', '404 debugging']
+slug = 'building-my-hugo-blog-with-github-pages'
 translationKey = 'why-i-built-this-blog'
 +++
 

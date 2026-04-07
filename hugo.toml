@@ -1,4 +1,6 @@
 baseURL = 'https://neilmin.com/'
+title = 'Neil Min | Software Engineer'
+env = 'production'
 googleAnalytics = 'G-EWCKPKZT8L'
 # 设定默认语言为英文
 defaultContentLanguage = 'en'
@@ -10,13 +12,22 @@ theme = 'PaperMod'
 
 # ================= 全局参数 (双语共用) =================
 [params]
+  description = 'Personal blog and portfolio of Neil Min. Sharing technical insights, debugging stories, and software engineering projects.'
+  author = 'Neil Min'
+  images = ['images/papermod-cover.png']
   defaultTheme = 'auto'
   comments = true
   ShowReadingTime = true
   ShowShareButtons = true
   ShowCodeCopyButtons = true
+  ShowCanonicalLink = true
   # 开启文章目录
   ShowToc = true
+
+[sitemap]
+  changefreq = 'weekly'
+  priority = 0.5
+  filename = 'sitemap.xml'
 
 # ================= 英文配置 (English) =================
 [languages.en]

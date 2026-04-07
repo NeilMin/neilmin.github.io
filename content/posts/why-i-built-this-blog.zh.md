@@ -1,6 +1,9 @@
 +++
 date = '2026-04-06T13:30:00-07:00'
 title = '为了一盘醋包顿饺子：我是怎么用 Vibe Coding 手搓出这个博客网站的'
+description = '记录我是怎么用 Hugo、GitHub Pages 和 PaperMod 搭起一个双语博客，并接入 Vercount、Giscus、自定义域名，以及一路排查 404 部署问题的。'
+keywords = ['Hugo', 'GitHub Pages', 'PaperMod', 'Vercount', 'Giscus', '双语博客', '自定义域名', '404 排查', 'Vibe Coding']
+slug = 'building-my-hugo-blog-with-github-pages'
 translationKey = 'why-i-built-this-blog'
 +++
 
