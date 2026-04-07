@@ -1,6 +1,7 @@
 baseURL = 'https://neilmin.com/'
 title = 'Neil Min | Software Engineer'
 env = 'production'
+enableRobotsTXT = true
 googleAnalytics = 'G-EWCKPKZT8L'
 # 设定默认语言为英文
 defaultContentLanguage = 'en'
