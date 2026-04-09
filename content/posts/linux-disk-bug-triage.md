@@ -1,6 +1,7 @@
 +++
 date = '2026-04-05T12:28:16-07:00'
 title = 'Why PostgreSQL Kept Saying “No space left on device” with 20TB Still Free'
+description = 'A PostgreSQL backup failure that looked like a disk-capacity problem turned out to be an EXT4 directory indexing limit caused by millions of tiny Large Object files.'
 translationKey = 'linux-disk-bug-triage'
 +++
 

@@ -1,6 +1,7 @@
 +++
 date = '2026-04-05T12:28:16-07:00'
 title = '明明还有 20TB 空间，PostgreSQL 为什么还在报 “No space left on device”？'
+description = '一次看似磁盘容量不足的 PostgreSQL 备份失败，最后定位到的根因其实是 EXT4 目录索引在海量微型 Large Object 文件场景下撞上了上限。'
 translationKey = 'linux-disk-bug-triage'
 +++
 
