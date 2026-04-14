@@ -44,25 +44,26 @@
     var viewport = options.viewport;
     var anchorRect = options.anchorRect || createFallbackAnchor(viewport);
     var shortEdge = Math.min(viewport.width, viewport.height);
+    var isNarrow = viewport.width < 700;
     var clusterCenter = {
       x: anchorRect.left + anchorRect.width / 2,
       y: anchorRect.top + anchorRect.height / 2
     };
 
-    var baseSize = clamp(anchorRect.width * 0.58 + shortEdge * 0.08, 200, 288);
-    var topSize = clamp(baseSize, 200, 288);
-    var bottomSize = clamp(baseSize * 1.08, 214, 312);
-    var horizontalSpread = clamp(anchorRect.width * 0.30 + shortEdge * 0.06, 118, 174);
-    var topLift = clamp(anchorRect.height * 0.30 + shortEdge * 0.02, 78, 114);
-    var bottomDrop = clamp(anchorRect.height * 0.32 + shortEdge * 0.04, 108, 158);
+    var baseSize = clamp(anchorRect.width * 0.58 + shortEdge * 0.08, 200, isNarrow ? 248 : 288);
+    var topSize = clamp(baseSize, 200, isNarrow ? 248 : 288);
+    var bottomSize = clamp(baseSize * 1.08, 214, isNarrow ? 272 : 312);
+    var horizontalSpread = clamp(anchorRect.width * 0.30 + shortEdge * 0.06, 108, isNarrow ? 150 : 174);
+    var topLift = clamp(anchorRect.height * 0.30 + shortEdge * 0.02, 74, isNarrow ? 102 : 114);
+    var bottomDrop = clamp(anchorRect.height * 0.32 + shortEdge * 0.04, 98, isNarrow ? 142 : 158);
 
     return {
       anchorRect: anchorRect,
       clusterCenter: clusterCenter,
       blobs: buildBlobs(clusterCenter, topSize, bottomSize, horizontalSpread, topLift, bottomDrop),
       interaction: {
-        radius: clamp(horizontalSpread * 2.1, 300, 470),
-        maxPush: clamp(baseSize * 0.46, 90, 132)
+        radius: clamp(horizontalSpread * 2.1, 260, isNarrow ? 420 : 470),
+        maxPush: clamp(baseSize * 0.46, 84, isNarrow ? 96 : 132)
       }
     };
   }

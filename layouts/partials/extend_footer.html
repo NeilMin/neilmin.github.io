@@ -116,6 +116,11 @@
 
       window.addEventListener('resize', applyGeometry);
       window.addEventListener('scroll', applyGeometry, { passive: true });
+      window.addEventListener('orientationchange', applyGeometry);
+
+      document.addEventListener('visibilitychange', () => {
+        if (!document.hidden) applyGeometry();
+      });
 
       applyGeometry();
       requestAnimationFrame(render);

@@ -48,4 +48,17 @@ assert.strictEqual(Math.round(fallback.clusterCenter.x), 860);
 assert.strictEqual(Math.round(fallback.clusterCenter.y), 490);
 assert.ok(fallback.interaction.radius > fallback.blobs[0].size, 'interaction radius should exceed blob size');
 
+const narrow = resolveBlobLayout({
+  viewport: { width: 430, height: 932 },
+  anchorRect: { left: 55, top: 240, width: 320, height: 210 }
+});
+
+assert.ok(narrow.blobs[0].size >= 200, 'mobile blobs should not collapse');
+assert.ok(
+  Math.round(narrow.blobs[1].centerX - narrow.blobs[0].centerX) < 390,
+  'mobile spread should stay compact enough to preserve the existing clustered feel'
+);
+assert.ok(narrow.interaction.radius <= 420, 'small screens should not get oversized interaction zones');
+assert.ok(narrow.interaction.maxPush <= 96, 'small screens should keep a softer push distance');
+
 console.log('blob layout geometry assertions passed');
