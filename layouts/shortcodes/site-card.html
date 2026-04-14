@@ -6,7 +6,7 @@
 
 <a class="favorite-site-card" href="{{ $url | safeURL }}" target="_blank" rel="noopener noreferrer">
   <figure class="favorite-site-card__media">
-    <img class="favorite-site-card__image" src="{{ $image | safeURL }}" alt="{{ $alt }}" loading="lazy">
+    <img class="favorite-site-card__image" src="{{ $image | absURL }}" alt="{{ $alt }}" loading="lazy">
   </figure>
   <div class="favorite-site-card__body">
     <h3 class="favorite-site-card__title">{{ $title }}</h3>

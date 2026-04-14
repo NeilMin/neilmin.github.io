@@ -17,6 +17,7 @@ theme = 'PaperMod'
   author = 'Neil Min'
   images = ['images/papermod-cover.png']
   mainSections = ['posts']
+  ShowFullTextinRSS = true
   defaultTheme = 'auto'
   comments = true
   ShowReadingTime = true
