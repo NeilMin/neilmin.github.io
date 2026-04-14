@@ -1,91 +1,136 @@
 {{- if or .IsHome (eq .Layout "search") }}
 <div class="bg-glow">
-  <div class="blob-shell blob-shell-1" data-factor-x="-0.45" data-factor-y="-0.35">
-    <div class="blob blob-1"></div>
-  </div>
-  <div class="blob-shell blob-shell-2" data-factor-x="0.55" data-factor-y="-0.25">
-    <div class="blob blob-2"></div>
-  </div>
-  <div class="blob-shell blob-shell-3" data-factor-x="-0.25" data-factor-y="0.45">
-    <div class="blob blob-3"></div>
-  </div>
+  <div class="blob-shell blob-shell-1"><div class="blob blob-1"></div></div>
+  <div class="blob-shell blob-shell-2"><div class="blob blob-2"></div></div>
+  <div class="blob-shell blob-shell-3"><div class="blob blob-3"></div></div>
 </div>
 <script>
   (() => {
-    const bg = document.querySelector('.bg-glow');
-    if (!bg || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const init = () => {
+      const bg = document.querySelector('.bg-glow');
+      const geometry = window.BlobLayoutGeometry;
 
-    const shells = Array.from(bg.querySelectorAll('.blob-shell'));
-    const states = shells.map(shell => ({
-      shell,
-      baseX: 0, baseY: 0,
-      currentX: 0, currentY: 0,
-      targetX: 0, targetY: 0
-    }));
+      if (!bg || !geometry || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-    let mouseX = 0, mouseY = 0, pointerActive = false;
+      const shells = Array.from(bg.querySelectorAll('.blob-shell'));
+      const anchorSelectors = ['.profile_inner', '#searchbox', '.home-info', '#searchInput'];
+      const states = shells.map(shell => ({
+        shell,
+        centerX: 0,
+        centerY: 0,
+        currentX: 0,
+        currentY: 0,
+        targetX: 0,
+        targetY: 0
+      }));
 
-    // Physics constants for the "bubble" feel
-    const RADIUS = 450;    // Mouse influence radius
-    const MAX_PUSH = 120;  // Max displacement in pixels
-    const SMOOTHNESS = 0.03; // Lerp factor (lower = more viscous/water-like)
+      const physics = {
+        radius: 420,
+        maxPush: 120,
+        smoothness: 0.03
+      };
 
-    const updateBaseCenters = () => {
-      states.forEach(state => {
-        const rect = state.shell.getBoundingClientRect();
-        state.baseX = rect.left + rect.width / 2;
-        state.baseY = rect.top + rect.height / 2;
-      });
-    };
+      let mouseX = 0;
+      let mouseY = 0;
+      let pointerActive = false;
+      let resizeObserver = null;
 
-    const render = () => {
-      states.forEach(state => {
-        if (pointerActive) {
-          const dx = state.baseX - mouseX;
-          const dy = state.baseY - mouseY;
-          const distance = Math.hypot(dx, dy);
+      const findAnchor = () => {
+        for (const selector of anchorSelectors) {
+          const element = document.querySelector(selector);
+          if (element) return element;
+        }
 
-          if (distance < RADIUS) {
-            // Sine curve for smooth falloff (soft shield effect)
-            const intensity = Math.sin(((RADIUS - distance) / RADIUS) * (Math.PI / 2));
-            const safeDist = distance === 0 ? 1 : distance;
+        return null;
+      };
 
-            state.targetX = (dx / safeDist) * MAX_PUSH * intensity;
-            state.targetY = (dy / safeDist) * MAX_PUSH * intensity;
+      const applyGeometry = () => {
+        const anchor = findAnchor();
+        const layout = geometry.resolveBlobLayout({
+          viewport: { width: window.innerWidth, height: window.innerHeight },
+          anchorRect: anchor ? anchor.getBoundingClientRect() : null
+        });
+
+        physics.radius = layout.interaction.radius;
+        physics.maxPush = layout.interaction.maxPush;
+
+        layout.blobs.forEach((blob, index) => {
+          const state = states[index];
+          state.centerX = blob.centerX;
+          state.centerY = blob.centerY;
+          state.shell.style.left = `${blob.left.toFixed(2)}px`;
+          state.shell.style.top = `${blob.top.toFixed(2)}px`;
+          state.shell.style.width = `${blob.size.toFixed(2)}px`;
+          state.shell.style.height = `${blob.size.toFixed(2)}px`;
+        });
+
+        if (resizeObserver) {
+          resizeObserver.disconnect();
+          resizeObserver = null;
+        }
+
+        if (anchor && typeof ResizeObserver !== 'undefined') {
+          resizeObserver = new ResizeObserver(() => applyGeometry());
+          resizeObserver.observe(anchor);
+        }
+      };
+
+      const render = () => {
+        states.forEach(state => {
+          if (pointerActive) {
+            const dx = state.centerX - mouseX;
+            const dy = state.centerY - mouseY;
+            const distance = Math.hypot(dx, dy);
+
+            if (distance < physics.radius) {
+              const intensity = Math.sin(((physics.radius - distance) / physics.radius) * (Math.PI / 2));
+              const safeDistance = distance || 1;
+              state.targetX = (dx / safeDistance) * physics.maxPush * intensity;
+              state.targetY = (dy / safeDistance) * physics.maxPush * intensity;
+            } else {
+              state.targetX = 0;
+              state.targetY = 0;
+            }
           } else {
             state.targetX = 0;
             state.targetY = 0;
           }
-        } else {
-          state.targetX = 0;
-          state.targetY = 0;
-        }
 
-        // Lerp for smooth, spring-like easing
-        state.currentX += (state.targetX - state.currentX) * SMOOTHNESS;
-        state.currentY += (state.targetY - state.currentY) * SMOOTHNESS;
+          state.currentX += (state.targetX - state.currentX) * physics.smoothness;
+          state.currentY += (state.targetY - state.currentY) * physics.smoothness;
+          state.shell.style.transform = `translate3d(${state.currentX.toFixed(2)}px, ${state.currentY.toFixed(2)}px, 0)`;
+        });
 
-        state.shell.style.transform = `translate3d(${state.currentX.toFixed(2)}px, ${state.currentY.toFixed(2)}px, 0)`;
+        requestAnimationFrame(render);
+      };
+
+      window.addEventListener('mousemove', event => {
+        pointerActive = true;
+        mouseX = event.clientX;
+        mouseY = event.clientY;
       });
 
+      window.addEventListener('mouseleave', () => {
+        pointerActive = false;
+      });
+
+      window.addEventListener('resize', applyGeometry);
+      window.addEventListener('scroll', applyGeometry, { passive: true });
+      window.addEventListener('orientationchange', applyGeometry);
+
+      document.addEventListener('visibilitychange', () => {
+        if (!document.hidden) applyGeometry();
+      });
+
+      applyGeometry();
       requestAnimationFrame(render);
     };
 
-    window.addEventListener('mousemove', e => {
-      pointerActive = true;
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-    });
-
-    window.addEventListener('mouseleave', () => {
-      pointerActive = false;
-    });
-
-    window.addEventListener('resize', updateBaseCenters);
-    window.addEventListener('scroll', updateBaseCenters);
-
-    setTimeout(updateBaseCenters, 200);
-    render();
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init, { once: true });
+    } else {
+      init();
+    }
   })();
 </script>
 {{- end }}

@@ -1,2 +1,6 @@
 <meta name="referrer" content="no-referrer-when-downgrade">
 <link rel="manifest" href="/site.webmanifest">
+{{- if or .IsHome (eq .Layout "search") -}}
+  {{- $blobGeometry := resources.Get "js/blob-layout-geometry.js" | resources.Minify | fingerprint -}}
+  <script defer crossorigin="anonymous" src="{{ $blobGeometry.RelPermalink }}" integrity="{{ $blobGeometry.Data.Integrity }}"></script>
+{{- end -}}

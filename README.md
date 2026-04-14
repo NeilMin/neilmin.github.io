@@ -99,10 +99,19 @@ It should not appear on:
 
 The effect lives in:
 
+- `layouts/partials/extend_head.html`
 - `layouts/partials/extend_footer.html`
+- `assets/js/blob-layout-geometry.js`
 - `assets/css/extended/custom.css`
 
+Blob placement is content-anchored rather than viewport-anchored:
+
+- homepage uses the centered profile content as the blob anchor
+- search uses `#searchbox` / `#searchInput` as the blob anchor
+- fallback geometry recenters the cluster if those elements are unavailable
+
 Mouse interaction is implemented in JavaScript and designed to feel soft and viscous rather than snappy.
+Its radius and push distance scale from the computed cluster size so ultra-wide displays keep a cohesive resting state before hover.
 
 ## Analytics, Counters, and Comments
 

@@ -1,10 +1,7 @@
 /* Background container */
 .bg-glow {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
+    inset: 0;
     z-index: -1;
     overflow: hidden;
     pointer-events: none;
@@ -12,9 +9,12 @@
 
 .blob-shell {
     position: absolute;
+    top: 0;
+    left: 0;
+    width: 240px;
+    height: 240px;
     transform-origin: center;
-    transition: transform 300ms cubic-bezier(0.22, 1, 0.36, 1);
-    will-change: transform;
+    will-change: transform, width, height, left, top;
 }
 
 /* Basic blob styling */
@@ -53,22 +53,22 @@
 }
 
 .blob-shell-1 {
-    top: 29%;
-    left: 38%;
+    top: calc(50% - 176px);
+    left: calc(50% - 198px);
     width: 240px;
     height: 240px;
 }
 
 .blob-shell-2 {
-    top: 35%;
-    right: 31%;
+    top: calc(50% - 166px);
+    left: calc(50% + 16px);
     width: 220px;
     height: 220px;
 }
 
 .blob-shell-3 {
-    bottom: 22%;
-    left: 42%;
+    top: calc(50% - 18px);
+    left: calc(50% - 126px);
     width: 260px;
     height: 260px;
 }
