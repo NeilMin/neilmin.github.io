@@ -2,7 +2,7 @@
 {{- $title := .Get "title" -}}
 {{- $image := .Get "image" -}}
 {{- $alt := .Get "alt" | default (printf "%s screenshot" $title) -}}
-{{- $description := .Inner | strings.TrimSpace | markdownify -}}
+{{- $description := .Inner | strings.TrimSpace | markdownify | replaceRE "(?s)<a\\b[^>]*>(.*?)</a>" "$1" | safeHTML -}}
 
 <a class="favorite-site-card" href="{{ $url | safeURL }}" target="_blank" rel="noopener noreferrer">
   <figure class="favorite-site-card__media">
