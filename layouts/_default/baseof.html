@@ -20,8 +20,10 @@
 {{- if (or (ne .Kind `page`) (eq .Layout `archives`) (eq .Layout `search`)) }}
   {{- $bodyClass = "list" }}
 {{- end }}
-{{- with .Params.bodyClass }}
-  {{- $bodyClass = printf "%s %s" $bodyClass . | strings.TrimSpace }}
+{{- if eq .Kind `page` }}
+  {{- with .Params.bodyClass }}
+    {{- $bodyClass = printf "%s %s" $bodyClass . | strings.TrimSpace }}
+  {{- end }}
 {{- end }}
 <body{{ with $bodyClass }} class="{{ . }}"{{ end }} id="top">
     {{ partialCached "header.html" . .Page -}}
