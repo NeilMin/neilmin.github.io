@@ -20,7 +20,7 @@
 {{- if (or (ne .Kind `page`) (eq .Layout `archives`) (eq .Layout `search`)) }}
   {{- $bodyClass = "list" }}
 {{- end }}
-{{- with .Param "bodyClass" }}
+{{- with .Params.bodyClass }}
   {{- $bodyClass = printf "%s %s" $bodyClass . | strings.TrimSpace }}
 {{- end }}
 <body{{ with $bodyClass }} class="{{ . }}"{{ end }} id="top">
