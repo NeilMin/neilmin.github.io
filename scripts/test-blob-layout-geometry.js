@@ -21,11 +21,23 @@ const ultrawide = resolveBlobLayout({
 
 assert.strictEqual(Math.round(ultrawide.clusterCenter.x), 1280);
 assert.ok(
+  ultrawide.blobs[0].size <= 288,
+  'ultra-wide top blobs should stay slightly smaller than the first helper pass'
+);
+assert.ok(
   Math.round(ultrawide.blobs[1].centerX - ultrawide.blobs[0].centerX) < 460,
   'ultra-wide spread should remain clustered instead of scaling with full viewport width'
 );
 assert.ok(ultrawide.blobs[0].size > standard.blobs[0].size, 'wide screens may scale blobs slightly');
 assert.ok(ultrawide.blobs[0].size < 320, 'blob size should stay clamped');
+
+const standardInteraction = standard.interaction;
+const ultrawideInteraction = ultrawide.interaction;
+
+assert.ok(standardInteraction.radius >= 300, 'desktop radius should remain usable');
+assert.ok(ultrawideInteraction.radius <= 470, 'ultra-wide radius should stay clamped');
+assert.ok(ultrawideInteraction.maxPush >= standardInteraction.maxPush, 'larger blobs may push slightly more');
+assert.ok(ultrawideInteraction.maxPush <= 132, 'push distance should stay bounded');
 
 const fallback = resolveBlobLayout({
   viewport: { width: 1720, height: 980 },

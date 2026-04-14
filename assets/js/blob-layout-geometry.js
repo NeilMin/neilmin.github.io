@@ -49,12 +49,12 @@
       y: anchorRect.top + anchorRect.height / 2
     };
 
-    var baseSize = clamp(anchorRect.width * 0.58 + shortEdge * 0.08, 200, 292);
-    var topSize = clamp(baseSize, 200, 292);
-    var bottomSize = clamp(baseSize * 1.08, 214, 318);
-    var horizontalSpread = clamp(anchorRect.width * 0.30 + shortEdge * 0.06, 120, 180);
-    var topLift = clamp(anchorRect.height * 0.30 + shortEdge * 0.02, 78, 118);
-    var bottomDrop = clamp(anchorRect.height * 0.32 + shortEdge * 0.04, 110, 164);
+    var baseSize = clamp(anchorRect.width * 0.58 + shortEdge * 0.08, 200, 288);
+    var topSize = clamp(baseSize, 200, 288);
+    var bottomSize = clamp(baseSize * 1.08, 214, 312);
+    var horizontalSpread = clamp(anchorRect.width * 0.30 + shortEdge * 0.06, 118, 174);
+    var topLift = clamp(anchorRect.height * 0.30 + shortEdge * 0.02, 78, 114);
+    var bottomDrop = clamp(anchorRect.height * 0.32 + shortEdge * 0.04, 108, 158);
 
     return {
       anchorRect: anchorRect,
