@@ -4,7 +4,6 @@ title = '我喜欢的一些个人网站'
 description = '整理了一些我很喜欢的个人网站：它们有的设计克制，有的交互大胆，但都很有自己的表达方式。'
 keywords = ['个人网站', '作品集', '网页设计', '博客', '网站收藏', '灵感']
 slug = 'favorite-personal-websites'
-translationKey = 'favorite-personal-websites'
 ShowToc = false
 bodyClass = 'favorite-websites-page'
 +++
@@ -57,4 +56,4 @@ bodyClass = 'favorite-websites-page'
 这个网站整体简洁清爽，视觉层次很明白，个人信息和作品展示之间的平衡也拿捏得不错。
 {{< /site-card >}}
 
-这些网站给我的共同感觉是：真正让人记住的，往往不是“功能堆得多完整”，而是它有没有把作者自己的气质表达出来。等这篇中文版调整得更满意一些，我再把它整理成英文版。
+这些网站给我的共同感觉是：真正让人记住的，往往不是“功能堆得多完整”，而是它有没有把作者自己的气质表达出来。希望这份清单也能给你带来一点灵感，或者让你重新想起自己想把网站做成什么样子。
