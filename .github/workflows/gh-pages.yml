@@ -36,21 +36,6 @@ jobs:
           hugo-version: '0.160.0'
           extended: true
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'npm'
-          cache-dependency-path: apps/programmer-mbti/package-lock.json
-
-      - name: Install programmer-mbti dependencies
-        working-directory: apps/programmer-mbti
-        run: npm ci
-
-      - name: Build programmer-mbti app
-        working-directory: apps/programmer-mbti
-        run: npm run build
-
       - name: Build
         run: hugo --gc --minify
 

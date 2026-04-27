@@ -2,6 +2,3 @@
 .hugo_build.lock
 public/
 .worktrees/
-apps/programmer-mbti/node_modules/
-static/programmer-mbti/
-.superpowers/
