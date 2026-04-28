@@ -1,5 +1,5 @@
 +++
-date = '2026-04-28T22:45:00-07:00'
+date = '2026-04-28T11:45:00-07:00'
 title = '看到 MBTI 和 SBTI 爆火之后，我做了一个程序员人格测试网站'
 description = '从几个爆火的人格测试项目里得到灵感，我做了一个面向程序员语境的人格测试站：外表很认真，里面全是程序员黑话。'
 keywords = ['MBTI', 'SBTI', '程序员人格测试', 'Vite', 'React', 'GitHub Pages', 'AI 绘图', 'Vibe Coding']

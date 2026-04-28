@@ -1,5 +1,5 @@
 +++
-date = '2026-04-28T22:45:00-07:00'
+date = '2026-04-28T11:45:00-07:00'
 title = 'After Seeing MBTI and SBTI Everywhere, I Built a Programmer Personality Test'
 description = 'A write-up on how I got inspired by the recent wave of personality-test projects and ended up building a programmer personality test that looks serious on the outside and is full of programmer stereotypes on the inside.'
 keywords = ['MBTI', 'SBTI', 'programmer personality test', 'Vite', 'React', 'GitHub Pages', 'AI illustration', 'vibe coding']
