@@ -48,6 +48,28 @@ assert.strictEqual(Math.round(fallback.clusterCenter.x), 860);
 assert.strictEqual(Math.round(fallback.clusterCenter.y), 490);
 assert.ok(fallback.interaction.radius > fallback.blobs[0].size, 'interaction radius should exceed blob size');
 
+const searchBeforeResults = resolveBlobLayout({
+  viewport: { width: 1720, height: 980 },
+  anchorRect: { left: 620, top: 140, width: 480, height: 72 },
+  anchorMode: 'viewport'
+});
+
+const searchAfterResults = resolveBlobLayout({
+  viewport: { width: 1720, height: 980 },
+  anchorRect: { left: 620, top: 140, width: 480, height: 540 },
+  anchorMode: 'viewport'
+});
+
+assert.strictEqual(Math.round(searchBeforeResults.clusterCenter.x), 860);
+assert.strictEqual(Math.round(searchBeforeResults.clusterCenter.y), 490);
+assert.strictEqual(Math.round(searchAfterResults.clusterCenter.x), 860);
+assert.strictEqual(Math.round(searchAfterResults.clusterCenter.y), 490);
+assert.strictEqual(
+  Math.round(searchBeforeResults.blobs[2].centerY),
+  Math.round(searchAfterResults.blobs[2].centerY),
+  'search layout should not drift downward as results expand'
+);
+
 const narrow = resolveBlobLayout({
   viewport: { width: 430, height: 932 },
   anchorRect: { left: 55, top: 240, width: 320, height: 210 }

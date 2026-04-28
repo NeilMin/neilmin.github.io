@@ -6,6 +6,8 @@
 </div>
 <script>
   (() => {
+    const useViewportAnchor = {{ if eq .Layout "search" }}true{{ else }}false{{ end }};
+
     const init = () => {
       const bg = document.querySelector('.bg-glow');
       const geometry = window.BlobLayoutGeometry;
@@ -45,10 +47,11 @@
       };
 
       const applyGeometry = () => {
-        const anchor = findAnchor();
+        const anchor = useViewportAnchor ? null : findAnchor();
         const layout = geometry.resolveBlobLayout({
           viewport: { width: window.innerWidth, height: window.innerHeight },
-          anchorRect: anchor ? anchor.getBoundingClientRect() : null
+          anchorRect: anchor ? anchor.getBoundingClientRect() : null,
+          anchorMode: useViewportAnchor ? 'viewport' : 'content'
         });
 
         physics.radius = layout.interaction.radius;

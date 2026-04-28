@@ -21,6 +21,16 @@
     };
   }
 
+  function resolveAnchorRect(options) {
+    var viewport = options.viewport;
+
+    if (options.anchorMode === 'viewport') {
+      return createFallbackAnchor(viewport);
+    }
+
+    return options.anchorRect || createFallbackAnchor(viewport);
+  }
+
   function buildBlobs(clusterCenter, topSize, bottomSize, horizontalSpread, topLift, bottomDrop) {
     return [
       { size: topSize, offsetX: -horizontalSpread, offsetY: -topLift },
@@ -42,7 +52,7 @@
 
   function resolveBlobLayout(options) {
     var viewport = options.viewport;
-    var anchorRect = options.anchorRect || createFallbackAnchor(viewport);
+    var anchorRect = resolveAnchorRect(options);
     var shortEdge = Math.min(viewport.width, viewport.height);
     var isNarrow = viewport.width < 700;
     var clusterCenter = {
