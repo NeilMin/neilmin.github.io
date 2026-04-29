@@ -1,0 +1,6 @@
+<div class="about-page__socials">
+  {{- with .Get "location" -}}
+  <p class="about-page__location">{{ . }}</p>
+  {{- end -}}
+  {{- partial "social_icons.html" (dict "align" "center") -}}
+</div>

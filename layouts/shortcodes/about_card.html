@@ -1,0 +1,14 @@
+<div class="about-page__stack">
+  <section class="about-page__card">
+    {{- with .Get "eyebrow" -}}
+    <p class="about-page__eyebrow">{{ . }}</p>
+    {{- end -}}
+    {{- with .Get "title" -}}
+    <h3>{{ . }}</h3>
+    {{- end -}}
+    {{- with .Get "meta" -}}
+    <p class="about-page__meta">{{ . }}</p>
+    {{- end -}}
+    {{ .Inner | markdownify }}
+  </section>
+</div>
