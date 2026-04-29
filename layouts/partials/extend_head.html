@@ -1,5 +1,26 @@
 <meta name="referrer" content="no-referrer-when-downgrade">
 <link rel="manifest" href="/site.webmanifest">
+{{- $sitePreferences := resources.Get "js/site-preferences.js" | resources.Minify | fingerprint -}}
+{{- $languagePaths := dict -}}
+{{- range site.Home.AllTranslations -}}
+  {{- $languagePaths = merge $languagePaths (dict .Lang .RelPermalink) -}}
+{{- end -}}
+<script crossorigin="anonymous" src="{{ $sitePreferences.RelPermalink }}" integrity="{{ $sitePreferences.Data.Integrity }}"></script>
+<script>
+  NeilSitePreferences.init({
+    pathname: window.location.pathname,
+    rootPath: {{ (urls.Parse ("" | absURL)).Path | jsonify | safeJS }},
+    currentLanguage: {{ site.Language.Lang | jsonify | safeJS }},
+    browserLanguages: (navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language]),
+    supportedLanguages: {{ (slice "en" "zh") | jsonify | safeJS }},
+    fallbackLanguage: "en",
+    languagePaths: {{ $languagePaths | jsonify | safeJS }},
+    storageKey: "preferred-language",
+    storage: window.localStorage,
+    location: window.location,
+    document: document
+  });
+</script>
 {{- if or .IsHome (eq .Layout "search") -}}
   {{- $blobGeometry := resources.Get "js/blob-layout-geometry.js" | resources.Minify | fingerprint -}}
   <script defer crossorigin="anonymous" src="{{ $blobGeometry.RelPermalink }}" integrity="{{ $blobGeometry.Data.Integrity }}"></script>

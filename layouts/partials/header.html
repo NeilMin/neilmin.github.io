@@ -76,7 +76,8 @@
                         <li>
                             {{- $langLabel := .Language.Label | default (.Lang | title) }}
                             <a href="{{- .Permalink -}}" title="{{ $langLabel }}"
-                                aria-label="{{ $langLabel }}">
+                                aria-label="{{ $langLabel }}"
+                                data-language-switch="{{ .Lang }}">
                                 {{- $langLabel -}}
                             </a>
                         </li>
