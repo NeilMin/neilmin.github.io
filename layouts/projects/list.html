@@ -1,0 +1,126 @@
+{{- define "main" }}
+
+<header class="page-header">
+  {{- partial "breadcrumbs.html" . }}
+  <h1>{{ .Title }}</h1>
+</header>
+
+{{- $projects := sort hugo.Data.projects "weight" "asc" }}
+{{- $page := . }}
+{{- $tagScratch := newScratch }}
+{{- range $projects }}
+  {{- range .tech_stack }}
+    {{- $tagScratch.Add "values" (slice .) }}
+  {{- end }}
+{{- end }}
+{{- $allTags := sort (uniq ($tagScratch.Get "values")) }}
+{{- $isZh := eq .Language.Lang "zh" }}
+{{- $allTagsLabel := cond $isZh "全部标签" "All Tags" }}
+{{- $projectTagsAria := cond $isZh "项目标签" "Project tags" }}
+{{- $techStackAria := cond $isZh "技术标签" "Tech stack" }}
+
+<section class="projects-showcase" aria-label="{{ .Title }}">
+  {{- if $allTags }}
+  <nav class="projects-filter" aria-label="{{ $projectTagsAria }}">
+    <a class="projects-filter__link" data-filter-link href="{{ $page.RelPermalink }}#projects-grid">{{ $allTagsLabel }}</a>
+    {{- range $allTags }}
+    {{- $tagSlug := . | urlize }}
+    <a
+      class="projects-filter__link"
+      data-filter-link
+      data-filter-tag="{{ $tagSlug }}"
+      href="{{ $page.RelPermalink }}?tag={{ $tagSlug }}#projects-grid"
+    >
+      {{ . }}
+    </a>
+    {{- end }}
+  </nav>
+  {{- end }}
+
+  <div class="projects-grid" id="projects-grid">
+    {{- range $projects }}
+    {{- $projectSlug := .name | anchorize }}
+    {{- $tagSlugs := apply .tech_stack "urlize" "." }}
+    {{- $displayName := cond $isZh (.name_zh | default .name) .name }}
+    {{- $displayDescription := cond $isZh (.description_zh | default .description) .description }}
+    {{- $primaryLabel := cond $isZh (.primary_btn_text_zh | default .primary_btn_text) .primary_btn_text }}
+    {{- $secondaryLabel := cond $isZh (.secondary_btn_text_zh | default .secondary_btn_text) .secondary_btn_text }}
+    <article
+      class="project-card"
+      id="{{ $projectSlug }}"
+      data-project-tags="{{ delimit $tagSlugs "," }}"
+    >
+      <figure class="project-card__media">
+        <img
+          class="project-card__image"
+          src="{{ .image | relURL }}"
+          alt="{{ $displayName }} cover image"
+          loading="lazy"
+        >
+      </figure>
+
+      <div class="project-card__body">
+        <div class="project-card__copy">
+          <h2 class="project-card__title">{{ $displayName }}</h2>
+          <p class="project-card__description">{{ $displayDescription }}</p>
+        </div>
+
+        {{- if .tech_stack }}
+        <ul class="project-card__tags" aria-label="{{ $techStackAria }}">
+          {{- range .tech_stack }}
+          {{- $tagSlug := . | urlize }}
+          <li>
+            <a
+              class="project-card__tag"
+              href="{{ $page.RelPermalink }}?tag={{ $tagSlug }}#projects-grid"
+              data-filter-link
+              data-filter-tag="{{ $tagSlug }}"
+            >
+              {{ . }}
+            </a>
+          </li>
+          {{- end }}
+        </ul>
+        {{- end }}
+
+        <div class="project-card__actions">
+          {{- if and .primary_btn_text .primary_btn_url }}
+          <a
+            class="project-card__button project-card__button--primary"
+            href="{{ .primary_btn_url }}"
+            {{- if findRE "://" .primary_btn_url }} target="_blank" rel="noreferrer"{{- end }}
+          >
+            {{ $primaryLabel }}
+          </a>
+          {{- end }}
+
+          {{- if and .secondary_btn_text .secondary_btn_url }}
+          <a
+            class="project-card__button project-card__button--secondary"
+            href="{{ .secondary_btn_url }}"
+            {{- if findRE "://" .secondary_btn_url }} target="_blank" rel="noreferrer"{{- end }}
+          >
+            {{ $secondaryLabel }}
+          </a>
+          {{- end }}
+
+          {{- if .github_url }}
+          <a
+            class="project-card__link"
+            href="{{ .github_url }}"
+            {{- if findRE "://" .github_url }} target="_blank" rel="noreferrer"{{- end }}
+          >
+            GitHub
+          </a>
+          {{- end }}
+        </div>
+      </div>
+    </article>
+    {{- end }}
+  </div>
+</section>
+
+{{- $filterScript := resources.Get "js/projects-showcase-filters.js" | resources.Minify | fingerprint }}
+<script defer src="{{ $filterScript.RelPermalink }}" integrity="{{ $filterScript.Data.Integrity }}"></script>
+
+{{- end }}

@@ -27,6 +27,9 @@ theme = 'PaperMod'
   # 开启文章目录
   ShowToc = true
 
+  [params.fuseOpts]
+    keys = ["title", "permalink", "summary", "content", "tags"]
+
   [params.assets]
     favicon = '/favicon.ico'
     favicon16x16 = '/favicon-16x16.png'
@@ -76,15 +79,20 @@ theme = 'PaperMod'
     url = "/posts/"
     weight = 10
   [[languages.en.menu.main]]
+    identifier = "projects"
+    name = "Projects"
+    url = "/projects/"
+    weight = 20
+  [[languages.en.menu.main]]
     identifier = "resume"
     name = "About"
     url = "/resume/"
-    weight = 20
+    weight = 30
   [[languages.en.menu.main]]
     identifier = "search"
     name = "Search"
     url = "/search/"
-    weight = 30
+    weight = 40
 
 # ================= 中文配置 (Chinese) =================
 [languages.zh]
@@ -125,12 +133,17 @@ theme = 'PaperMod'
     url = "/zh/posts/"
     weight = 10
   [[languages.zh.menu.main]]
+    identifier = "projects"
+    name = "项目"
+    url = "/zh/projects/"
+    weight = 20
+  [[languages.zh.menu.main]]
     identifier = "resume"
     name = "关于"
     url = "/zh/resume/"
-    weight = 20
+    weight = 30
   [[languages.zh.menu.main]]
     identifier = "search"
     name = "搜索"
     url = "/zh/search/"
-    weight = 30
+    weight = 40

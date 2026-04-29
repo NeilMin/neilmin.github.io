@@ -1,0 +1,29 @@
+{{- $index := slice -}}
+{{- range site.RegularPages -}}
+  {{- if and (not .Params.searchHidden) (ne .Layout `archives`) (ne .Layout `search`) -}}
+    {{- $index = $index | append (dict
+      "title" .Title
+      "content" .Plain
+      "permalink" .Permalink
+      "summary" (.Summary | plainify | htmlUnescape)
+      "tags" (.Params.tags | default (slice))
+    ) -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $projectsPagePermalink := printf "%sprojects/" site.Home.Permalink -}}
+{{- $isZh := eq site.Language.Lang "zh" -}}
+{{- range sort hugo.Data.projects "weight" "asc" -}}
+  {{- $projectSlug := .name | anchorize -}}
+  {{- $title := cond $isZh (.name_zh | default .name) .name -}}
+  {{- $description := cond $isZh (.description_zh | default .description) .description -}}
+  {{- $index = $index | append (dict
+    "title" $title
+    "content" (printf "%s %s" $description (delimit (.tech_stack | default (slice)) " "))
+    "permalink" (printf "%s#%s" $projectsPagePermalink $projectSlug)
+    "summary" $description
+    "tags" (.tech_stack | default (slice))
+  ) -}}
+{{- end -}}
+
+{{- $index | jsonify -}}

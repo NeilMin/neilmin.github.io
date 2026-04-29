@@ -1,0 +1,32 @@
+- name: Programmer MBTI Test
+  name_zh: 程序员 MBTI 测试
+  description: An MBTI-style test that tells you what kind of programmer personality you have.
+  description_zh: 一个 MBTI 风格的小测试，测测你是哪一种程序员人格。
+  image: /images/projects/programmer-mbti-cover.png
+  tech_stack:
+    - Hugo
+    - GitHub Actions
+    - Web UI
+  weight: 10
+  primary_btn_text: "🚀 Live Demo"
+  primary_btn_text_zh: "🚀 立即体验"
+  primary_btn_url: https://mbti.neilmin.com
+  secondary_btn_text: Read the post
+  secondary_btn_text_zh: 查看博文
+  secondary_btn_url: /posts/building-a-programmer-personality-test/
+  github_url: https://github.com/NeilMin/ship-mbti
+
+- name: AI Cover Songs
+  name_zh: AI 翻唱歌曲
+  description: A small collection of AI covers where my own voice replaces the original singers.
+  description_zh: 用我自己的声音替换原唱，做出来的一组 AI 翻唱作品。
+  image: /images/projects/voice-cloning-cover.png
+  tech_stack:
+    - Python
+    - PyTorch
+    - AI Tuning
+    - Audio Processing
+  weight: 20
+  primary_btn_text: "🎧 Listen on YouTube"
+  primary_btn_text_zh: "🎧 试听歌单"
+  primary_btn_url: https://youtube.com/playlist?list=PLr_EbLeiZKPk_fEOvsJ7arsGGiOHddihK&si=-Z8vwresgb27mq1F
