@@ -20,7 +20,7 @@
   name_zh: AI 翻唱歌曲
   description: A small collection of AI covers where my own voice replaces the original singers.
   description_zh: 用我自己的声音替换原唱，做出来的一组 AI 翻唱作品。
-  image: /images/projects/voice-cloning-cover.png
+  image: /images/projects/ai-cover-songs-cover.png
   tech_stack:
     - Python
     - PyTorch

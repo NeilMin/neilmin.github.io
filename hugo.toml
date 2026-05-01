@@ -60,6 +60,9 @@ theme = 'PaperMod'
       name = "Blog"
       url = "/posts"
     [[languages.en.params.profileMode.buttons]]
+      name = "Projects"
+      url = "/projects"
+    [[languages.en.params.profileMode.buttons]]
       name = "About"
       url = "/resume"
 
@@ -113,6 +116,9 @@ theme = 'PaperMod'
     [[languages.zh.params.profileMode.buttons]]
       name = "博客"
       url = "/zh/posts"
+    [[languages.zh.params.profileMode.buttons]]
+      name = "项目"
+      url = "/zh/projects"
     [[languages.zh.params.profileMode.buttons]]
       name = "关于"
       url = "/zh/resume"

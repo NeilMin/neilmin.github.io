@@ -22,10 +22,10 @@ searchHidden = true
 
 ## 工作经历
 
-{{< about_card eyebrow="2022 年 8 月 – 2026 年 4 月" title="Google" meta="Software Engineer" >}}{{< /about_card >}}
+{{< about_card eyebrow="2022 年 8 月 – 2026 年 4 月" title="谷歌" meta="软件工程师" >}}{{< /about_card >}}
 
 ## 教育经历
 
-{{< about_card eyebrow="2018 年 9 月 – 2022 年 3 月" title="University of California San Diego" meta="计算机科学学士" >}}{{< /about_card >}}
+{{< about_card eyebrow="2018 年 9 月 – 2022 年 3 月" title="加州大学圣地亚哥分校" meta="计算机科学学士" >}}{{< /about_card >}}
 
 {{< about_socials location="Sunnyvale, CA" >}}

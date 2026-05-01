@@ -84,35 +84,37 @@
         {{- end }}
 
         <div class="project-card__actions">
-          {{- if and .primary_btn_text .primary_btn_url }}
-          <a
-            class="project-card__button project-card__button--primary"
-            href="{{ .primary_btn_url }}"
-            {{- if findRE "://" .primary_btn_url }} target="_blank" rel="noreferrer"{{- end }}
-          >
-            {{ $primaryLabel }}
-          </a>
-          {{- end }}
+          <div class="project-card__button-row">
+            {{- if and .primary_btn_text .primary_btn_url }}
+            <a
+              class="project-card__button project-card__button--primary"
+              href="{{ .primary_btn_url }}"
+              {{- if findRE "://" .primary_btn_url }} target="_blank" rel="noreferrer"{{- end }}
+            >
+              {{ $primaryLabel }}
+            </a>
+            {{- end }}
 
-          {{- if and .secondary_btn_text .secondary_btn_url }}
-          <a
-            class="project-card__button project-card__button--secondary"
-            href="{{ .secondary_btn_url }}"
-            {{- if findRE "://" .secondary_btn_url }} target="_blank" rel="noreferrer"{{- end }}
-          >
-            {{ $secondaryLabel }}
-          </a>
-          {{- end }}
+            {{- if and .secondary_btn_text .secondary_btn_url }}
+            <a
+              class="project-card__button project-card__button--secondary"
+              href="{{ .secondary_btn_url }}"
+              {{- if findRE "://" .secondary_btn_url }} target="_blank" rel="noreferrer"{{- end }}
+            >
+              {{ $secondaryLabel }}
+            </a>
+            {{- end }}
 
-          {{- if .github_url }}
-          <a
-            class="project-card__link"
-            href="{{ .github_url }}"
-            {{- if findRE "://" .github_url }} target="_blank" rel="noreferrer"{{- end }}
-          >
-            GitHub
-          </a>
-          {{- end }}
+            {{- if .github_url }}
+            <a
+              class="project-card__link"
+              href="{{ .github_url }}"
+              {{- if findRE "://" .github_url }} target="_blank" rel="noreferrer"{{- end }}
+            >
+              GitHub
+            </a>
+            {{- end }}
+          </div>
         </div>
       </div>
     </article>
