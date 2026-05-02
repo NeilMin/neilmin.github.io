@@ -26,7 +26,6 @@ theme = 'PaperMod'
   ShowCanonicalLink = true
   ShowBreadCrumbs = true
   ShowPostNavLinks = true
-  DateFormat = 'January 2, 2006'
   # 开启文章目录
   ShowToc = true
 
@@ -95,6 +94,16 @@ theme = 'PaperMod'
     url = "/resume/"
     weight = 30
   [[languages.en.menu.main]]
+    identifier = "tags"
+    name = "Tags"
+    url = "/tags/"
+    weight = 33
+  [[languages.en.menu.main]]
+    identifier = "archives"
+    name = "Archive"
+    url = "/archives/"
+    weight = 35
+  [[languages.en.menu.main]]
     identifier = "search"
     name = "Search"
     url = "/search/"
@@ -151,6 +160,16 @@ theme = 'PaperMod'
     name = "关于"
     url = "/zh/resume/"
     weight = 30
+  [[languages.zh.menu.main]]
+    identifier = "tags"
+    name = "标签"
+    url = "/zh/tags/"
+    weight = 33
+  [[languages.zh.menu.main]]
+    identifier = "archives"
+    name = "归档"
+    url = "/zh/archives/"
+    weight = 35
   [[languages.zh.menu.main]]
     identifier = "search"
     name = "搜索"
