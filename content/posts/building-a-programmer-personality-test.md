@@ -5,6 +5,7 @@ description = 'A write-up on how I got inspired by the recent wave of personalit
 keywords = ['MBTI', 'SBTI', 'programmer personality test', 'Vite', 'React', 'GitHub Pages', 'AI illustration', 'vibe coding']
 slug = 'building-a-programmer-personality-test'
 translationKey = 'building-a-programmer-personality-test'
+tags = ['React', 'Vite', 'Side Project', 'MBTI']
 +++
 
 A little while ago, I kept running into personality-test projects everywhere.

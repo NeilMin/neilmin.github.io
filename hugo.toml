@@ -24,6 +24,9 @@ theme = 'PaperMod'
   ShowShareButtons = true
   ShowCodeCopyButtons = true
   ShowCanonicalLink = true
+  ShowBreadCrumbs = true
+  ShowPostNavLinks = true
+  DateFormat = 'January 2, 2006'
   # 开启文章目录
   ShowToc = true
 

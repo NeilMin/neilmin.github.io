@@ -5,6 +5,7 @@ description = 'How I built a bilingual Hugo blog on GitHub Pages with PaperMod, 
 keywords = ['Hugo', 'GitHub Pages', 'PaperMod', 'Vercount', 'Giscus', 'SEO', 'bilingual blog', 'custom domain', '404 debugging']
 slug = 'building-my-hugo-blog-with-github-pages'
 translationKey = 'why-i-built-this-blog'
+tags = ['Hugo', 'Web Development', 'DevOps']
 +++
 
 This whole thing, honestly, was basically the software version of buying a dish of vinegar and ending up making an entire batch of dumplings.

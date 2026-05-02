@@ -5,6 +5,7 @@ description = 'A small collection of personal websites I really like. Some are r
 keywords = ['personal websites', 'portfolio', 'web design', 'blog', 'website inspiration', 'showcase']
 slug = 'favorite-personal-websites'
 translationKey = 'favorite-personal-websites'
+tags = ['Web Design', 'Inspiration', 'Portfolio']
 ShowToc = false
 bodyClass = 'favorite-websites-page'
 +++
