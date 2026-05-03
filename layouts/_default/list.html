@@ -28,13 +28,11 @@
   </div>
   {{- end }}
   {{- if and (eq .Section "posts") (not .IsHome) }}
-  <nav class="sub-nav" style="margin-top: 6px; font-size: 0.85em; color: var(--secondary); display: flex; justify-content: space-between; align-items: center;">
-    {{- partial "breadcrumbs.html" . }}
-    <a href="{{ "/archives/" | relLangURL }}" style="color: var(--secondary); text-decoration: none; border-bottom: 1px dotted var(--secondary);">时间线视图 →</a>
+  <nav class="sub-nav">
+    <a href="{{ "/archives/" | relLangURL }}" class="archive-timeline-link">{{ i18n "archiveTimelineView" }} →</a>
   </nav>
-  {{- else }}
-  {{- partial "breadcrumbs.html" . }}
   {{- end }}
+  {{- partial "breadcrumbs.html" . }}
 </header>
 {{- end }}
 

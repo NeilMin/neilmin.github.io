@@ -2,3 +2,9 @@
   translation:
     one: "Estimated reading time: 1 minute"
     other: "Estimated reading time: {{ .Count }} minutes"
+
+- id: archiveTimelineView
+  translation: "Timeline View"
+
+- id: viewAllPosts
+  translation: "View All Posts in Archive"
