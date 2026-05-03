@@ -1,0 +1,9 @@
+<div class="about-page__tags">
+  {{- $tags := replace (.Get "tags") "、" "," -}}
+  {{- range (split $tags ",") -}}
+    {{- $t := trim . " " -}}
+    {{- if $t -}}
+      <span class="about-page__tag">{{ $t }}</span>
+    {{- end -}}
+  {{- end -}}
+</div>

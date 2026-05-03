@@ -1,0 +1,5 @@
+<div class="about-page__avatar">
+  {{- $src := .Get "src" | default "/img/avatar.jpg" -}}
+  {{- $alt := .Get "alt" | default "Neil Min" -}}
+  <img src="{{ $src }}" alt="{{ $alt }}" />
+</div>

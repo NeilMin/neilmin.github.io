@@ -306,6 +306,75 @@ body.about-page .about-page__intro > p:first-child {
     font-size: 1.05rem;
 }
 
+body.about-page .about-page__avatar {
+    margin-bottom: 0.1rem;
+    text-align: center;
+}
+
+body.about-page .about-page__avatar img {
+    width: 112px;
+    height: 112px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(120, 120, 120, 0.18);
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+html[data-theme="dark"] body.about-page .about-page__avatar img {
+    border-color: rgba(255, 255, 255, 0.12);
+}
+
+body.about-page .about-page__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.48rem;
+    margin-top: 0.35rem;
+    justify-content: center;
+}
+
+body.about-page .about-page__tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.26rem 0.68rem;
+    border-radius: 999px;
+    border: 1px solid rgba(120, 120, 120, 0.16);
+    background: rgba(120, 120, 120, 0.05);
+    color: var(--secondary);
+    font-size: 0.78rem;
+    line-height: 1.4;
+    white-space: nowrap;
+    transition: transform 160ms ease, border-color 160ms ease, background 160ms ease, color 160ms ease;
+}
+
+body.about-page .about-page__tag:hover {
+    transform: translateY(-1px);
+    border-color: rgba(120, 120, 120, 0.3);
+    background: rgba(120, 120, 120, 0.12);
+    color: var(--primary);
+}
+
+html[data-theme="dark"] body.about-page .about-page__tag {
+    border-color: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+html[data-theme="dark"] body.about-page .about-page__tag:hover {
+    border-color: rgba(255, 255, 255, 0.22);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+body.about-page .about-page__cta {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--secondary);
+}
+
+body.about-page .about-page__cta::after {
+    content: "·";
+    margin-left: 0.8rem;
+    opacity: 0.45;
+}
+
 body.about-page .about-page__socials {
     display: flex;
     align-items: center;
@@ -314,17 +383,6 @@ body.about-page .about-page__socials {
     margin-top: 0.8rem;
     padding-top: 1rem;
     color: var(--secondary);
-}
-
-body.about-page .about-page__location {
-    margin: 0;
-    font-size: 0.9rem;
-}
-
-body.about-page .about-page__location::after {
-    content: "·";
-    margin-left: 0.8rem;
-    opacity: 0.45;
 }
 
 body.about-page .about-page__socials .social-icons {
@@ -436,10 +494,6 @@ body.home .profile .button-inner {
         margin-top: 0.55rem;
         padding-top: 0.85rem;
         flex-wrap: wrap;
-    }
-
-    body.about-page .about-page__location::after {
-        margin-left: 0.65rem;
     }
 
     body.about-page .about-page__card {
