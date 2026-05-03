@@ -28,9 +28,14 @@
   </div>
   {{- end }}
   {{- if and (eq .Section "posts") (not .IsHome) }}
-  <div class="archive-link" style="margin-top: 8px; text-align: right;">
-    <a href="{{ "/archives/" | relLangURL }}" style="font-size: 0.85em; color: var(--secondary); text-decoration: none; border-bottom: 1px dotted var(--secondary);">📅 {{ i18n "viewArchive" | default "时间线视图" }} →</a>
-  </div>
+  <nav class="sub-nav" style="margin-top: 10px; font-size: 0.85em; color: var(--secondary); display: flex; gap: 12px; align-items: center;">
+    <span style="color: var(--tertiary);">·</span>
+    <a href="{{ "/archives/" | relLangURL }}" style="color: var(--secondary); text-decoration: none; border-bottom: 1px dotted var(--secondary);">时间线视图</a>
+    <span style="color: var(--tertiary);">·</span>
+    {{- with .OutputFormats.Get "rss" }}
+    <a href="{{ .RelPermalink }}" style="color: var(--secondary); text-decoration: none; border-bottom: 1px dotted var(--secondary);">RSS</a>
+    {{- end }}
+  </nav>
   {{- end }}
 </header>
 {{- end }}
