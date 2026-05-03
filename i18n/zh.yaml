@@ -1,8 +1,3 @@
-- id: read_time
-  translation:
-    one: "预计阅读 1 分钟"
-    other: "预计阅读 {{ .Count }} 分钟"
-
 - id: archiveTimelineView
   translation: "时间线视图"
 
