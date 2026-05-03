@@ -871,3 +871,56 @@ html[data-theme="dark"] body.favorite-websites-page .favorite-site-card:focus-vi
     color: var(--primary);
     border-bottom-color: var(--primary);
 }
+
+/* ===== Post → Project backlink ===== */
+.project-backlink {
+    margin-top: 5px;
+    padding-top: 15px;
+    border-top: 1px solid var(--border);
+    font-size: 0.9em;
+}
+
+.project-backlink__label {
+    display: block;
+    margin-bottom: 0.55rem;
+    color: var(--secondary);
+}
+
+.project-backlink__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.project-backlink__link {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.38rem 0.72rem;
+    border-radius: 7px;
+    border: 1px solid rgba(120, 120, 120, 0.18);
+    background: rgba(120, 120, 120, 0.04);
+    color: var(--secondary);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.86rem;
+    transition: transform 160ms ease, border-color 160ms ease, background 160ms ease, color 160ms ease;
+}
+
+.project-backlink__link:hover,
+.project-backlink__link:focus-visible {
+    transform: translateY(-1px);
+    border-color: rgba(120, 120, 120, 0.32);
+    background: rgba(120, 120, 120, 0.12);
+    color: var(--primary);
+}
+
+html[data-theme="dark"] .project-backlink__link {
+    border-color: rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+html[data-theme="dark"] .project-backlink__link:hover,
+html[data-theme="dark"] .project-backlink__link:focus-visible {
+    border-color: rgba(255, 255, 255, 0.24);
+    background: rgba(255, 255, 255, 0.08);
+}

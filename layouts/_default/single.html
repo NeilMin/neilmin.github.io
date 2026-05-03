@@ -50,6 +50,35 @@
       {{- end }}
     </ul>
     {{- if eq .Section "posts" }}
+    {{- /* ── Project backlink ── */}}
+    {{- $currentPermalink := .RelPermalink }}
+    {{- $matchedProjects := slice }}
+    {{- range hugo.Data.projects }}
+      {{- if .secondary_btn_url }}
+        {{- $targetPermalink := .secondary_btn_url }}
+        {{- if and (hasPrefix $currentPermalink "/zh/") (not (hasPrefix .secondary_btn_url "/zh/")) }}
+          {{- $targetPermalink = printf "/zh%s" .secondary_btn_url }}
+        {{- end }}
+        {{- if eq $currentPermalink $targetPermalink }}
+          {{- $matchedProjects = $matchedProjects | append . }}
+        {{- end }}
+      {{- end }}
+    {{- end }}
+    {{- if $matchedProjects }}
+    {{- $isZh := eq $.Language.Lang "zh" }}
+    <div class="project-backlink">
+      <span class="project-backlink__label">{{- cond $isZh "📦 相关项目" "📦 Related Project" -}}</span>
+      <div class="project-backlink__links">
+      {{- range $matchedProjects }}
+        {{- $projectSlug := .name | anchorize }}
+        {{- $displayName := cond $isZh (.name_zh | default .name) .name }}
+        <a class="project-backlink__link" href="{{ "/projects/" | relLangURL }}#{{ $projectSlug }}">
+          {{ $displayName }} →
+        </a>
+      {{- end }}
+      </div>
+    </div>
+    {{- end }}
     <div class="archive-link">
       <a href="{{ "/archives/" | relLangURL }}">📚 {{ i18n "viewAllPosts" }} →</a>
     </div>
