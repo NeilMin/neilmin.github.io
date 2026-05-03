@@ -28,6 +28,8 @@ theme = 'PaperMod'
   ShowPostNavLinks = true
   # 开启文章目录
   ShowToc = true
+  # 隐藏作者（个人网站无需显示）
+  hideAuthor = true
 
   [params.fuseOpts]
     keys = ["title", "permalink", "summary", "content", "tags"]
