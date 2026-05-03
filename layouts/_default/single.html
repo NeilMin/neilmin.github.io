@@ -49,8 +49,8 @@
       <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
       {{- end }}
     </ul>
-    <div class="archive-link" style="margin-top: 15px; padding-top: 15px; border-top: 1px solid var(--border); font-size: 0.9em;">
-      <a href="{{ "/archives/" | relLangURL }}">📚 {{ i18n "viewAllPosts" | default "查看全部文章归档" }} →</a>
+    <div class="archive-link" style="margin-top: 15px; padding-top: 15px; border-top: 1px solid var(--border); font-size: 0.9em; text-align: center;">
+      <a href="{{ "/archives/" | relLangURL }}" style="color: var(--secondary); text-decoration: none; border-bottom: 1px dotted var(--secondary);">📚 {{ i18n "viewAllPosts" | default "查看全部文章归档" }} →</a>
     </div>
     {{- if (.Param "ShowPostNavLinks") }}
     {{- partial "post_nav_links.html" . }}
