@@ -49,9 +49,11 @@
       <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
       {{- end }}
     </ul>
+    {{- if eq .Section "posts" }}
     <div class="archive-link">
       <a href="{{ "/archives/" | relLangURL }}">📚 {{ i18n "viewAllPosts" }} →</a>
     </div>
+    {{- end }}
     {{- if (.Param "ShowPostNavLinks") }}
     {{- partial "post_nav_links.html" . }}
     {{- end }}
