@@ -827,6 +827,19 @@ html[data-theme="dark"] .project-card__tag:focus-visible {
     transform: translateY(-3px) !important;
 }
 
+/* ===== Blog post entry animation ===== */
+.post-entry--awaiting {
+    opacity: 0;
+    transform: translateY(28px);
+}
+
+.post-entry--revealed {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.5s cubic-bezier(0.22, 0.61, 0.36, 1),
+                transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
 @media (prefers-reduced-motion: reduce) {
     .project-card--awaiting,
     .project-card--revealed {

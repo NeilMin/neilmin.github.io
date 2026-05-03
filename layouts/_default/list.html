@@ -123,4 +123,9 @@
 
 {{- end }}{{/* end profileMode */}}
 
+{{- if eq .Section "posts" }}
+{{- $animScript := resources.Get "js/post-entries-animation.js" | resources.Minify | fingerprint }}
+<script defer src="{{ $animScript.RelPermalink }}" integrity="{{ $animScript.Data.Integrity }}"></script>
+{{- end }}
+
 {{- end }}{{- /* end main */ -}}
