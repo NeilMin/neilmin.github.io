@@ -89,20 +89,28 @@
         <div class="project-card__actions">
           <div class="project-card__button-row">
             {{- if and .primary_btn_text .primary_btn_url }}
+            {{- $primaryUrl := .primary_btn_url }}
+            {{- if and (not (findRE "://" .primary_btn_url)) $isZh }}
+              {{- $primaryUrl = printf "/zh%s" .primary_btn_url }}
+            {{- end }}
             <a
               class="project-card__button project-card__button--primary"
-              href="{{ .primary_btn_url }}"
-              {{- if findRE "://" .primary_btn_url }} target="_blank" rel="noreferrer"{{- end }}
+              href="{{ $primaryUrl }}"
+              {{- if findRE ":" .primary_btn_url }} target="_blank" rel="noreferrer"{{- end }}
             >
               {{ $primaryLabel }}
             </a>
             {{- end }}
 
             {{- if and .secondary_btn_text .secondary_btn_url }}
+            {{- $secondaryUrl := .secondary_btn_url }}
+            {{- if and (not (findRE "://" .secondary_btn_url)) $isZh }}
+              {{- $secondaryUrl = printf "/zh%s" .secondary_btn_url }}
+            {{- end }}
             <a
               class="project-card__button project-card__button--secondary"
-              href="{{ .secondary_btn_url }}"
-              {{- if findRE "://" .secondary_btn_url }} target="_blank" rel="noreferrer"{{- end }}
+              href="{{ $secondaryUrl }}"
+              {{- if findRE ":" .secondary_btn_url }} target="_blank" rel="noreferrer"{{- end }}
             >
               {{ $secondaryLabel }}
             </a>
