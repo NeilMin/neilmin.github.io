@@ -36,3 +36,5 @@ Led data import/export infrastructure for Google Cloud's Data Migration team —
 {{< about_tags tags="Go, Java, Python, C/C++, Distributed Systems, Performance Tuning, Kubernetes, Docker, Cloud Infrastructure" >}}
 
 {{< about_socials cta="Have something interesting to discuss? Let's talk." >}}
+
+{{< about_entrance_js >}}

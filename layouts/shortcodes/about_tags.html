@@ -1,4 +1,4 @@
-<div class="about-page__tags">
+<div class="about-page__tags about-section">
   {{- $tags := replace (.Get "tags") "、" "," -}}
   {{- range (split $tags ",") -}}
     {{- $t := trim . " " -}}

@@ -36,3 +36,5 @@ searchHidden = true
 {{< about_tags tags="Go、Java、Python、C/C++、分布式系统、性能调优、Kubernetes、Docker、云基础设施" >}}
 
 {{< about_socials cta="聊技术、聊项目都欢迎，随时找我。" >}}
+
+{{< about_entrance_js >}}
