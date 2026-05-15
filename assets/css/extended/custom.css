@@ -38,25 +38,13 @@
     color-scheme: dark;
 }
 
-/* ---- Accent link color ---- */
-a:hover,
-a:focus-visible {
+/* ---- Accent: nav active + link hover (scoped) ---- */
+#menu .active span {
     color: var(--accent);
 }
 
-/* ---- Button primary uses accent ---- */
-.button.accent,
-.entry-hint-parent .entry-hint,
-.post-entry--revealed a,
-.project-card__button--primary {
-    background: var(--accent);
-    color: var(--on-accent);
-    border-color: var(--accent);
-}
-
-/* ---- Active nav item accent ---- */
-#menu .active span,
-#menu a:hover span {
+.post-content a:hover,
+.post-content a:focus-visible {
     color: var(--accent);
 }
 
