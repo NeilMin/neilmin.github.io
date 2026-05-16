@@ -29,18 +29,20 @@
   </header>
   {{- $isHidden := (.Param "cover.hiddenInSingle") | default (.Param "cover.hidden") | default false }}
   {{- partial "cover.html" (dict "cxt" . "IsSingle" true "isHidden" $isHidden) }}
-  {{- if (.Param "ShowToc") }}
-  {{- $idxHeaders := findRE "<h[1-6].*?>" .Content }}
-  {{- if ge (len $idxHeaders) 2 }}
-  {{- partial "toc.html" . }}
-  {{- end }}
-  {{- end }}
+  {{- $hasToc := and (.Param "ShowToc") (ge (len (findRE "<h[1-6].*?>" .Content)) 2) }}
 
   {{- if .Content }}
-  <div class="post-content">
-    {{- if not (.Param "disableAnchoredHeadings") }}
-    {{- partial "anchored_headings.html" .Content -}}
-    {{- else }}{{ .Content }}{{ end }}
+  <div class="post-body{{ if $hasToc }} post-body--with-toc{{ end }}">
+    {{- if $hasToc }}
+    <aside class="post-toc-sidebar">
+      {{- partial "toc.html" . }}
+    </aside>
+    {{- end }}
+    <div class="post-content">
+      {{- if not (.Param "disableAnchoredHeadings") }}
+      {{- partial "anchored_headings.html" .Content -}}
+      {{- else }}{{ .Content }}{{ end }}
+    </div>
   </div>
   {{- end }}
 
@@ -95,6 +97,11 @@
 
   {{- if (.Param "comments") }}
   {{- partial "comments.html" . }}
+  {{- end }}
+
+  {{- if $hasToc }}
+  {{- $tocScript := resources.Get "js/toc-scrollspy.js" | resources.Minify | fingerprint }}
+  <script defer src="{{ $tocScript.RelPermalink }}" integrity="{{ $tocScript.Data.Integrity }}"></script>
   {{- end }}
 </article>
 
