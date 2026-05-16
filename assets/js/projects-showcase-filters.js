@@ -10,16 +10,7 @@
   var cards = Array.prototype.slice.call(document.querySelectorAll('.project-card[data-project-tags]'));
   var links = Array.prototype.slice.call(document.querySelectorAll('[data-filter-link]'));
 
-  // ── Entrance animation (above-fold immediate, below-fold scroll-driven) ──
-  cards.forEach(function (card) {
-    var rect = card.getBoundingClientRect();
-    if (rect.top < window.innerHeight && rect.bottom > 0) {
-      card.classList.add('project-card--revealed');
-    } else {
-      card.classList.add('project-card--awaiting');
-    }
-  });
-
+  // ── Entrance animation (cards already have --awaiting from HTML) ──
   var observer = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
       if (!entry.isIntersecting) return;
@@ -38,7 +29,14 @@
   }, { threshold: 0.12 });
 
   cards.forEach(function (card) {
-    if (!card.classList.contains('project-card--revealed')) {
+    var rect = card.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      // Above fold — ensure --awaiting is committed before revealing
+      requestAnimationFrame(function () {
+        card.classList.add('project-card--revealed');
+      });
+    } else {
+      // Below fold — Observer handles reveal on scroll
       observer.observe(card);
     }
   });
