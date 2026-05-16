@@ -21,21 +21,24 @@
   var headings = Array.from(document.querySelectorAll('.post-content h2[id], .post-content h3[id]'));
   if (!headings.length) return;
 
-  // IntersectionObserver for scroll tracking
+  var activeLink = null;
+
+  // Narrow intersection band at top of viewport: when a heading crosses
+  // into the top 25% of the screen, it becomes the active TOC link.
+  // Using rootMargin instead of scroll events for performance.
   var observer = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
       var link = headingMap[entry.target.id];
       if (!link) return;
 
       if (entry.isIntersecting) {
-        // Remove active from all links
-        links.forEach(function (l) { l.classList.remove('is-active'); });
-        // Add to current + parents
+        if (activeLink) activeLink.classList.remove('is-active');
         link.classList.add('is-active');
+        activeLink = link;
       }
     });
   }, {
-    rootMargin: '-80px 0px -70% 0px',
+    rootMargin: '0px 0px -75% 0px',
     threshold: 0
   });
 
