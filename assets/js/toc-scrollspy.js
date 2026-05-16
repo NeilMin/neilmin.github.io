@@ -4,7 +4,7 @@
   var sidebar = document.querySelector('.post-toc-sidebar');
   if (!sidebar) return;
 
-  // Force sidebar TOC to stay open — collapsed sidebar is useless
+  // Force sidebar TOC to stay open
   var detailsEl = sidebar.querySelector('.toc details');
   if (detailsEl) detailsEl.setAttribute('open', '');
 
@@ -22,25 +22,43 @@
   if (!headings.length) return;
 
   var activeLink = null;
+  var ticking = false;
 
-  // Narrow intersection band at top of viewport: when a heading crosses
-  // into the top 25% of the screen, it becomes the active TOC link.
-  // Using rootMargin instead of scroll events for performance.
-  var observer = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      var link = headingMap[entry.target.id];
-      if (!link) return;
+  function updateActiveHeading() {
+    var bestHeading = null;
+    var bestLink = null;
+    var bestTop = Infinity;
 
-      if (entry.isIntersecting) {
-        if (activeLink) activeLink.classList.remove('is-active');
-        link.classList.add('is-active');
-        activeLink = link;
+    headings.forEach(function (heading) {
+      var rect = heading.getBoundingClientRect();
+      // Heading whose top is between -10px and 40% of viewport → candidate
+      if (rect.top >= -10 && rect.top < window.innerHeight * 0.4) {
+        if (rect.top < bestTop) {
+          bestTop = rect.top;
+          bestHeading = heading;
+          bestLink = headingMap[heading.id];
+        }
       }
     });
-  }, {
-    rootMargin: '0px 0px -75% 0px',
-    threshold: 0
-  });
 
-  headings.forEach(function (h) { observer.observe(h); });
+    if (bestLink && bestLink !== activeLink) {
+      if (activeLink) activeLink.classList.remove('is-active');
+      bestLink.classList.add('is-active');
+      activeLink = bestLink;
+    }
+  }
+
+  // Initial activation on load
+  updateActiveHeading();
+
+  // Throttled scroll listener
+  window.addEventListener('scroll', function () {
+    if (!ticking) {
+      requestAnimationFrame(function () {
+        updateActiveHeading();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
 })();
