@@ -4,6 +4,10 @@
   var sidebar = document.querySelector('.post-toc-sidebar');
   if (!sidebar) return;
 
+  // Force sidebar TOC to stay open — collapsed sidebar is useless
+  var detailsEl = sidebar.querySelector('.toc details');
+  if (detailsEl) detailsEl.setAttribute('open', '');
+
   var links = sidebar.querySelectorAll('.toc a[href^="#"]');
   if (links.length < 2) return;
 
