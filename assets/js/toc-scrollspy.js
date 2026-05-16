@@ -31,8 +31,10 @@
 
     headings.forEach(function (heading) {
       var rect = heading.getBoundingClientRect();
-      // Heading whose top is between -10px and 40% of viewport → candidate
-      if (rect.top >= -10 && rect.top < window.innerHeight * 0.4) {
+      // Heading must have its bottom below viewport top (not scrolled past)
+      // and its top not too far below the viewport (within viewport height below)
+      if (rect.bottom > 0 && rect.top < window.innerHeight) {
+        // Prefer the heading closest to the top
         if (rect.top < bestTop) {
           bestTop = rect.top;
           bestHeading = heading;
@@ -40,6 +42,17 @@
         }
       }
     });
+
+    // Fallback: if no heading is currently visible, find the closest one below the viewport
+    if (!bestLink) {
+      headings.forEach(function (heading) {
+        var rect = heading.getBoundingClientRect();
+        if (rect.top >= 0 && rect.top < bestTop) {
+          bestTop = rect.top;
+          bestLink = headingMap[heading.id];
+        }
+      });
+    }
 
     if (bestLink && bestLink !== activeLink) {
       if (activeLink) activeLink.classList.remove('is-active');
