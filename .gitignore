@@ -3,3 +3,16 @@
 public/
 .worktrees/
 AGENTS.local.md
+
+# Dependencies
+node_modules/
+
+# Playwright
+test-results/
+playwright-report/
+*.png
+*.jpg
+*.jpeg
+
+# Local overrides
+AGENTS.local.md

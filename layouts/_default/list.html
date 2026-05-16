@@ -10,7 +10,7 @@
     {{- cond (eq $.Lang "zh") "📝 最近文章" "📝 Recent Posts" -}}
   </h2>
   {{- range $recentPosts }}
-  <article class="post-entry post-entry--awaiting">
+  <article class="post-entry">
     <header class="entry-header">
       <h2 class="entry-hint-parent">
         {{- .Title }}
@@ -97,7 +97,7 @@
 {{- $class = "post-entry tag-entry" }}
 {{- end }}
 
-<article class="{{ $class }} post-entry--awaiting">
+<article class="{{ $class }}{{ if eq $.Section "posts" }} post-entry--awaiting{{ end }}">
   {{- $isHidden := (.Param "cover.hiddenInList") | default (.Param "cover.hidden") | default false }}
   {{- partial "cover.html" (dict "cxt" . "IsSingle" false "isHidden" $isHidden) }}
   <header class="entry-header">

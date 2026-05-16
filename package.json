@@ -1,0 +1,27 @@
+{
+  "name": "my-blog-site",
+  "version": "1.0.0",
+  "description": "Personal bilingual blog built with Hugo and the PaperMod theme.",
+  "main": "playwright.config.js",
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NeilMin/neilmin.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NeilMin/neilmin.github.io/issues"
+  },
+  "homepage": "https://github.com/NeilMin/neilmin.github.io#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.60.0"
+  }
+}

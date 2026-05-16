@@ -23,9 +23,13 @@
   sections.forEach(function (s) {
     var rect = s.getBoundingClientRect();
     if (rect.top < window.innerHeight && rect.bottom > 0) {
-      // Above fold — ensure --awaiting is committed before revealing
+      // Above fold — ensure --awaiting is committed, then stagger reveal
+      var idx = Array.prototype.indexOf.call(sections, s);
+      var delay = idx >= 0 ? idx * 100 : 0;
       requestAnimationFrame(function () {
-        s.classList.add('about-section--revealed');
+        setTimeout(function () {
+          s.classList.add('about-section--revealed');
+        }, delay);
       });
     } else {
       // Below fold — Observer handles reveal on scroll

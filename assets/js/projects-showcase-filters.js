@@ -31,9 +31,13 @@
   cards.forEach(function (card) {
     var rect = card.getBoundingClientRect();
     if (rect.top < window.innerHeight && rect.bottom > 0) {
-      // Above fold — ensure --awaiting is committed before revealing
+      // Above fold — ensure --awaiting is committed, then stagger reveal
+      var idx = cards.indexOf(card);
+      var delay = idx >= 0 ? idx * 120 : 0;
       requestAnimationFrame(function () {
-        card.classList.add('project-card--revealed');
+        setTimeout(function () {
+          card.classList.add('project-card--revealed');
+        }, delay);
       });
     } else {
       // Below fold — Observer handles reveal on scroll
