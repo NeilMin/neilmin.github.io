@@ -12,9 +12,11 @@
   if (links.length < 2) return;
 
   // Build heading-id → link mapping
+  // TOC hrefs may be percent-encoded (e.g. Chinese), but heading ids are decoded.
+  // decodeURIComponent normalizes them to the same representation.
   var headingMap = {};
   links.forEach(function (link) {
-    var id = link.getAttribute('href').slice(1);
+    var id = decodeURIComponent(link.getAttribute('href').slice(1));
     headingMap[id] = link;
   });
 
