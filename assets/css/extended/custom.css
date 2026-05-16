@@ -69,6 +69,7 @@
     height: 240px;
     transform-origin: center;
     will-change: transform, width, height, left, top;
+    opacity: 0;
 }
 
 /* Basic blob styling */
@@ -672,7 +673,7 @@ body.home .profile .button-inner {
     overflow: hidden;
     background: rgba(255, 255, 255, 0.84);
     box-shadow: 0 12px 30px rgba(20, 24, 28, 0.07);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, opacity 0.25s ease;
 }
 
 .project-card:hover {
@@ -869,6 +870,42 @@ html[data-theme="dark"] .project-card__link {
 html[data-theme="dark"] .project-card__link:hover,
 html[data-theme="dark"] .project-card__link:focus-visible {
     border-color: rgba(255, 255, 255, 0.24);
+}
+
+/* ===== Post-entry card elevation ===== */
+.post-entry {
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+    transition: box-shadow 0.25s ease, transform 0.1s ease;
+}
+
+.post-entry:hover {
+    box-shadow: 0 6px 22px rgba(0, 0, 0, 0.1);
+}
+
+html[data-theme="dark"] .post-entry {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+html[data-theme="dark"] .post-entry:hover {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7);
+}
+
+/* ===== Homepage recent posts section ===== */
+.home-recent-posts {
+    margin-top: 2.5rem;
+    width: min(720px, calc(100vw - var(--gap) * 2));
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.home-recent-posts__title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
 }
 
 html[data-theme="dark"] .projects-filter__link {
@@ -1113,4 +1150,19 @@ html[data-theme="dark"] .project-backlink__link:hover,
 html[data-theme="dark"] .project-backlink__link:focus-visible {
     border-color: rgba(255, 255, 255, 0.24);
     background: rgba(255, 255, 255, 0.08);
+}
+
+/* ===== Search no-results feedback ===== */
+.search-no-results {
+    color: var(--secondary);
+    font-size: 0.95rem;
+    padding: 1.5rem 0;
+    text-align: center;
+    list-style: none;
+}
+
+/* ===== Project card filter transition ===== */
+.project-card--filtered {
+    opacity: 0.25;
+    pointer-events: none;
 }

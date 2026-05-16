@@ -2,6 +2,35 @@
 
 {{- if (and site.Params.profileMode.enabled .IsHome) }}
 {{- partial "index_profile.html" . }}
+{{- /* ── Recent posts section ── */}}
+{{- $recentPosts := first 3 (where site.RegularPages "Type" "in" site.Params.mainSections) }}
+{{- if $recentPosts }}
+<section class="home-recent-posts">
+  <h2 class="home-recent-posts__title">
+    {{- cond (eq $.Lang "zh") "📝 最近文章" "📝 Recent Posts" -}}
+  </h2>
+  {{- range $recentPosts }}
+  <article class="post-entry">
+    <header class="entry-header">
+      <h2 class="entry-hint-parent">
+        {{- .Title }}
+      </h2>
+    </header>
+    {{- if (ne (.Param "hideSummary") true) }}
+    <div class="entry-content">
+      <p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
+    </div>
+    {{- end }}
+    {{- if not (.Param "hideMeta") }}
+    <footer class="entry-footer">
+      {{- partial "post_meta.html" . -}}
+    </footer>
+    {{- end }}
+    <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
+  </article>
+  {{- end }}
+</section>
+{{- end }}
 {{- else }} {{/* if not profileMode */}}
 
 {{- if not .IsHome | and .Title }}

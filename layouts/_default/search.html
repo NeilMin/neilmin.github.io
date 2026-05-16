@@ -18,7 +18,8 @@
 
 <div id="searchbox">
     <input id="searchInput" autofocus placeholder="{{ .Params.placeholder | default (printf "%s ↵" .Title) }}"
-        aria-label="search" type="search" autocomplete="off" maxlength="64">
+        aria-label="search" type="search" autocomplete="off" maxlength="64"
+        data-no-results="{{ cond (eq $.Lang "zh") "没有找到结果" "No results found" }}">
     <ul id="searchResults" aria-label="search results"></ul>
 </div>
 
