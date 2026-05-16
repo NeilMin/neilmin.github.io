@@ -3,17 +3,6 @@
 
   if (!sections.length) return;
 
-  sections.forEach(function (s) {
-    var rect = s.getBoundingClientRect();
-    if (rect.top < window.innerHeight && rect.bottom > 0) {
-      // Already in viewport — reveal without animation
-      s.classList.add('about-section--revealed');
-    } else {
-      // Below the fold — hold for scroll animation
-      s.classList.add('about-section--awaiting');
-    }
-  });
-
   var observer = new IntersectionObserver(function (observed) {
     observed.forEach(function (obs) {
       if (!obs.isIntersecting) return;
@@ -32,7 +21,14 @@
   }, { threshold: 0.10 });
 
   sections.forEach(function (s) {
-    if (!s.classList.contains('about-section--revealed')) {
+    var rect = s.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      // Above fold — ensure --awaiting is committed before revealing
+      requestAnimationFrame(function () {
+        s.classList.add('about-section--revealed');
+      });
+    } else {
+      // Below fold — Observer handles reveal on scroll
       observer.observe(s);
     }
   });

@@ -1,4 +1,4 @@
-<div class="about-page__tags about-section">
+<div class="about-page__tags about-section about-section--awaiting">
   {{- $tags := replace (.Get "tags") "、" "," -}}
   {{- range (split $tags ",") -}}
     {{- $t := trim . " " -}}

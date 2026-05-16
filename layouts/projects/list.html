@@ -47,7 +47,7 @@
     {{- $primaryLabel := cond $isZh (.primary_btn_text_zh | default .primary_btn_text) .primary_btn_text }}
     {{- $secondaryLabel := cond $isZh (.secondary_btn_text_zh | default .secondary_btn_text) .secondary_btn_text }}
     <article
-      class="project-card"
+      class="project-card project-card--awaiting"
       id="{{ $projectSlug }}"
       data-project-tags="{{ delimit $tagSlugs "," }}"
     >
