@@ -1261,7 +1261,9 @@ html[data-theme="dark"] .projects-filter__link.is-active {
 
 @media (prefers-reduced-motion: reduce) {
     .project-card--awaiting,
-    .project-card--revealed {
+    .project-card--revealed,
+    .post-entry--awaiting,
+    .post-entry--revealed {
         opacity: 1;
         transform: none;
         transition: none;
@@ -1550,7 +1552,7 @@ button#theme-toggle:hover svg {
   right: 14px;
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
-  border-bottom: 5px solid #2a2a2a;
+  border-bottom: 5px solid #1c0f06;
 }
 
 .lang-nudge-tooltip--fading {
