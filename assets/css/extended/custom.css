@@ -1401,11 +1401,36 @@ html[data-theme="dark"] .post-toc-sidebar .toc a.is-active {
   }
 }
 
+/* ===== 3.4 Logo area: consistent spacing ===== */
+/* gap on .logo pushes the whole logo-switches block away from the site name.
+   gap on .logo-switches is kept tight (0) because the lang pill already has
+   internal left-padding (~11px), which visually compensates for the smaller
+   pixel gap on that side. This achieves optical balance. */
+.logo {
+  align-items: center;
+  gap: 14px;
+}
+
+.logo-switches {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  margin: auto 0;
+}
+
+button#theme-toggle {
+  margin: 0;
+  padding: 4px 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* ===== 3.4 Language switcher ===== */
 .lang-switch {
   align-items: center;
   gap: 0;
-  margin: auto 6px;
+  margin: 0;
 }
 
 .lang-switch li {
