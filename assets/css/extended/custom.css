@@ -1134,6 +1134,25 @@ html[data-theme="dark"] .post-entry:hover {
     margin-right: auto;
 }
 
+.home-recent-posts .post-entry {
+    padding: 1.2rem;
+    transition: transform 0.25s cubic-bezier(0.22, 0.61, 0.36, 1),
+                box-shadow 0.25s cubic-bezier(0.22, 0.61, 0.36, 1),
+                border-color 0.25s ease;
+    overflow: hidden;
+}
+
+.home-recent-posts .post-entry:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.14);
+    border-color: var(--accent);
+}
+
+html[data-theme="dark"] .home-recent-posts .post-entry:hover {
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5);
+    border-color: var(--accent);
+}
+
 .home-recent-posts__title {
     font-size: 1.05rem;
     font-weight: 600;

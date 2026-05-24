@@ -10,7 +10,7 @@
     {{- cond (eq $.Lang "zh") "📝 最近文章" "📝 Recent Posts" -}}
   </h2>
   {{- range $recentPosts }}
-  <article class="post-entry">
+  <article class="post-entry post-entry--awaiting">
     <header class="entry-header">
       <h2 class="entry-hint-parent">
         {{- .Title }}
@@ -154,7 +154,7 @@
 
 {{- end }}{{/* end profileMode */}}
 
-{{- if eq .Section "posts" }}
+{{- if or (eq .Section "posts") .IsHome }}
 {{- $animScript := resources.Get "js/post-entries-animation.js" | resources.Minify | fingerprint }}
 <script defer src="{{ $animScript.RelPermalink }}" integrity="{{ $animScript.Data.Integrity }}"></script>
 {{- end }}
