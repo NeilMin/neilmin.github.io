@@ -1424,6 +1424,13 @@ button#theme-toggle {
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 6px;
+  color: var(--secondary);
+  transition: color 0.15s ease;
+}
+
+button#theme-toggle:hover {
+  color: var(--primary);
 }
 
 /* ===== 3.4 Language switcher ===== */
@@ -1461,13 +1468,8 @@ button#theme-toggle {
 .lang-switch a:hover,
 .lang-switch a:focus-visible {
   color: var(--primary);
-  background: rgba(120, 120, 120, 0.1);
 }
 
-html[data-theme="dark"] .lang-switch a:hover,
-html[data-theme="dark"] .lang-switch a:focus-visible {
-  background: rgba(255, 255, 255, 0.08);
-}
 
 /* Language nudge — first-visit highlight */
 .lang-switch a.lang-btn--nudge {
