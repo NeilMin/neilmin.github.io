@@ -16,3 +16,4 @@ playwright-report/
 
 # Local overrides
 AGENTS.local.md
+.superpowers/
