@@ -103,7 +103,7 @@ theme = 'PaperMod'
 
 # ================= 中文配置 (Chinese) =================
 [languages.zh]
-  label = "中"
+  label = "中文"
   locale = "zh-CN"
   hasCJKLanguage = true
   title = "Neil的自留地"
