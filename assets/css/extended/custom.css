@@ -15,7 +15,7 @@
     --code-block-bg:    rgb(39,  39, 42);    /* Zinc 800  – code block */
     --code-bg:          rgb(244, 244, 245);  /* Zinc 100  – inline code */
     --border:           rgb(228, 228, 231);  /* Zinc 200  – border     */
-    --accent:           rgb(172, 100, 44);   /* Warm copper  – CTA / link  */
+    --accent:           rgb(112, 82, 104);   /* Muted mauve  – CTA / link  */
     --on-accent:        rgb(255, 255, 255);  /* White     – text on accent */
     --radius:           10px;                  /* Slightly larger radius   */
     color-scheme: light;
@@ -32,7 +32,7 @@
     --code-block-bg:    rgb(24,  24, 27);   /* Zinc 900  – code block */
     --code-bg:          rgb(39,  39, 42);   /* Zinc 800  – inline code */
     --border:           rgb(39,  39, 42);   /* Zinc 800  – border     */
-    --accent:           rgb(210, 160, 100);  /* Warm gold  – CTA / link  */
+    --accent:           rgb(168, 138, 160);  /* Muted dusty rose – CTA / link */
     --on-accent:        rgb(255, 255, 255);  /* White     – text on accent */
     --radius:           10px;
     color-scheme: dark;
@@ -966,7 +966,6 @@ html[data-theme="dark"] .project-card__link:focus-visible {
   transition: transform 0.25s cubic-bezier(0.22, 0.61, 0.36, 1),
               box-shadow 0.25s cubic-bezier(0.22, 0.61, 0.36, 1),
               border-color 0.25s ease;
-  border-top: 3px solid transparent;
   /* 圆角对齐封面图——overflow hidden 让背景被 clip，视觉上下一致 */
   overflow: hidden;
 }
@@ -1028,7 +1027,7 @@ html[data-theme="dark"] .posts-grid .post-entry {
 
 html[data-theme="dark"] .posts-grid .post-entry:hover {
   box-shadow: 0 0 48px rgba(255, 255, 255, 0.14);
-  border-color: rgba(255, 255, 255, 0.18);
+  border-color: var(--accent);
 }
 
 @media (max-width: 768px) {
@@ -1111,7 +1110,7 @@ html[data-theme="dark"] .project-card__tag:focus-visible {
 html[data-theme="dark"] .projects-filter__link.is-active {
     border-color: var(--accent);
     color: var(--accent);
-    background: rgba(210, 160, 100, 0.1);
+    background: rgba(168, 138, 160, 0.1);
 }
 
 @media (max-width: 820px) {
@@ -1313,12 +1312,12 @@ html[data-theme="dark"] body.favorite-websites-page .favorite-site-card:focus-vi
 
 .post-toc-sidebar .toc a.is-active {
   color: var(--accent);
-  background: rgba(172, 100, 44, 0.08);
+  background: rgba(112, 82, 104, 0.08);
   font-weight: 600;
 }
 
 html[data-theme="dark"] .post-toc-sidebar .toc a.is-active {
-  background: rgba(210, 160, 100, 0.12);
+  background: rgba(168, 138, 160, 0.12);
 }
 
 @media (max-width: 1100px) {
