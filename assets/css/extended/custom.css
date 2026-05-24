@@ -16,6 +16,7 @@
     --code-bg:          rgb(244, 244, 245);  /* Zinc 100  – inline code */
     --border:           rgb(228, 228, 231);  /* Zinc 200  – border     */
     --accent:           rgb(112, 82, 104);   /* Muted mauve  – CTA / link  */
+    --accent-h2:        rgb(85, 50, 74);     /* Deep rose    – h2 heading  */
     --on-accent:        rgb(255, 255, 255);  /* White     – text on accent */
     --radius:           10px;                  /* Slightly larger radius   */
     color-scheme: light;
@@ -33,6 +34,7 @@
     --code-bg:          rgb(39,  39, 42);   /* Zinc 800  – inline code */
     --border:           rgb(39,  39, 42);   /* Zinc 800  – border     */
     --accent:           rgb(168, 138, 160);  /* Muted dusty rose – CTA / link */
+    --accent-h2:        rgb(232, 208, 224);  /* Bright rose      – h2 heading */
     --on-accent:        rgb(255, 255, 255);  /* White     – text on accent */
     --radius:           10px;
     color-scheme: dark;
@@ -70,9 +72,10 @@ code, pre, kbd, samp, .highlight, .chroma {
   line-height: 1.78;
 }
 
-/* Paragraphs: breathing room */
+/* Paragraphs: clear separation between consecutive paragraphs */
 .post-content p {
   line-height: 1.78;
+  margin-bottom: 1.2rem;
 }
 
 /* Code blocks: improve readability */
@@ -97,16 +100,36 @@ html[data-theme="dark"] .post-content code {
   background: rgba(255, 255, 255, 0.07);
 }
 
-/* Headings: tighter but not cramped */
+/* Headings: size + generous top margin to signal section breaks */
 .post-content h2 {
   font-size: 1.6rem;
-  line-height: 1.35;
+  line-height: 1.32;
+  margin-top: 2.8rem;
+  margin-bottom: 0.65rem;
+  color: var(--accent-h2);
 }
 
 .post-content h3 {
-  font-size: 1.25rem;
-  line-height: 1.4;
+  font-size: 1.22rem;
+  line-height: 1.38;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  color: var(--accent);
 }
+
+.post-content h4 {
+  font-size: 1.05rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.35rem;
+}
+
+/* First heading in a post doesn't need the full section-break margin */
+.post-content > h2:first-child,
+.post-content > h3:first-child,
+.post-content > h4:first-child {
+  margin-top: 0.5rem;
+}
+
 
 /* ---- Accent: nav active + link hover (scoped) ---- */
 #menu .active span {
