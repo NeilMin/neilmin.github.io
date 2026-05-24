@@ -1433,6 +1433,39 @@ button#theme-toggle:hover {
   color: var(--primary);
 }
 
+/* Sun center circle and moon shape: fill in on hover, drain on leave */
+button#theme-toggle #sun circle,
+button#theme-toggle #moon path {
+  fill: transparent;
+  transition: fill 0.2s ease;
+}
+
+button#theme-toggle:hover #sun circle,
+button#theme-toggle:hover #moon path {
+  fill: currentColor;
+}
+
+/* SVG stroke thickens on hover */
+button#theme-toggle svg {
+  transition: stroke-width 0.15s ease;
+}
+
+button#theme-toggle:hover svg {
+  stroke-width: 3.2;
+}
+
+/* Nav menu items: text-stroke thickens on hover (no layout shift) */
+#menu a:hover span {
+  -webkit-text-stroke: 0.8px currentColor;
+  text-stroke: 0.8px currentColor;
+}
+
+/* Lang switcher: same treatment */
+.lang-switch a:hover {
+  -webkit-text-stroke: 0.8px currentColor;
+  text-stroke: 0.8px currentColor;
+}
+
 /* ===== 3.4 Language switcher ===== */
 .lang-switch {
   align-items: center;
