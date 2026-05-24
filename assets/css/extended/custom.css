@@ -449,7 +449,6 @@ body.about-page .about-page__intro {
     gap: 0.85rem;
     margin-top: 0.1rem;
     padding: 0 0 0.4rem;
-    max-width: 63ch;
 }
 
 body.about-page .about-page__intro p {
