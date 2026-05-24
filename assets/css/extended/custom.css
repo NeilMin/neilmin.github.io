@@ -1404,6 +1404,77 @@ html[data-theme="dark"] .lang-switch a:focus-visible {
   background: rgba(255, 255, 255, 0.08);
 }
 
+/* Language nudge — first-visit highlight */
+.lang-switch a.lang-btn--nudge {
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
+  position: relative;
+}
+
+.lang-switch a.lang-btn--nudge::before {
+  content: '';
+  position: absolute;
+  inset: -5px;
+  border-radius: 9px;
+  background: color-mix(in srgb, var(--accent) 15%, transparent);
+  animation: langNudgePulse 1.6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes langNudgePulse {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50%       { opacity: 1;   transform: scale(1.2); }
+}
+
+.lang-nudge-tooltip {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  background: #2a2a2a;
+  color: #fff;
+  font-size: 0.76rem;
+  white-space: nowrap;
+  padding: 6px 11px;
+  border-radius: 7px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
+  animation: langNudgeFadeIn 0.25s ease both;
+  pointer-events: none;
+  z-index: 100;
+}
+
+.lang-nudge-tooltip::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  right: 14px;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid #2a2a2a;
+}
+
+.lang-nudge-tooltip--fading {
+  animation: langNudgeFadeOut 0.4s ease forwards;
+}
+
+@keyframes langNudgeFadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes langNudgeFadeOut {
+  to { opacity: 0; transform: translateY(-4px); }
+}
+
+html[data-theme="dark"] .lang-nudge-tooltip {
+  background: #e8e0d8;
+  color: #1a1a1a;
+}
+
+html[data-theme="dark"] .lang-nudge-tooltip::before {
+  border-bottom-color: #e8e0d8;
+}
+
 /* ===== 3.4 Adjustable blob parameters ===== */
 :root {
   --blob-opacity: 0.98;
