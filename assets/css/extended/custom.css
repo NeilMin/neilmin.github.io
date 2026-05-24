@@ -50,6 +50,13 @@ body {
     Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
+/* Display serif for headings — Fraunces for Latin, Songti SC for CJK */
+h1, h2, h3, h4 {
+  font-family:
+    "Fraunces", "Songti SC", "STSong", "SimSun", Georgia, serif;
+  font-optical-sizing: auto;
+}
+
 /* Monospace stack with good CJK coverage */
 code, pre, kbd, samp, .highlight, .chroma {
   font-family:
@@ -947,12 +954,14 @@ html[data-theme="dark"] .project-card__link:focus-visible {
   flex-direction: column;
   height: 100%;
   margin-bottom: 0;
-  padding: 1.35rem 1.35rem 1.15rem;
+  padding: 1.2rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   transition: transform 0.25s cubic-bezier(0.22, 0.61, 0.36, 1),
               box-shadow 0.25s cubic-bezier(0.22, 0.61, 0.36, 1),
               border-color 0.25s ease;
   border-top: 3px solid transparent;
+  /* 圆角对齐封面图——overflow hidden 让背景被 clip，视觉上下一致 */
+  overflow: hidden;
 }
 
 .posts-grid .post-entry:hover {
@@ -987,8 +996,8 @@ html[data-theme="dark"] .project-card__link:focus-visible {
 }
 
 .posts-grid .post-entry .entry-cover {
-  margin: -1.35rem -1.35rem 1rem;
-  border-radius: calc(var(--radius) - 2px) calc(var(--radius) - 2px) 0 0;
+  margin: -1.2rem -1.2rem 1rem;
+  border-radius: var(--radius) var(--radius) 0 0;
   overflow: hidden;
 }
 
@@ -1005,13 +1014,14 @@ html[data-theme="dark"] .project-card__link:focus-visible {
 
 /* --- Dark mode card grid --- */
 html[data-theme="dark"] .posts-grid .post-entry {
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.4);
+  /* 居中白色辉光，不偏移——避免双层矩形错位 */
+  box-shadow: 0 0 24px rgba(255, 255, 255, 0.08);
   border-color: rgba(255, 255, 255, 0.06);
 }
 
 html[data-theme="dark"] .posts-grid .post-entry:hover {
-  box-shadow: 0 16px 42px rgba(0, 0, 0, 0.6);
-  border-color: rgba(255, 255, 255, 0.16);
+  box-shadow: 0 0 48px rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.18);
 }
 
 @media (max-width: 768px) {
@@ -1020,7 +1030,7 @@ html[data-theme="dark"] .posts-grid .post-entry:hover {
   }
 
   .posts-grid .post-entry {
-    padding: 1.2rem 1.2rem 1rem;
+    padding: 1.2rem;
   }
 
   .posts-grid .post-entry .entry-header h2 {
