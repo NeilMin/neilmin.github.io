@@ -186,21 +186,21 @@ body.about-page .post-content h3 {
 }
 
 .blob-1 {
-    background: #c060a0;
+    background: #b873a6;
     animation-name: slowDriftBloomOne;
     animation-duration: 7.4s;
     animation-delay: 0s;
 }
 
 .blob-2 {
-    background: #7060b8;
+    background: #9b9a57;
     animation-name: slowDriftBloomTwo;
     animation-duration: 8s;
     animation-delay: 0s;
 }
 
 .blob-3 {
-    background: #a04870;
+    background: #9a5873;
     animation-name: slowDriftBloomThree;
     animation-duration: 8.6s;
     animation-delay: 0s;
@@ -335,15 +335,15 @@ body:not(.dark) .blob {
 }
 
 body:not(.dark) .blob-1 {
-    background: #b85090;
+    background: #a95a93;
 }
 
 body:not(.dark) .blob-2 {
-    background: #6050b0;
+    background: #8f8d3f;
 }
 
 body:not(.dark) .blob-3 {
-    background: #984068;
+    background: #8f4a68;
 }
 
 body.favorite-websites-page .post-content {
