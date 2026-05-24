@@ -71,6 +71,9 @@ Depends on `home = ["HTML", "RSS", "JSON"]` in `hugo.toml`. `fastsearch.js` fetc
 ### Language auto-redirect (`site-preferences.js`)
 Runs synchronously on every page load (loaded in `extend_head.html`). On the root path only, checks localStorage for `preferred-language`; if absent, picks from `navigator.languages`. Redirects to the preferred language's root if it differs from the current language. Language switcher clicks update localStorage via `data-language-switch` attribute.
 
+### First-visit language nudge (`lang-nudge.js`)
+Loads deferred on every EN and ZH page. Checks `localStorage['lang-nudge-seen']`; if absent, adds `lang-btn--nudge` class to `.lang-switch a` (CSS pulse ring) and inserts a `.lang-nudge-tooltip` div. Writes the key immediately on display so the nudge never re-fires. Auto-dismisses after 4 s; clicking the button dismisses immediately. Tooltip text comes from `window.LangNudgeConfig.tooltipText`, injected by `extend_head.html` via Hugo's `cond`: EN pages get `站点也有中文版`, ZH pages get `This site is also in English`.
+
 ## Layout Overrides Reference
 
 | File | What it does |
@@ -79,7 +82,7 @@ Runs synchronously on every page load (loaded in `extend_head.html`). On the roo
 | `layouts/_default/list.html` | Homepage (profileMode + recent posts) + blog card grid + posts entrance animation |
 | `layouts/_default/single.html` | Post: conditional TOC sidebar, project backlink, archive link, Giscus comments |
 | `layouts/_default/archives.html` | Timeline archive page with breadcrumbs |
-| `layouts/partials/extend_head.html` | Loads `site-preferences.js` (sync), `blob-layout-geometry.js` (deferred, home/search only) |
+| `layouts/partials/extend_head.html` | Loads `site-preferences.js` (sync), `blob-layout-geometry.js` (deferred, home/search only), `lang-nudge.js` (deferred, EN+ZH pages) |
 | `layouts/partials/extend_footer.html` | Blob HTML + WAAPI entrance + rAF mouse loop (home/search only); Vercount counter (posts only) |
 | `layouts/partials/header.html` | Language switcher links to current page's translation (not the other language homepage) |
 | `layouts/partials/comments.html` | Giscus with `data-lang` set by `.Lang` |
@@ -96,6 +99,7 @@ Runs synchronously on every page load (loaded in `extend_head.html`). On the roo
 | `about-entrance-animation.js` | About page (inline via shortcode) | `.about-section--awaiting` → `--revealed` with stagger |
 | `toc-scrollspy.js` | Single post w/ TOC (deferred) | Adds `is-active` to the TOC link whose heading is nearest top |
 | `fastsearch.js` | Search page | Fuse.js search over `index.json`; keyboard nav (↑↓→ Esc) |
+| `lang-nudge.js` | EN + ZH pages (deferred) | First-visit nudge: pulses `.lang-switch a`, shows tooltip from `window.LangNudgeConfig.tooltipText`, writes `lang-nudge-seen` to localStorage immediately so it never re-triggers |
 
 ## Shortcodes
 
@@ -136,7 +140,7 @@ github_url:               # optional GitHub link
 
 Design tokens (CSS variables) are defined in `:root` (light) and `:root[data-theme="dark"]` (dark):
 - `--theme`, `--entry`, `--primary`, `--secondary`, `--tertiary`, `--content` — backgrounds and text
-- `--accent` — warm copper (`rgb(172,100,44)` light) / warm gold (`rgb(210,160,100)` dark)
+- `--accent` — muted mauve (`rgb(112,82,104)` light) / dusty rose (`rgb(168,138,160)` dark)
 - `--border`, `--radius` — borders and rounding
 - `--blob-opacity`, `--blob-blur` — tunable blob parameters
 
