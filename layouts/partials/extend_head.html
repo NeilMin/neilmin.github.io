@@ -28,3 +28,7 @@
   {{- $blobGeometry := resources.Get "js/blob-layout-geometry.js" | resources.Minify | fingerprint -}}
   <script defer crossorigin="anonymous" src="{{ $blobGeometry.RelPermalink }}" integrity="{{ $blobGeometry.Data.Integrity }}"></script>
 {{- end -}}
+{{- if eq site.Language.Lang "en" -}}
+  {{- $langNudge := resources.Get "js/lang-nudge.js" | resources.Minify | fingerprint -}}
+  <script defer crossorigin="anonymous" src="{{ $langNudge.RelPermalink }}" integrity="{{ $langNudge.Data.Integrity }}"></script>
+{{- end -}}
