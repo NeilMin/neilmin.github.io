@@ -1,6 +1,6 @@
 // @ts-check
 // tests/e2e/lang-nudge.spec.js
-// Verify first-visit language nudge behaviour.
+// Verify first-visit language nudge behaviour (EN→ZH and ZH→EN).
 
 const { test, expect } = require('@playwright/test');
 
@@ -33,10 +33,12 @@ test.describe('Language nudge', () => {
     await expect(page.locator('.lang-switch a')).not.toHaveClass(/lang-btn--nudge/);
   });
 
-  test('does not appear on Chinese-language pages', async ({ page }) => {
+  test('appears on first visit to a Chinese page', async ({ page }) => {
     await page.goto(`${BASE}/zh/`);
     await page.evaluate(() => localStorage.removeItem('lang-nudge-seen'));
     await page.reload({ waitUntil: 'domcontentloaded' });
-    await expect(page.locator('.lang-nudge-tooltip')).not.toBeAttached();
+    await expect(page.locator('.lang-switch a')).toHaveClass(/lang-btn--nudge/);
+    await expect(page.locator('.lang-nudge-tooltip')).toBeVisible();
+    await expect(page.locator('.lang-nudge-tooltip')).toContainText('This site is also in English');
   });
 });

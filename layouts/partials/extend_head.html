@@ -28,7 +28,9 @@
   {{- $blobGeometry := resources.Get "js/blob-layout-geometry.js" | resources.Minify | fingerprint -}}
   <script defer crossorigin="anonymous" src="{{ $blobGeometry.RelPermalink }}" integrity="{{ $blobGeometry.Data.Integrity }}"></script>
 {{- end -}}
-{{- if eq site.Language.Lang "en" -}}
+{{- if or (eq site.Language.Lang "en") (eq site.Language.Lang "zh") -}}
+  {{- $nudgeText := cond (eq site.Language.Lang "en") "站点也有中文版" "This site is also in English" -}}
+  <script>window.LangNudgeConfig = { tooltipText: {{ $nudgeText | jsonify | safeJS }} };</script>
   {{- $langNudge := resources.Get "js/lang-nudge.js" | resources.Minify | fingerprint -}}
   <script defer crossorigin="anonymous" src="{{ $langNudge.RelPermalink }}" integrity="{{ $langNudge.Data.Integrity }}"></script>
 {{- end -}}

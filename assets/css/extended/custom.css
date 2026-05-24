@@ -1475,14 +1475,6 @@ html[data-theme="dark"] .lang-nudge-tooltip::before {
   border-bottom-color: #e8e0d8;
 }
 
-@media (max-width: 480px) {
-  .lang-nudge-tooltip {
-    white-space: normal;
-    width: 160px;
-    line-height: 1.5;
-  }
-}
-
 /* ===== 3.4 Adjustable blob parameters ===== */
 :root {
   --blob-opacity: 0.98;

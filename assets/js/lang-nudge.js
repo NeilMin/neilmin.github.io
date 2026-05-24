@@ -2,18 +2,18 @@
   'use strict';
 
   var STORAGE_KEY = 'lang-nudge-seen';
-  var TOOLTIP_TEXT = '站点也有中文版 · Click to switch';
   var DISMISS_DELAY_MS = 4000;
   var REMOVE_DELAY_MS = 800;
 
   function init() {
+    var config = (typeof window !== 'undefined' && window.LangNudgeConfig) || null;
+    if (!config || !config.tooltipText) return;
+
     try {
       if (localStorage.getItem(STORAGE_KEY)) return;
     } catch (e) {
       return;
     }
-
-    if (document.documentElement.lang !== 'en') return;
 
     var langLink = document.querySelector('.lang-switch a');
     if (!langLink) return;
@@ -32,7 +32,7 @@
 
     var tooltip = document.createElement('div');
     tooltip.className = 'lang-nudge-tooltip';
-    tooltip.textContent = TOOLTIP_TEXT;
+    tooltip.textContent = config.tooltipText;
     parentLi.insertBefore(tooltip, langLink.nextSibling);
 
     var removeTimer;
