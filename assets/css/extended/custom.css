@@ -100,6 +100,11 @@ html[data-theme="dark"] .post-content code {
   background: rgba(255, 255, 255, 0.07);
 }
 
+/* About page card titles should not inherit post heading colors */
+body.about-page .post-content h3 {
+  color: var(--primary);
+}
+
 /* Headings: size + generous top margin to signal section breaks */
 .post-content h2 {
   font-size: 1.6rem;
@@ -459,7 +464,8 @@ body.about-page .about-page__intro > p:first-child {
 
 body.about-page .about-page__avatar {
     margin-bottom: 0.1rem;
-    text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
 body.about-page .about-page__avatar img {
