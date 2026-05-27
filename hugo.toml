@@ -1,4 +1,4 @@
-baseURL = '/'
+baseURL = 'https://neilmin.com/'
 title = 'Neil Min | Software Engineer'
 env = 'production'
 enableRobotsTXT = true
