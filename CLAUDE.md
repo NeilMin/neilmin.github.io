@@ -207,7 +207,7 @@ Every change must stay in sync across EN and ZH:
 ## Known Gotchas
 
 - After CSS changes, confirm the content hash changed in `public/` output to verify the pipeline re-processed the file
-- PaperMod v0.161.1 emits `.Site.Data` deprecation warnings — safe to ignore
+- The theme partial `themes/PaperMod/layouts/partials/templates/opengraph.html` uses the deprecated `.Language.LanguageCode`, emitting one WARN per build — safe to ignore unless you override that partial (don't edit the theme directly). Our own layouts use the current `.Language.Direction`, `.Language.Locale`, and `hugo.Data` — keep them that way.
 - `tags/_index.md` and `zh/tags/_index.md` are intentionally deleted — do not recreate them
 - `AGENTS.local.md` is gitignored (local preferences); `AGENTS.md` is committed (project context for AI agents)
 

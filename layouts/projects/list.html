@@ -18,7 +18,7 @@
 {{- $allTagsLabel := cond $isZh "全部标签" "All Tags" }}
 {{- $projectTagsAria := cond $isZh "项目标签" "Project tags" }}
 {{- $techStackAria := cond $isZh "技术标签" "Tech stack" }}
-{{- $iconMap := .Site.Data.tech_icons }}
+{{- $iconMap := hugo.Data.tech_icons }}
 
 <section class="projects-showcase" aria-label="{{ .Title }}">
   {{- if $allTags }}
