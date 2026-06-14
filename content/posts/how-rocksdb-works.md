@@ -1,16 +1,16 @@
 +++
 date = '2026-06-13T07:00:00-07:00'
 title = 'How RocksDB Works: A Minimal LSM-Tree Primer'
-description = "While prepping for interviews I read a great write-up on how RocksDB works, and it finally made the LSM-tree click for me. This is my condensed version: what RocksDB is, how data gets written and read, what compaction is busy doing in the background, and the unavoidable trade-off between the three amplification factors. Not exhaustive — just enough that I can recall the shape of it next time."
+description = "I spent some time really learning how RocksDB works while prepping for interviews, and these are my notes: what RocksDB is, how data gets written and read, what compaction does in the background, and the unavoidable trade-off between the three amplification factors. Not exhaustive — just the core LSM-tree ideas, shared for anyone else trying to get it."
 keywords = ['RocksDB', 'LSM-Tree', 'MemTable', 'SST files', 'WAL', 'compaction', 'write amplification', 'key-value store', 'LevelDB', 'storage engine']
 slug = 'how-rocksdb-works'
 translationKey = 'how-rocksdb-works'
 tags = ['Databases', 'RocksDB', 'LSM-Tree', 'Interview']
 +++
 
-While prepping for interviews, I read Artem Krylysov's [How RocksDB Works](https://artem.krylysov.com/blog/2023/04/19/how-rocksdb-works/), and it instantly cleared up the fuzzy mess in my head around "what even *is* an LSM-tree." The original is wonderfully detailed — I'd strongly recommend just reading it.
+While prepping for interviews, I spent some time really digging into how RocksDB works — how its storage engine is designed, how data gets written, and how it gets read back. RocksDB (and the LSM-tree underneath it) is one of those things a lot of people have heard of but can't quite explain — I couldn't either, before I sat down with it. Once it clicked, I wrote up the core ideas as these notes, to share with anyone else trying to get it.
 
-This is my condensed take. I'm not trying to drag all of the original's depth over here (that would just be copying it); I want a lightweight record for myself: next time I'm interviewing, or just want to remember "roughly how does RocksDB turn," I can skim this and get it back. And if you're passing by and want a general picture of it, this should be enough. To dig deeper, go read the original.
+I won't claim this is exhaustive or deeply expert, but I hope it leaves you (and future me) with a clear overall picture of how RocksDB actually turns.
 
 ## What RocksDB is
 
@@ -122,4 +122,6 @@ If I keep just one mental map, it's this:
 - **Reads**: search newest to oldest, level by level, using a **Bloom filter** + **index** to skip and locate so you read as few stray files as possible;
 - **The essence**: it trades "write amplification" for the high throughput of "turning random writes into sequential ones" — and **between space, read, and write amplification, it's always a trade-off; there's no free lunch**.
 
-Hold onto those few lines and the overall shape of RocksDB stands up. The details — skip lists, delta encoding, the various compaction strategies, how to tune the knobs — you can dig back into the original [How RocksDB Works](https://artem.krylysov.com/blog/2023/04/19/how-rocksdb-works/) whenever you need them.
+Hold onto those few lines and the overall shape of RocksDB stands up. The finer details — skip lists, delta encoding, the various compaction strategies, how to tune the knobs — you can dive into whenever you actually need them.
+
+> A lot of my understanding here comes from Artem Krylysov's [How RocksDB Works](https://artem.krylysov.com/blog/2023/04/19/how-rocksdb-works/), which goes into far more depth — highly recommended if you want to go deeper.

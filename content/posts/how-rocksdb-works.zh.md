@@ -1,18 +1,16 @@
 +++
 date = '2026-06-13T07:00:00-07:00'
 title = 'RocksDB 是怎么工作的：一份 LSM-Tree 的极简笔记'
-description = '准备面试时读到一篇讲 RocksDB 原理的好文章，帮我真正理解了 LSM-Tree。这是我把它简写下来的版本：RocksDB 是什么、数据怎么写进去、怎么读出来、后台的 compaction 在忙什么，以及绕不开的「三种放大」权衡。不求专业全面，只求下次还能想起来它大概长什么样。'
+description = '准备面试时我把 RocksDB 的工作原理好好学了一遍，这是我整理的一份笔记：RocksDB 是什么、数据怎么写进去、怎么读出来、后台的 compaction 在忙什么，以及绕不开的「三种放大」权衡。不求多专业，只想把 LSM-Tree 的核心思路讲清楚，分享给同样想搞懂它的人。'
 keywords = ['RocksDB', 'LSM-Tree', 'LSM 树', 'MemTable', 'SST', 'WAL', 'Compaction', '写放大', 'KV 存储', 'LevelDB']
 slug = 'how-rocksdb-works'
 translationKey = 'how-rocksdb-works'
 tags = ['Databases', 'RocksDB', 'LSM-Tree', 'Interview']
 +++
 
-准备面试的时候，我读到 Artem Krylysov 写的 [How RocksDB Works](https://artem.krylysov.com/blog/2023/04/19/how-rocksdb-works/)，一下子把我之前对「LSM 树到底是个啥」的一团模糊给理清了。原文写得非常详细，强烈建议直接去读。
+准备面试的时候，我花了点时间，把 RocksDB 的工作原理从头到尾学了一遍——它的存储引擎到底是怎么设计的，数据是怎么写进去、又怎么读出来的。RocksDB（以及它背后的 LSM-Tree）是那种很多人听过、但真要讲清楚就容易卡壳的东西，我自己以前也是。等真的搞懂了，就把里面的核心思路整理成这份笔记，分享给同样想弄明白它的人。
 
-这篇是我自己的简写版——不打算把原文那么深的细节都搬过来（那样就成抄了），只想留个轻量的存档：等我哪天又要面试、或者只是想回忆「RocksDB 大概是怎么转的」，回到这里扫一遍就能捡回来。如果你是刚好路过、想对它有个整体印象，这篇也够用了。想深挖，再去看原文。
-
-下面这些英文词我尽量保留原样（LSM-Tree、MemTable、SST、WAL、compaction……），因为面试和文档里大家就是这么说的，硬翻成中文反而别扭。
+我不敢说讲得有多专业、多全面，但希望读完，你（还有未来的我）能对「RocksDB 大概是怎么转起来的」有一个清楚的整体印象。下面这些英文词我尽量保留原样（LSM-Tree、MemTable、SST、WAL、compaction……），因为面试和文档里大家就是这么说的，硬翻成中文反而别扭。
 
 ## RocksDB 是什么
 
@@ -124,4 +122,6 @@ RocksDB 默认用 **leveled compaction（分层合并）**：
 - **读**：从新到老一层层找，靠 **Bloom filter** + **index** 跳过和定位，少读冤枉文件；
 - **本质**：用「写放大」换「把随机写变成顺序写」的高吞吐——**空间、读、写三种放大之间，永远是权衡，没有免费的午餐**。
 
-把这几句记住，RocksDB 的大框架就立起来了。细节——skip list、delta encoding、各种 compaction 策略、参数怎么调——需要的时候再回原文 [How RocksDB Works](https://artem.krylysov.com/blog/2023/04/19/how-rocksdb-works/) 深挖即可。
+把这几句记住，RocksDB 的大框架就立起来了。更细的东西——skip list、delta encoding、各种 compaction 策略、参数到底怎么调——等真正用到的时候再往里钻也不迟。
+
+> 这份笔记里不少理解，来自 Artem Krylysov 的 [How RocksDB Works](https://artem.krylysov.com/blog/2023/04/19/how-rocksdb-works/)——原文讲得非常细致，想往深里走的话很推荐读一读。
