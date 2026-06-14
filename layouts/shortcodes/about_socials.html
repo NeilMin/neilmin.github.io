@@ -2,5 +2,19 @@
   {{- with .Get "cta" -}}
   <p class="about-page__cta">{{ . }}</p>
   {{- end -}}
-  {{- partial "social_icons.html" (dict "align" "center") -}}
+  {{- /* Inlined social row (instead of the social_icons.html partial) so we can append
+         an RSS feed link here on the About page only — keeping the homepage profile,
+         which uses the same site.Params.socialIcons list, at three icons. */ -}}
+  <div class="social-icons" align="center">
+    {{- range site.Params.socialIcons }}
+    <a href="{{ trim .url " " | safeURL }}" target="_blank" rel="noopener noreferrer me"
+        title="{{ (.title | default .name) | title }}">
+        {{ partial "svg.html" . }}
+    </a>
+    {{- end }}
+    <a href="{{ absLangURL "index.xml" | safeURL }}" target="_blank" rel="noopener noreferrer"
+        title="RSS" aria-label="RSS feed">
+        {{ partial "svg.html" (dict "name" "rss") }}
+    </a>
+  </div>
 </div>
