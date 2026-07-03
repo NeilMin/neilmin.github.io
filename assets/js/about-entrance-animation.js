@@ -11,11 +11,7 @@
         observer.unobserve(el);
         return;
       }
-      var idx = Array.prototype.indexOf.call(sections, el);
-      var delay = idx >= 0 ? idx * 100 : 0;
-      setTimeout(function () {
-        el.classList.add('about-section--revealed');
-      }, delay);
+      el.classList.add('about-section--revealed');
       observer.unobserve(el);
     });
   }, { threshold: 0.10 });

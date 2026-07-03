@@ -238,4 +238,37 @@ test.describe('Entrance animation stagger', () => {
 
     console.log(`  ✓ ${filteredCount} cards filtered, "${tagName}" active`);
   });
+
+  test('Blog list: below-fold entries should reveal with low latency when scrolled into view', async ({ page }) => {
+    // Set a viewport height so that lower entries are below fold
+    await page.setViewportSize({ width: 1280, height: 400 });
+    await page.goto(`${BASE}/posts/`, { waitUntil: 'domcontentloaded' });
+
+    const entries = page.locator('.post-entry');
+    const total = await entries.count();
+    
+    // Ensure we have enough entries to test
+    expect(total).toBeGreaterThan(5);
+    
+    // Pick an entry deep in the list (e.g. index 8, which has a 800ms lag in buggy code)
+    const targetIndex = Math.min(total - 1, 8);
+    const targetEntry = entries.nth(targetIndex);
+
+    const isRevealedImmediately = await page.evaluate(async () => {
+      const entries = document.querySelectorAll('.post-entry');
+      const target = entries[entries.length - 1];
+      
+      window.scrollTo(0, 10000);
+      
+      // Wait for 100ms. In buggy code (500ms delay), it won't be revealed.
+      // In fixed code (0ms delay), it will be revealed.
+      await new Promise(r => setTimeout(r, 100));
+      
+      return target.classList.contains('post-entry--revealed');
+    });
+
+    expect(isRevealedImmediately).toBe(true);
+
+    console.log(`  ✓ Entry at index ${total - 1} revealed within 100ms inside browser evaluate`);
+  });
 });

@@ -19,11 +19,7 @@
         observer.unobserve(el);
         return;
       }
-      var idx = cards.indexOf(el);
-      var delay = idx >= 0 ? idx * 120 : 0;
-      setTimeout(function () {
-        el.classList.add('project-card--revealed');
-      }, delay);
+      el.classList.add('project-card--revealed');
       observer.unobserve(el);
     });
   }, { threshold: 0.12 });
