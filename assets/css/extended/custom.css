@@ -1746,3 +1746,78 @@ html[data-theme="dark"] .project-backlink__link:focus-visible {
     opacity: 0.25;
     pointer-events: none;
 }
+
+/* ===== Archive (timeline) entry hover interaction ===== */
+.archive-entry {
+    position: relative;
+    padding: 8px 12px;
+    margin: 6px -12px;
+    border-radius: 8px;
+    background: transparent;
+    transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+                background 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Hover background card effect */
+.archive-entry:hover {
+    transform: translateX(6px);
+    background: var(--entry);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.025);
+}
+
+html[data-theme="dark"] .archive-entry:hover {
+    background: var(--entry);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Title transition to accent color */
+.archive-entry-title {
+    width: fit-content;
+    position: relative;
+    transition: color 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.archive-entry:hover .archive-entry-title {
+    color: var(--accent);
+}
+
+/* Underline sliding micro-animation */
+.archive-entry-title::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--accent);
+    transform: scaleX(0);
+    transform-origin: bottom left;
+    transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.archive-entry:hover .archive-entry-title::after {
+    transform: scaleX(1);
+}
+
+/* Accessibility: respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+    .archive-entry {
+        transition: none;
+    }
+    .archive-entry:hover {
+        transform: none;
+        background: var(--entry);
+        box-shadow: none;
+    }
+    .archive-entry-title {
+        transition: none;
+    }
+    .archive-entry-title::after {
+        display: none;
+    }
+    .archive-entry:hover .archive-entry-title {
+        text-decoration: underline;
+    }
+}
+

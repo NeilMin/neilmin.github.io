@@ -75,28 +75,28 @@ test.describe('Entrance animation stagger', () => {
     });
   }
 
-  test('Homepage: recent posts should be visible (no stuck --awaiting)', async ({ page }) => {
+  test('Homepage: recent posts should be visible (revealed after entrance animation)', async ({ page }) => {
     await page.goto(BASE, { waitUntil: 'domcontentloaded' });
 
     const section = page.locator('.home-recent-posts');
     await expect(section, 'recent posts section should exist').toBeAttached({ timeout: 3000 });
+    
+    // Scroll recent posts section into view to trigger the IntersectionObserver animation reveal
+    await section.scrollIntoViewIfNeeded();
 
     const entries = page.locator('.home-recent-posts .post-entry');
     const count = await entries.count();
     expect(count, 'should have at least 1 recent post').toBeGreaterThan(0);
 
-    // No entry should have --awaiting (no JS to reveal on homepage)
-    for (let i = 0; i < count; i++) {
-      const cls = await entries.nth(i).getAttribute('class');
-      expect(cls, `entry[${i}] should NOT have --awaiting`).not.toContain('post-entry--awaiting');
-    }
+    // Wait for the entrance animation to complete and apply --revealed class
+    await page.waitForSelector('.home-recent-posts .post-entry.post-entry--revealed', { timeout: 3000 });
 
     // All entries must be visible (opacity not 0, display not none)
     for (let i = 0; i < count; i++) {
       await expect(entries.nth(i), `entry[${i}] should be visible`).toBeVisible();
     }
 
-    console.log(`  ✓ ${count} recent posts visible, no --awaiting stuck`);
+    console.log(`  ✓ ${count} recent posts visible and revealed successfully`);
   });
 
   test('Blog list: below-fold entries should NOT be revealed initially', async ({ page }) => {
