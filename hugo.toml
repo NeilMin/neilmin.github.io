@@ -31,6 +31,10 @@ theme = 'PaperMod'
   # 隐藏作者（个人网站无需显示）
   hideAuthor = true
 
+  # 全站页脚 Motto（由主题 footer.html 的 footer.text 参数渲染）
+  [params.footer]
+    text = '*Learn by Doing. Grow by Sharing.*'
+
   [params.fuseOpts]
     keys = ["title", "permalink", "summary", "content", "tags"]
 

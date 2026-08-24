@@ -21,6 +21,8 @@ searchHidden = true
 我一直很喜欢那种既务实、又带一点执拗劲儿的系统。它有时候是分布式系统和性能调优，有时候是一个自托管服务、一个 side project，或者一篇终于把某个想法讲清楚的博客文章。
 {{< /about_intro >}}
 
+{{< motto >}}
+
 ## 工作经历
 
 {{< about_card eyebrow="2022 年 8 月 – 2026 年 4 月" title="谷歌" meta="软件工程师" >}}

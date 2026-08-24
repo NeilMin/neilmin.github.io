@@ -1821,3 +1821,36 @@ html[data-theme="dark"] .archive-entry:hover {
     }
 }
 
+/* ============================================================
+   Motto — "Learn by Doing. Grow by Sharing."
+   Placements: homepage profile (.profile-motto, overridden
+   index_profile.html), About page (.about-motto, motto
+   shortcode). Footer comes from hugo.toml [params.footer.text].
+   ============================================================ */
+
+.profile-motto,
+.about-motto {
+    margin: 0;
+    font-size: 0.95rem;
+    font-style: italic;
+    letter-spacing: 0.01em;
+    color: var(--secondary);
+}
+
+/* Keep the homepage entrance cascade ordered:
+   img → h1 → subtitle(220ms) → motto → socials(330ms) → buttons(440ms) */
+.profile_inner > .profile-motto {
+    margin-top: -0.35rem;
+    animation-delay: 265ms;
+}
+
+/* Dark mode: the drifting blobs glow warm orange right behind the motto —
+   same hue family as --secondary, so lift the text a step lighter and add
+   a dark halo to keep it legible over the brightest part of the glow. */
+html[data-theme="dark"] .profile-motto {
+    color: var(--content);
+    text-shadow:
+        0 0 4px rgb(25 15 8 / 0.6),
+        0 0 12px rgb(25 15 8 / 0.9);
+}
+

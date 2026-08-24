@@ -85,6 +85,7 @@ Loads deferred on every EN and ZH page. Checks `localStorage['lang-nudge-seen']`
 | `layouts/partials/extend_head.html` | Loads `site-preferences.js` (sync), `blob-layout-geometry.js` (deferred, home/search only), `lang-nudge.js` (deferred, EN+ZH pages) |
 | `layouts/partials/extend_footer.html` | Blob HTML + WAAPI entrance + rAF mouse loop (home/search only); Vercount counter (posts only) |
 | `layouts/partials/header.html` | Language switcher links to current page's translation (not the other language homepage) |
+| `layouts/partials/index_profile.html` | Homepage profile block override: inserts the motto line (`.profile-motto`) under the subtitle |
 | `layouts/partials/comments.html` | Giscus with `data-lang` set by `.Lang` |
 | `layouts/projects/list.html` | Projects: reads `hugo.Data.projects`, tag filter pills, two-column cards |
 
@@ -112,6 +113,7 @@ All live in `layouts/shortcodes/`. Used in `content/resume.md` and `content/resu
 | `about_tags` | Renders skill pills; splits on `,` (EN) **and** `、` (ZH) — both separators must always work |
 | `about_card` | Experience/education card with title, meta, eyebrow, body |
 | `about_socials` | Social icon row |
+| `motto` | Renders the personal motto line (`.about-motto`); used on both About pages. Footer motto comes from `hugo.toml` `[params.footer.text]`, not this shortcode |
 | `about_entrance_js` | Injects `about-entrance-animation.js` inline |
 | `site-card` | Clickable image+description card used in the "favorite personal websites" post |
 

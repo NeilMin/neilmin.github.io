@@ -21,6 +21,8 @@ I'm Neil Min, a software engineer based in Sunnyvale. Over the past few years, I
 I like systems that are practical, slightly obsessive, and worth revisiting later. Sometimes that means distributed systems and performance tuning. Sometimes it means a homelab service, a side project, or a blog post that finally explains something the way I wish I had first encountered it.
 {{< /about_intro >}}
 
+{{< motto >}}
+
 ## Experience
 
 {{< about_card eyebrow="Aug 2022 – Apr 2026" title="Google" meta="Software Engineer" >}}
