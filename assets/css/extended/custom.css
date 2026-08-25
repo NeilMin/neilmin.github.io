@@ -799,7 +799,10 @@ body.home .profile .button-inner {
     overflow: hidden;
     background: rgba(255, 249, 240, 0.88);
     box-shadow: 0 12px 30px rgba(80, 40, 10, 0.07);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, opacity 0.25s ease;
+    /* scale 是滚动呼吸动效的独立通道（见下方 is-scrolling 规则），
+       与 transform 上的 hover/入场动画互不干扰 */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, opacity 0.25s ease,
+                scale 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
 .project-card:hover {
@@ -1012,9 +1015,12 @@ html[data-theme="dark"] .project-card__link:focus-visible {
   margin-bottom: 0;
   padding: 1.2rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  /* scale 是滚动呼吸动效的独立通道（见下方 is-scrolling 规则），
+     与 transform 上的 hover/入场动画互不干扰 */
   transition: transform 0.25s cubic-bezier(0.22, 0.61, 0.36, 1),
               box-shadow 0.25s cubic-bezier(0.22, 0.61, 0.36, 1),
-              border-color 0.25s ease;
+              border-color 0.25s ease,
+              scale 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
   /* 圆角对齐封面图——overflow hidden 让背景被 clip，视觉上下一致 */
   overflow: hidden;
 }
@@ -1217,7 +1223,8 @@ html[data-theme="dark"] .projects-filter__link.is-active {
     opacity: 1;
     transform: translateY(0);
     transition: opacity 0.55s cubic-bezier(0.22, 0.61, 0.36, 1),
-                transform 0.55s cubic-bezier(0.22, 0.61, 0.36, 1);
+                transform 0.55s cubic-bezier(0.22, 0.61, 0.36, 1),
+                scale 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
 .project-card--revealed:hover {
@@ -1247,26 +1254,43 @@ html[data-theme="dark"] .projects-filter__link.is-active {
 }
 
 /* ===== Blog post entry animation ===== */
-.post-entry--awaiting {
+/* 选择器带 .posts-grid 前缀以压过上方 .posts-grid .post-entry 的
+     0.25s 过渡——否则入场 0.5s 淡入在 /posts/ 上不生效（同优先级靠源码顺序取胜） */
+.posts-grid .post-entry--awaiting {
     opacity: 0;
     transform: translateY(28px);
 }
 
-.post-entry--revealed {
+.posts-grid .post-entry--revealed {
     opacity: 1;
     transform: translateY(0);
     transition: opacity 0.5s cubic-bezier(0.22, 0.61, 0.36, 1),
-                transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+                transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1),
+                scale 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* 滚动呼吸：JS (card-scroll-shrink.js) 滚动时给卡片容器加
+   is-scrolling，停止约 120ms 后移除；scale 独立通道，与 hover 抬升叠加 */
+.posts-grid.is-scrolling .post-entry,
+.projects-grid.is-scrolling .project-card {
+    scale: 0.97;
 }
 
 @media (prefers-reduced-motion: reduce) {
     .project-card--awaiting,
     .project-card--revealed,
-    .post-entry--awaiting,
-    .post-entry--revealed {
+    .posts-grid .post-entry--awaiting,
+    .posts-grid .post-entry--revealed {
         opacity: 1;
         transform: none;
         transition: none;
+    }
+
+    /* card-scroll-shrink.js 在此偏好下不绑监听；这里兜底，
+       即使 is-scrolling 类存在也保持原尺寸 */
+    .posts-grid.is-scrolling .post-entry,
+    .projects-grid.is-scrolling .project-card {
+        scale: none;
     }
 }
 

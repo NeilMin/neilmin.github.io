@@ -159,4 +159,9 @@
 <script defer src="{{ $animScript.RelPermalink }}" integrity="{{ $animScript.Data.Integrity }}"></script>
 {{- end }}
 
+{{- if eq .Section "posts" }}
+{{- $shrinkScript := resources.Get "js/card-scroll-shrink.js" | resources.Minify | fingerprint }}
+<script defer src="{{ $shrinkScript.RelPermalink }}" integrity="{{ $shrinkScript.Data.Integrity }}"></script>
+{{- end }}
+
 {{- end }}{{- /* end main */ -}}

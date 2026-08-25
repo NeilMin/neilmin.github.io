@@ -59,8 +59,10 @@ When `profileMode.enabled = true` and `.IsHome`, `list.html` renders the profile
 ### Blog list (`/posts/`, `list.html`)
 Wraps `.post-entry` articles in `.posts-grid`. Every `post-entry` in the posts section gets `post-entry--awaiting` (opacity 0). `post-entries-animation.js` reveals them via IntersectionObserver with stagger. **Critical:** `post-entry--awaiting` is ONLY added when `.Section == "posts"`; adding it globally would permanently hide entries on other pages.
 
+While the page is scrolling, `card-scroll-shrink.js` adds `.is-scrolling` to `.posts-grid` (removed after ~120 ms idle) and cards shrink via a CSS `scale` rule — deliberately a separate channel from `transform`, so it composes with hover lift, `:active`, and the entrance animation instead of fighting them over the same property. The same script drives the projects grid (see Projects page below).
+
 ### Projects page (`layouts/projects/list.html`)
-Data-driven: reads `data/projects.yml` sorted by `weight`. Builds tag filter pills from all unique `tech_stack` values. Each card gets `project-card--awaiting`; `projects-showcase-filters.js` handles both entrance animation and tag filtering (via `?tag=slug` URL param). Tag icons come from `data/tech_icons.yml` keyed by urlized tag slug.
+Data-driven: reads `data/projects.yml` sorted by `weight`. Builds tag filter pills from all unique `tech_stack` values. Each card gets `project-card--awaiting`; `projects-showcase-filters.js` handles both entrance animation and tag filtering (via `?tag=slug` URL param). Tag icons come from `data/tech_icons.yml` keyed by urlized tag slug. `card-scroll-shrink.js` also loads here and applies the same scroll-breathing shrink as the posts grid.
 
 ### Post detail (`single.html`)
 TOC sidebar is shown only when `ShowToc = true` AND the post has ≥ 2 headings (`ge (len (findRE "<h[1-6].*?>" .Content)) 2`). `toc-scrollspy.js` is loaded only when TOC is rendered. Footer auto-injects a "Related Project" backlink by scanning `hugo.Data.projects` for any project whose `secondary_btn_url` matches the current page's permalink.
@@ -96,6 +98,7 @@ Loads deferred on every EN and ZH page. Checks `localStorage['lang-nudge-seen']`
 | `site-preferences.js` | Every page (sync) | Language detect → redirect + localStorage binding |
 | `blob-layout-geometry.js` | Home + search (deferred) | Pure math: computes blob positions from anchor rect |
 | `post-entries-animation.js` | Posts list (deferred) | `post-entry--awaiting` → `post-entry--revealed` with stagger |
+| `card-scroll-shrink.js` | Posts + Projects lists (deferred) | Scroll breathing: toggles `.is-scrolling` on `.posts-grid` / `.projects-grid` while scrolling, removes it after ~120 ms idle; cards shrink via the independent CSS `scale` channel; no-op under `prefers-reduced-motion` |
 | `projects-showcase-filters.js` | Projects page (deferred) | Entrance stagger + tag filter via URL `?tag=` param |
 | `about-entrance-animation.js` | About page (inline via shortcode) | `.about-section--awaiting` → `--revealed` with stagger |
 | `toc-scrollspy.js` | Single post w/ TOC (deferred) | Adds `is-active` to the TOC link whose heading is nearest top |
@@ -154,6 +157,8 @@ Entrance animation state classes:
 - `.post-entry--awaiting` / `.post-entry--revealed`
 - `.project-card--awaiting` / `.project-card--revealed` / `.project-card--filtered`
 - `.about-section--awaiting` / `.about-section--revealed`
+
+Scroll breathing (posts + projects lists): `.posts-grid.is-scrolling .post-entry, .projects-grid.is-scrolling .project-card { scale: 0.97 }`. The shrink lives on the standalone CSS `scale` property — never merge it into `transform`, which hover/`:active`/entrance own; the `scale` transition must also appear in every competing `transition:` shorthand that wins the cascade (base card rule + each `--revealed` rule), or it gets wiped. The posts `--awaiting`/`--revealed` selectors are prefixed with `.posts-grid` so their 0.5s transition beats the base card rule (they'd otherwise be overridden and the fade would never play); project-card rules don't need this because base `.project-card` has equal specificity and loses on source order.
 
 ## Blob Background Animation
 

@@ -136,4 +136,7 @@
 {{- $filterScript := resources.Get "js/projects-showcase-filters.js" | resources.Minify | fingerprint }}
 <script defer src="{{ $filterScript.RelPermalink }}" integrity="{{ $filterScript.Data.Integrity }}"></script>
 
+{{- $shrinkScript := resources.Get "js/card-scroll-shrink.js" | resources.Minify | fingerprint }}
+<script defer src="{{ $shrinkScript.RelPermalink }}" integrity="{{ $shrinkScript.Data.Integrity }}"></script>
+
 {{- end }}
