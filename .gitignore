@@ -10,9 +10,17 @@ node_modules/
 # Playwright
 test-results/
 playwright-report/
+.playwright-mcp/
 *.png
 *.jpg
 *.jpeg
+
+# Post cover images live inside content/posts/ bundles — re-include them
+# (the global image rules above only exist to keep Playwright screenshots out)
+!content/posts/**/*.jpg
+!content/posts/**/*.jpeg
+!content/posts/**/*.png
+!content/posts/**/*.webp
 
 # Local overrides
 AGENTS.local.md

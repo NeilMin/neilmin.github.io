@@ -1058,7 +1058,7 @@ html[data-theme="dark"] .project-card__link:focus-visible {
 
 .posts-grid .post-entry .entry-cover img {
   border-radius: 0;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 21 / 9;
   object-fit: cover;
   width: 100%;
 }

@@ -6,6 +6,11 @@ keywords = ['排序算法', '快速排序', '归并排序', '堆排序', '计数
 slug = 'sorting-algorithms-interview-reference'
 translationKey = 'sorting-algorithms-interview-reference'
 tags = ['Algorithms', 'Sorting', 'Interview', 'Python']
+
+[cover]
+image = 'cover.jpg'
+relative = true
+alt = '木桌上灰蓝、奶油与沙色的木质线轴'
 +++
 
 最近在准备 coding 面试，把排序算法又从头捋了一遍。捋的过程里我有点被自己吓到：很多东西五年前我是真的记得的，比如快排的 partition 到底怎么写、为什么会退化，现在却要愣一下才能想起来。等翻到非比较排序那一块——计数排序、基数排序、桶排序——我发现那已经基本是一片空白了。

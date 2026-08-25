@@ -8,6 +8,11 @@ translationKey = 'favorite-personal-websites'
 tags = ['Web Design', 'Inspiration', 'Portfolio']
 ShowToc = false
 bodyClass = 'favorite-websites-page'
+
+[cover]
+image = 'cover.jpg'
+relative = true
+alt = 'An open scrapbook of vintage postcards and photographs on a sunlit wooden desk'
 +++
 
 I've looked through quite a few personal websites lately, and the more I look, the more interesting this whole category feels.

@@ -31,7 +31,7 @@ macOS `grep` doesn't support `-P`; use `egrep` instead.
 
 ```
 hugo.toml                          # all site config: menus, bilingual, GA4, PaperMod params
-content/posts/                     # blog posts  (EN: foo.md  /  ZH: foo.zh.md)
+content/posts/                     # blog posts as leaf bundles: foo/index.md (EN), foo/index.zh.md (ZH), foo/cover.jpg (optional)
 content/projects/_index.md         # projects section index (content is empty; data comes from data/)
 content/resume.md / resume.zh.md   # About page
 content/search.md / search.zh.md   # Search page (layout: search)
@@ -184,10 +184,30 @@ Every change must stay in sync across EN and ZH:
 ## Adding New Content
 
 **New post:**
-1. `content/posts/foo.md` (EN)
-2. `content/posts/foo.zh.md` (ZH)
+1. `content/posts/foo/index.md` (EN) — posts are leaf bundles, one folder per post
+2. `content/posts/foo/index.zh.md` (ZH)
 3. Keep frontmatter aligned: `title`, `date`, `tags`, `draft`
 4. Set `draft: false` before pushing
+
+**Post cover image (optional):**
+1. Canonical cover: **1680×720 (21:9), JPG, ~≤300KB** — Hugo generates 360–1500px responsive variants from it. Easiest path: `python3 scripts/make-cover.py <any-image> <slug>` (center-crops to 21:9 and installs it as `cover.jpg`); AI prompt templates live in `scripts/cover-prompts.md`
+2. Add to frontmatter (both languages share the same image):
+   ```toml
+   [cover]
+   image = 'cover.jpg'
+   relative = true   # required — og:image / JSON-LD resolve the URL relative to the post
+   alt = '...'       # per-language alt text
+   ```
+3. Covers appear on the `/posts/` card grid (CSS crops to 21:9) and the single post page automatically; the homepage Recent Posts section intentionally shows no covers
+4. Abstract placeholder covers can be regenerated with `python3 scripts/generate-cover-placeholders.py`
+
+**AI cover generation (local ComfyUI on localhost:8188):**
+When writing a new post, generate its cover this way (ComfyUI must be running):
+1. `python3 scripts/comfyui-generate-cover.py <slug>` → PNG in `/tmp/` (RealVisXL SDXL; the per-post subject + color palette comes from `SCENES` in the script — add an entry for new posts, with its own distinct palette so covers don't read as one series)
+2. `python3 scripts/make-cover.py /tmp/comfy-cover-<slug>-sdxl.png <slug>` → crops to 21:9 and installs
+3. Update the post's `alt` (EN + ZH) to describe the actual image
+4. **Always view each generated image before installing** — quality-gate it
+Hard-won lessons: use RealVisXL (default), not flux-schnell (its fp8 build crashes on Mac MPS, and the gguf output is bland); never ask for strict size- or gradient-ordered sequences — SDXL can't do them; keep any text out of the image (it renders as gibberish); demand concrete subjects, never pure gradients/backgrounds.
 
 **New project:**
 1. Add entry to `data/projects.yml` with all required fields

@@ -5,6 +5,11 @@ description = '记录我是怎么用 Hugo、GitHub Pages 和 PaperMod 搭起一�
 keywords = ['Hugo', 'GitHub Pages', 'PaperMod', 'Vercount', 'Giscus', '双语博客', '自定义域名', '404 排查', 'Vibe Coding']
 slug = 'building-my-hugo-blog-with-github-pages'
 translationKey = 'why-i-built-this-blog'
+
+[cover]
+image = 'cover.jpg'
+relative = true
+alt = '清晨窗边摊开的笔记本和一壶热茶'
 +++
 
 这件事说白了，其实就是“为了买一盘醋，包了一顿饺子”。

@@ -6,6 +6,11 @@ keywords = ['RocksDB', 'LSM-Tree', 'LSM 树', 'MemTable', 'SST', 'WAL', 'Compact
 slug = 'how-rocksdb-works'
 translationKey = 'how-rocksdb-works'
 tags = ['Databases', 'RocksDB', 'LSM-Tree', 'Interview']
+
+[cover]
+image = 'cover.jpg'
+relative = true
+alt = '晨雾中层层堆叠的沉积岩地层'
 +++
 
 准备面试的时候，我花了点时间，把 RocksDB 的工作原理从头到尾学了一遍——它的存储引擎到底是怎么设计的，数据是怎么写进去、又怎么读出来的。RocksDB（以及它背后的 LSM-Tree）是那种很多人听过、但真要讲清楚就容易卡壳的东西，我自己以前也是。等真的搞懂了，就把里面的核心思路整理成这份笔记，分享给同样想弄明白它的人。

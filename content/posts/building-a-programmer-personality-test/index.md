@@ -6,6 +6,11 @@ keywords = ['MBTI', 'SBTI', 'programmer personality test', 'Vite', 'React', 'Git
 slug = 'building-a-programmer-personality-test'
 translationKey = 'building-a-programmer-personality-test'
 tags = ['React', 'Vite', 'Side Project', 'MBTI']
+
+[cover]
+image = 'cover.jpg'
+relative = true
+alt = 'Yellow rubber ducks wearing tiny hats and glasses, lined up on a wooden shelf'
 +++
 
 A little while ago, I kept running into personality-test projects everywhere.

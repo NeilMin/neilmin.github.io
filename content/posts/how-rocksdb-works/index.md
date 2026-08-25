@@ -6,6 +6,11 @@ keywords = ['RocksDB', 'LSM-Tree', 'MemTable', 'SST files', 'WAL', 'compaction',
 slug = 'how-rocksdb-works'
 translationKey = 'how-rocksdb-works'
 tags = ['Databases', 'RocksDB', 'LSM-Tree', 'Interview']
+
+[cover]
+image = 'cover.jpg'
+relative = true
+alt = 'Layered sedimentary rock strata rising through morning haze'
 +++
 
 While prepping for interviews, I spent some time really digging into how RocksDB works — how its storage engine is designed, how data gets written, and how it gets read back. RocksDB (and the LSM-tree underneath it) is one of those things a lot of people have heard of but can't quite explain — I couldn't either, before I sat down with it. Once it clicked, I wrote up the core ideas as these notes, to share with anyone else trying to get it.

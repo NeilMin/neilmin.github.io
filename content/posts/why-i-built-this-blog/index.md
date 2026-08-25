@@ -6,6 +6,11 @@ keywords = ['Hugo', 'GitHub Pages', 'PaperMod', 'Vercount', 'Giscus', 'SEO', 'bi
 slug = 'building-my-hugo-blog-with-github-pages'
 translationKey = 'why-i-built-this-blog'
 tags = ['Hugo', 'Web Development', 'DevOps']
+
+[cover]
+image = 'cover.jpg'
+relative = true
+alt = 'An open notebook and tea by a window at dawn'
 +++
 
 This whole thing, honestly, was basically the software version of buying a dish of vinegar and ending up making an entire batch of dumplings.

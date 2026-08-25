@@ -7,6 +7,11 @@ slug = 'favorite-personal-websites'
 translationKey = 'favorite-personal-websites'
 ShowToc = false
 bodyClass = 'favorite-websites-page'
+
+[cover]
+image = 'cover.jpg'
+relative = true
+alt = '阳光木桌上摊开的剪贴本，贴满复古明信片与照片'
 +++
 
 最近我看了不少个人网站，越看越觉得这类站点很有意思。

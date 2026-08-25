@@ -4,6 +4,11 @@ title = 'Why PostgreSQL Kept Saying “No space left on device” with 20TB Stil
 description = 'A PostgreSQL backup failure that looked like a disk-capacity problem turned out to be an EXT4 directory indexing limit caused by millions of tiny Large Object files.'
 translationKey = 'linux-disk-bug-triage'
 tags = ['PostgreSQL', 'Linux', 'Debugging', 'Database']
+
+[cover]
+image = 'cover.jpg'
+relative = true
+alt = 'An opened mechanical hard drive with its shiny platter and copper actuator exposed'
 +++
 
 A little while ago, we ran into a customer issue that turned out to be way more interesting than it looked at first glance. The customer was trying to generate a backup using `pg_dump`, and the job kept failing halfway through with this error:

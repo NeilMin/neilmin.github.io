@@ -6,6 +6,11 @@ keywords = ['sorting algorithms', 'quicksort', 'merge sort', 'heap sort', 'count
 slug = 'sorting-algorithms-interview-reference'
 translationKey = 'sorting-algorithms-interview-reference'
 tags = ['Algorithms', 'Sorting', 'Interview', 'Python']
+
+[cover]
+image = 'cover.jpg'
+relative = true
+alt = 'Wooden thread spools in slate blue, cream and sand tones on a table'
 +++
 
 I've been prepping for coding interviews lately, and I went back through the sorting algorithms from scratch. The process gave me a bit of a scare: a lot of this I genuinely *used to* know — how quicksort's partition actually works, why it degrades — and now I had to pause to remember it. By the time I got to the non-comparison sorts — counting, radix, bucket — I realized that whole area had become more or less a blank.

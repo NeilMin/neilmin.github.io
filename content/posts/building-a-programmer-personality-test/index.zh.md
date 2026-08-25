@@ -5,6 +5,11 @@ description = '从几个爆火的人格测试项目里得到灵感，我做了�
 keywords = ['MBTI', 'SBTI', '程序员人格测试', 'Vite', 'React', 'GitHub Pages', 'AI 绘图', 'Vibe Coding']
 slug = 'building-a-programmer-personality-test'
 translationKey = 'building-a-programmer-personality-test'
+
+[cover]
+image = 'cover.jpg'
+relative = true
+alt = '戴着小帽子和眼镜的橡皮鸭排成一排站在木架上'
 +++
 
 前段时间我连续看到了几个很火的人格测试项目。
