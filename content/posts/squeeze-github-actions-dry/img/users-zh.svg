@@ -1,0 +1,85 @@
+<svg class="chart" viewBox="0 0 600 488" role="img" aria-labelledby="usage-title usage-desc" xmlns="http://www.w3.org/2000/svg">
+<title id="usage-title">网站用户数，9 月 15 日到 10 月 17 日</title>
+<desc id="usage-desc">累计用户从 0 增长到 568；每天的活跃用户在 10 月 6 日达到 114，之后每天五六十人。</desc>
+<text class="c-title" x="46" y="26">累计用户</text>
+<text class="c-title" x="46" y="276">每天的活跃用户</text>
+<line class="c-grid" x1="46" x2="540" y1="184.0" y2="184.0"/>
+<text class="c-tick" x="38" y="189.0" text-anchor="end">0</text>
+<line class="c-grid" x1="46" x2="540" y1="137.3" y2="137.3"/>
+<text class="c-tick" x="38" y="142.3" text-anchor="end">200</text>
+<line class="c-grid" x1="46" x2="540" y1="90.7" y2="90.7"/>
+<text class="c-tick" x="38" y="95.7" text-anchor="end">400</text>
+<line class="c-grid" x1="46" x2="540" y1="44.0" y2="44.0"/>
+<text class="c-tick" x="38" y="49.0" text-anchor="end">600</text>
+<line class="c-grid" x1="46" x2="540" y1="440.0" y2="440.0"/>
+<text class="c-tick" x="38" y="445.0" text-anchor="end">0</text>
+<line class="c-grid" x1="46" x2="540" y1="398.7" y2="398.7"/>
+<text class="c-tick" x="38" y="403.7" text-anchor="end">40</text>
+<line class="c-grid" x1="46" x2="540" y1="357.3" y2="357.3"/>
+<text class="c-tick" x="38" y="362.3" text-anchor="end">80</text>
+<line class="c-grid" x1="46" x2="540" y1="316.0" y2="316.0"/>
+<text class="c-tick" x="38" y="321.0" text-anchor="end">120</text>
+<polygon class="c-area" points="46.0,184.0 46.0,184.0 61.4,168.1 76.9,159.5 92.3,157.4 107.8,156.7 123.2,155.1 138.6,152.3 154.1,150.4 169.5,148.5 184.9,146.9 200.4,145.5 215.8,144.3 231.2,143.6 246.7,141.1 262.1,139.0 277.6,136.4 293.0,133.8 308.4,133.4 323.9,133.1 339.3,132.7 354.8,130.3 370.2,110.5 385.6,98.8 401.1,88.1 416.5,83.0 431.9,80.4 447.4,77.6 462.8,73.4 478.2,68.5 493.7,65.9 509.1,61.0 524.6,56.6 540.0,51.5 540.0,184.0"/>
+<polyline class="c-line" points="46.0,184.0 61.4,168.1 76.9,159.5 92.3,157.4 107.8,156.7 123.2,155.1 138.6,152.3 154.1,150.4 169.5,148.5 184.9,146.9 200.4,145.5 215.8,144.3 231.2,143.6 246.7,141.1 262.1,139.0 277.6,136.4 293.0,133.8 308.4,133.4 323.9,133.1 339.3,132.7 354.8,130.3 370.2,110.5 385.6,98.8 401.1,88.1 416.5,83.0 431.9,80.4 447.4,77.6 462.8,73.4 478.2,68.5 493.7,65.9 509.1,61.0 524.6,56.6 540.0,51.5"/>
+<circle class="c-dot" cx="540.0" cy="51.5" r="4.5"/>
+<text class="c-value" x="550.0" y="57.5">568</text>
+<rect class="c-bar" x="41.2" y="440.0" width="9.6" height="0.0" rx="1.5"/>
+<rect class="c-bar" x="56.7" y="369.7" width="9.6" height="70.3" rx="1.5"/>
+<rect class="c-bar" x="72.1" y="400.7" width="9.6" height="39.3" rx="1.5"/>
+<rect class="c-bar" x="87.5" y="423.5" width="9.6" height="16.5" rx="1.5"/>
+<rect class="c-bar" x="103.0" y="431.7" width="9.6" height="8.3" rx="1.5"/>
+<rect class="c-bar" x="118.4" y="424.5" width="9.6" height="15.5" rx="1.5"/>
+<rect class="c-bar" x="133.8" y="416.2" width="9.6" height="23.8" rx="1.5"/>
+<rect class="c-bar" x="149.3" y="418.3" width="9.6" height="21.7" rx="1.5"/>
+<rect class="c-bar" x="164.7" y="415.2" width="9.6" height="24.8" rx="1.5"/>
+<rect class="c-bar" x="180.2" y="418.3" width="9.6" height="21.7" rx="1.5"/>
+<rect class="c-bar" x="195.6" y="418.3" width="9.6" height="21.7" rx="1.5"/>
+<rect class="c-bar" x="211.0" y="417.3" width="9.6" height="22.7" rx="1.5"/>
+<rect class="c-bar" x="226.5" y="419.3" width="9.6" height="20.7" rx="1.5"/>
+<rect class="c-bar" x="241.9" y="409.0" width="9.6" height="31.0" rx="1.5"/>
+<rect class="c-bar" x="257.3" y="405.9" width="9.6" height="34.1" rx="1.5"/>
+<rect class="c-bar" x="272.8" y="402.8" width="9.6" height="37.2" rx="1.5"/>
+<rect class="c-bar" x="288.2" y="401.8" width="9.6" height="38.2" rx="1.5"/>
+<rect class="c-bar" x="303.7" y="419.3" width="9.6" height="20.7" rx="1.5"/>
+<rect class="c-bar" x="319.1" y="422.4" width="9.6" height="17.6" rx="1.5"/>
+<rect class="c-bar" x="334.5" y="411.1" width="9.6" height="28.9" rx="1.5"/>
+<rect class="c-bar" x="350.0" y="404.9" width="9.6" height="35.1" rx="1.5"/>
+<rect class="c-bar c-bar-peak" x="365.4" y="322.2" width="9.6" height="117.8" rx="1.5"/>
+<rect class="c-bar" x="380.8" y="336.7" width="9.6" height="103.3" rx="1.5"/>
+<rect class="c-bar" x="396.3" y="341.8" width="9.6" height="98.2" rx="1.5"/>
+<rect class="c-bar" x="411.7" y="380.1" width="9.6" height="59.9" rx="1.5"/>
+<rect class="c-bar" x="427.2" y="398.7" width="9.6" height="41.3" rx="1.5"/>
+<rect class="c-bar" x="442.6" y="384.2" width="9.6" height="55.8" rx="1.5"/>
+<rect class="c-bar" x="458.0" y="377.0" width="9.6" height="63.0" rx="1.5"/>
+<rect class="c-bar" x="473.5" y="374.9" width="9.6" height="65.1" rx="1.5"/>
+<rect class="c-bar" x="488.9" y="383.2" width="9.6" height="56.8" rx="1.5"/>
+<rect class="c-bar" x="504.3" y="363.5" width="9.6" height="76.5" rx="1.5"/>
+<rect class="c-bar" x="519.8" y="381.1" width="9.6" height="58.9" rx="1.5"/>
+<rect class="c-bar" x="535.2" y="383.2" width="9.6" height="56.8" rx="1.5"/>
+<line class="c-axis" x1="46.0" x2="46.0" y1="184" y2="189"/>
+<text class="c-tick" x="46.0" y="216" text-anchor="middle">9/15</text>
+<line class="c-axis" x1="154.1" x2="154.1" y1="184" y2="189"/>
+<text class="c-tick" x="154.1" y="216" text-anchor="middle">9/22</text>
+<line class="c-axis" x1="262.1" x2="262.1" y1="184" y2="189"/>
+<text class="c-tick" x="262.1" y="216" text-anchor="middle">9/29</text>
+<line class="c-axis" x1="370.2" x2="370.2" y1="184" y2="189"/>
+<text class="c-tick" x="370.2" y="216" text-anchor="middle">10/6</text>
+<line class="c-axis" x1="478.2" x2="478.2" y1="184" y2="189"/>
+<text class="c-tick" x="478.2" y="216" text-anchor="middle">10/13</text>
+<line class="c-axis" x1="540.0" x2="540.0" y1="184" y2="189"/>
+<text class="c-tick" x="540.0" y="216" text-anchor="middle">10/17</text>
+<line class="c-axis" x1="46" x2="540" y1="184" y2="184"/>
+<line class="c-axis" x1="46.0" x2="46.0" y1="440" y2="445"/>
+<text class="c-tick" x="46.0" y="472" text-anchor="middle">9/15</text>
+<line class="c-axis" x1="154.1" x2="154.1" y1="440" y2="445"/>
+<text class="c-tick" x="154.1" y="472" text-anchor="middle">9/22</text>
+<line class="c-axis" x1="262.1" x2="262.1" y1="440" y2="445"/>
+<text class="c-tick" x="262.1" y="472" text-anchor="middle">9/29</text>
+<line class="c-axis" x1="370.2" x2="370.2" y1="440" y2="445"/>
+<text class="c-tick" x="370.2" y="472" text-anchor="middle">10/6</text>
+<line class="c-axis" x1="478.2" x2="478.2" y1="440" y2="445"/>
+<text class="c-tick" x="478.2" y="472" text-anchor="middle">10/13</text>
+<line class="c-axis" x1="540.0" x2="540.0" y1="440" y2="445"/>
+<text class="c-tick" x="540.0" y="472" text-anchor="middle">10/17</text>
+<line class="c-axis" x1="46" x2="540" y1="440" y2="440"/>
+</svg>

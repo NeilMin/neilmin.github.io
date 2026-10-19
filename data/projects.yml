@@ -1,3 +1,22 @@
+- name: Stanford Dining Hall Menus
+  name_zh: 舌尖上的斯坦福
+  description: Every Stanford dining hall's menu side by side, in English and Chinese, with an AI-drawn picture of each dish, generated on free GitHub Actions machines.
+  description_zh: 把斯坦福各个食堂的菜单并排放在一起，中英双语，每道菜配一张 AI 画的图，图都是在 GitHub Actions 的免费机器上画的。
+  image: /images/projects/stanford-dining-cover.png
+  tech_stack:
+    - Python
+    - GitHub Actions
+    - AI Image Generation
+    - Web UI
+  weight: 5
+  primary_btn_text: "🍽️ Open the menu"
+  primary_btn_text_zh: "🍽️ 打开菜单"
+  primary_btn_url: https://stanford-dining.neilmin.com
+  secondary_btn_text: Read the post
+  secondary_btn_text_zh: 查看博文
+  secondary_btn_url: /posts/squeeze-github-actions-dry/
+  github_url: https://github.com/NeilMin/better-stanford-dining-menu
+
 - name: Programmer MBTI Test
   name_zh: 程序员 MBTI 测试
   description: An MBTI-style test that tells you what kind of programmer personality you have.

@@ -1878,3 +1878,44 @@ html[data-theme="dark"] .profile-motto {
         0 0 12px rgb(25 15 8 / 0.9);
 }
 
+
+/* ============================================================
+   Inline SVG charts — inline-svg shortcode
+   The SVG is written into the page rather than linked as an
+   <img>, so its colours follow the theme toggle through the
+   same tokens as the text around it.
+   ============================================================ */
+
+.post-content figure.inline-svg {
+    margin: 1.5rem 0 0.5rem;
+}
+
+.post-content figure.inline-svg svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+svg.chart text {
+    font-family: inherit;
+    font-variant-numeric: tabular-nums;
+}
+
+svg.chart .c-title { font-size: 16px; font-weight: 600; fill: var(--primary); }
+svg.chart .c-tick  { font-size: 14px; fill: var(--secondary); }
+svg.chart .c-value { font-size: 17px; font-weight: 700; fill: var(--accent); }
+svg.chart .c-grid  { stroke: var(--border); stroke-width: 1; }
+svg.chart .c-axis  { stroke: var(--secondary); stroke-width: 1; opacity: 0.6; }
+svg.chart .c-line  { fill: none; stroke: var(--accent); stroke-width: 2.5; stroke-linejoin: round; }
+svg.chart .c-area  { fill: var(--accent); opacity: 0.14; }
+svg.chart .c-dot   { fill: var(--accent); }
+svg.chart .c-bar   { fill: var(--accent); opacity: 0.45; }
+svg.chart .c-bar-peak { opacity: 1; }
+
+/* A phone shows the 600-unit viewBox at about half size; set the labels
+   larger in SVG units so they land near 11px on screen. */
+@media (max-width: 600px) {
+    svg.chart .c-title { font-size: 22px; }
+    svg.chart .c-tick  { font-size: 20px; }
+    svg.chart .c-value { font-size: 24px; }
+}

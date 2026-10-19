@@ -1,0 +1,7 @@
+{{- /* Writes an SVG from the page bundle into the page: {{< inline-svg src="img/x.svg" >}} */ -}}
+{{- $src := .Get "src" -}}
+{{- with .Page.Resources.Get $src -}}
+<figure class="inline-svg">{{ .Content | safeHTML }}</figure>
+{{- else -}}
+{{- errorf "inline-svg: %q not found in %s" $src $.Page.File.Path -}}
+{{- end -}}
