@@ -140,13 +140,16 @@ test.describe('Entrance animation stagger', () => {
 
     const total = await page.locator('.post-entry').count();
 
-    // Scroll incrementally to trigger IntersectionObserver for each entry
+    // Scroll half a viewport at a time to trigger IntersectionObserver for each
+    // entry. A fixed number of steps over the whole page jumped clean past an
+    // entry once the list grew to seven posts with covers.
     const pageHeight = await page.evaluate(() => document.body.scrollHeight);
-    const steps = 5;
-    for (let i = 1; i <= steps; i++) {
-      await page.evaluate((y) => window.scrollTo(0, y), (pageHeight / steps) * i);
-      await page.waitForTimeout(600); // Allow observer + stagger
+    const stride = 150; // half the 300px viewport
+    for (let y = stride; y < pageHeight + stride; y += stride) {
+      await page.evaluate((top) => window.scrollTo(0, top), y);
+      await page.waitForTimeout(150);
     }
+    await page.waitForTimeout(600); // Allow observer + stagger
 
     // Final reveal check
     const revealedCount = await page.locator('.post-entry--revealed').count();
