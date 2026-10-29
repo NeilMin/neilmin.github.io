@@ -59,7 +59,7 @@ theme = 'PaperMod'
   [languages.en.params.profileMode]
     enabled = true
     title = "Hi, I'm Neil 👋"
-    subtitle = "Software Engineer @ Google | UCSD CS | Java, Go, C++, Python"
+    subtitle = "Software Engineer | UCSD CS | Java, Go, C++, Python"
     imageUrl = "/football_me.jpg" 
     imageWidth = 120
     imageHeight = 120
@@ -116,7 +116,7 @@ theme = 'PaperMod'
   [languages.zh.params.profileMode]
     enabled = true
     title = "你好，我是 Neil 👋"
-    subtitle = "Google 软件工程师 | 加州大学圣地亚哥分校 CS | 熟悉 Java, Go, C++, Python"
+    subtitle = "软件工程师 | 加州大学圣地亚哥分校 CS | 熟悉 Java, Go, C++, Python"
     imageUrl = "/football_me.jpg"
     imageWidth = 120
     imageHeight = 120

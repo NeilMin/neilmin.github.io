@@ -16,18 +16,24 @@ searchHidden = true
 {{< about_avatar src="/football_me.jpg" >}}
 
 {{< about_intro >}}
-I'm Neil Min, a software engineer based in Sunnyvale. Over the past few years, I spent most of my time working on cloud database infrastructure and large-scale data systems, but this site is a quieter corner of the internet for everything that sits adjacent to that work: things I am learning, things I am building, and ideas I want to think through a little more carefully.
+I'm Neil, a software engineer based in the Bay Area, working on distributed systems and data infrastructure.
 
-I like systems that are practical, slightly obsessive, and worth revisiting later. Sometimes that means distributed systems and performance tuning. Sometimes it means a homelab service, a side project, or a blog post that finally explains something the way I wish I had first encountered it.
+This site is my personal space on the web. For now, it mostly captures engineering notes, bug triage, and ongoing side projects; down the road, I look forward to adding personal essays, book notes, and reflections worth writing down.
 {{< /about_intro >}}
 
 {{< motto >}}
 
 ## Experience
 
+{{< about_card eyebrow="Jul 2026 – Present" title="Box" meta="Software Engineer" >}}
+
+Building core storage platform infrastructure — designing and scaling distributed systems to support enterprise content at scale, focusing on high availability, performance, and data durability.
+
+{{< /about_card >}}
+
 {{< about_card eyebrow="Aug 2022 – Apr 2026" title="Google" meta="Software Engineer" >}}
 
-Led data import/export infrastructure for Google Cloud's Data Migration team — built a high-performance parallel pipeline that accelerated transfers by 10x and integrated with Dataplex for enterprise-scale data catalog synchronization.
+Led data migration infrastructure for Google Cloud — designed and built high-throughput distributed data pipelines to support large-scale enterprise data ingestion, export, and cloud synchronization.
 
 {{< /about_card >}}
 
