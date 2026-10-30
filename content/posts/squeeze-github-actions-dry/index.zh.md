@@ -12,6 +12,7 @@ draft = false
 image = 'cover.jpg'
 relative = true
 alt = "Stanford Dining Hall Menus, Side by Side：三家食堂的晚饭并排放，每家最上面是一道菜的图"
+hiddenInSingle = true
 +++
 
 从九月起，我开始去斯坦福的食堂吃饭。
@@ -24,9 +25,6 @@ alt = "Stanford Dining Hall Menus, Side by Side：三家食堂的晚饭并排放
 查个菜单不该这么麻烦。我的第一想法是写个脚本把每天的菜单抓下来，做成一个并排汇总的页面，一眼能看完今天吃什么，再决定去哪家。
 
 第一版做起来很快：几家食堂的菜单并排摆开，今晚哪家有什么，一屏就能看完。正好我手上有现成的 neilmin.com 域名，挂个子域名上去，一分钱不用花，朋友也能用。于是就有了 [stanford-dining.neilmin.com](https://stanford-dining.neilmin.com)。
-
-![stanford-dining.neilmin.com：三家食堂的晚饭并排放](img/our-site.jpg)
-*同一天的晚饭，三家并排。*
 
 做着做着又加了两样东西：中文翻译和菜品配图。食堂的英文菜名经常让人摸不着头脑，比如 “Craveable Grains”、“Magnolia Boil”，单看名字根本不知道是什么。所以我让 AI 根据菜名和配料表给每道菜画一张图，看一眼就知道是炖的还是炒的，是一整块肉还是切片的。
 
@@ -168,6 +166,9 @@ GitHub 的使用条款规定，Actions 不能用于挖矿、当 CDN 或 serverle
 {{< inline-svg src="img/users-zh.svg" >}}
 
 最近一周的访问用户里，大约七成是回访用户，说明它确实成了一部分人每天查菜单的常用工具。我很高兴。
+
+![stanford-dining.neilmin.com：三家食堂的晚饭并排放](img/our-site.jpg)
+*这就是最终跑起来的网站：三家食堂晚饭并排，每道菜配有中英双语和 GitHub Actions 跑出来的 AI 配图。*
 
 能在看食堂菜单这件事上给大家做了一点微小的工作，这个项目就算没白折腾。
 

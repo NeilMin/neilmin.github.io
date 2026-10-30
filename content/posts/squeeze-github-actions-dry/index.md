@@ -12,6 +12,7 @@ draft = false
 image = 'cover.jpg'
 relative = true
 alt = "Stanford Dining Hall Menus, Side by Side: three dining halls' dinners next to each other, each led by a picture of a dish"
+hiddenInSingle = true
 +++
 
 Starting in September, I began eating at Stanford's dining halls.
@@ -24,9 +25,6 @@ To eat there, you first need to check the menu. But Stanford's official menu web
 Checking a menu shouldn't be this painful. My first thought was to write a quick script to scrape the daily menus and lay them out side by side on a single page, so I could see what's being served tonight at a glance before deciding where to go.
 
 The first version came together quickly: menus for multiple halls side by side, all visible on one screen. I already owned the neilmin.com domain, so I hooked up a subdomain without spending anything extra, and my friends could use it too. That's how [stanford-dining.neilmin.com](https://stanford-dining.neilmin.com) was born.
-
-![stanford-dining.neilmin.com: three halls' dinners side by side](img/our-site.jpg)
-*The same day's dinner, three halls side by side.*
 
 As I went, I added two things: Chinese translations and dish pictures. The dining hall dish names can be baffling—"Craveable Grains"? "Magnolia Boil"? What is that supposed to be? So I had AI generate a picture for each dish based on its name and ingredients. One look tells you whether it's stewed or stir-fried, and whether it's a solid cut of meat or sliced.
 
@@ -168,6 +166,9 @@ A month after launch, the site has had over 500 visitors, with around 50 to 60 d
 {{< inline-svg src="img/users-en.svg" >}}
 
 Over the past week, roughly 70% of daily visitors were returning users, showing that it has genuinely become part of their daily routine for checking menus. I'm really glad to see that.
+
+![stanford-dining.neilmin.com: three halls' dinners side by side](img/our-site.jpg)
+*The final working site: three halls' dinners side by side, each dish equipped with bilingual translations and AI illustrations generated on GitHub Actions.*
 
 Knowing that this little project has made checking dining menus a bit easier for everyone makes all the tinkering worthwhile.
 

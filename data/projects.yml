@@ -1,7 +1,7 @@
 - name: Stanford Dining Hall Menus
   name_zh: 舌尖上的斯坦福
-  description: Every Stanford dining hall's menu side by side, in English and Chinese, with an AI-drawn picture of each dish, generated on free GitHub Actions machines.
-  description_zh: 把斯坦福各个食堂的菜单并排放在一起，中英双语，每道菜配一张 AI 画的图，图都是在 GitHub Actions 的免费机器上画的。
+  description: 'Cures the daily "where to eat?" dilemma at Stanford: a side-by-side, bilingual comparison of all dining hall menus, plus AI dish illustrations casually powered by free GitHub Actions runners.'
+  description_zh: '专治斯坦福每天“吃哪家”的纠结：全校食堂菜单并排对比、中英双语，还顺便薅了 GitHub Actions 的免费算力给每道菜画了张 AI 示意图。'
   image: /images/projects/stanford-dining-cover.png
   tech_stack:
     - Python
