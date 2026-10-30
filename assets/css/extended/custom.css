@@ -14,7 +14,7 @@
     --code-block-bg:    rgb(39,  39,  42);  /* keep neutral     – code block */
     --code-bg:          rgb(244, 240, 234); /* warm tint        – inline code */
     --border:           rgb(224, 208, 188); /* warm sand        – border     */
-    --accent:           rgb(192, 90,  40);  /* terracotta       – CTA / link  */
+    --accent:           rgb(180, 80,  32);  /* terracotta       – CTA / link (WCAG AA 4.5:1+) */
     --accent-h2:        rgb(152, 60,  16);  /* deep terracotta  – h2 heading  */
     --on-accent:        rgb(255, 255, 255); /* white            – text on accent */
     --radius:           10px;
@@ -58,6 +58,7 @@ h1, h2, h3, h4 {
   font-optical-sizing: auto;
   font-weight: 800;
   letter-spacing: -0.025em;
+  text-wrap: balance;
 }
 
 /* Monospace stack with good CJK coverage */
@@ -77,6 +78,7 @@ code, pre, kbd, samp, .highlight, .chroma {
 .post-content p {
   line-height: 1.78;
   margin-bottom: 1.2rem;
+  text-wrap: pretty;
 }
 
 /* Code blocks: improve readability */
@@ -435,11 +437,17 @@ body.about-page .post-content {
 }
 
 body.about-page .post-content > h2 {
-    margin: 0;
-    font-size: 0.78rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
+    margin: 0.65rem 0 0.1rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
     color: var(--secondary);
+}
+
+html[lang="en"] body.about-page .post-content > h2 {
+    font-size: 0.84rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
 }
 
 body.about-page .post-content > div,
@@ -496,8 +504,8 @@ body.about-page .about-page__tag {
     align-items: center;
     padding: 0.26rem 0.68rem;
     border-radius: 999px;
-    border: 1px solid rgba(120, 120, 120, 0.16);
-    background: rgba(120, 120, 120, 0.05);
+    border: 1px solid color-mix(in srgb, var(--secondary) 25%, transparent);
+    background: color-mix(in srgb, var(--secondary) 8%, transparent);
     color: var(--secondary);
     font-size: 0.78rem;
     line-height: 1.4;
@@ -507,8 +515,8 @@ body.about-page .about-page__tag {
 
 body.about-page .about-page__tag:hover {
     transform: translateY(-1px);
-    border-color: rgba(120, 120, 120, 0.3);
-    background: rgba(120, 120, 120, 0.12);
+    border-color: color-mix(in srgb, var(--secondary) 45%, transparent);
+    background: color-mix(in srgb, var(--secondary) 16%, transparent);
     color: var(--primary);
 }
 
@@ -567,7 +575,7 @@ body.about-page .about-page__card {
     margin: 0;
     padding: 1.08rem 0 1.18rem;
     border: 0;
-    border-bottom: 1px solid rgba(120, 120, 120, 0.14);
+    border-bottom: 1px solid var(--border);
     border-radius: 0;
     background: transparent;
     box-shadow: none;
@@ -762,8 +770,8 @@ body.home .profile .button-inner {
     min-height: 2.1rem;
     padding: 0.35rem 0.8rem;
     border-radius: 999px;
-    border: 1px solid rgba(120, 120, 120, 0.16);
-    background: rgba(120, 120, 120, 0.06);
+    border: 1px solid color-mix(in srgb, var(--secondary) 25%, transparent);
+    background: color-mix(in srgb, var(--secondary) 8%, transparent);
     color: var(--secondary);
     text-decoration: none;
     transition: transform 160ms ease, border-color 160ms ease, background 160ms ease, color 160ms ease;
@@ -772,15 +780,15 @@ body.home .profile .button-inner {
 .projects-filter__link:hover,
 .projects-filter__link:focus-visible {
     transform: translateY(-1px);
-    border-color: rgba(120, 120, 120, 0.28);
-    background: rgba(120, 120, 120, 0.12);
+    border-color: color-mix(in srgb, var(--secondary) 45%, transparent);
+    background: color-mix(in srgb, var(--secondary) 16%, transparent);
     color: var(--primary);
 }
 
 .projects-filter__link.is-active {
     transform: translateY(-1px);
     border-color: var(--accent);
-    background: rgba(120, 120, 120, 0.08);
+    background: color-mix(in srgb, var(--accent) 12%, transparent);
     color: var(--accent);
     font-weight: 600;
 }
@@ -799,16 +807,16 @@ body.home .profile .button-inner {
     overflow: hidden;
     background: rgba(255, 249, 240, 0.88);
     box-shadow: 0 12px 30px rgba(80, 40, 10, 0.07);
-    /* scale 是滚动呼吸动效的独立通道（见下方 is-scrolling 规则），
-       与 transform 上的 hover/入场动画互不干扰 */
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, opacity 0.25s ease,
-                scale 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+    transition: transform 0.25s cubic-bezier(0.22, 0.61, 0.36, 1),
+                box-shadow 0.25s cubic-bezier(0.22, 0.61, 0.36, 1),
+                border-color 0.25s ease,
+                opacity 0.25s ease;
 }
 
 .project-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 18px 44px rgba(20, 24, 28, 0.12);
-    border-color: rgba(120, 120, 120, 0.28);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.14);
+    border-color: var(--accent);
 }
 
 .project-card[hidden] {
@@ -818,8 +826,10 @@ body.home .profile .button-inner {
 .project-card__media {
     margin: 0;
     overflow: hidden;
+    isolation: isolate;
+    transform: translateZ(0);
     background: rgba(20, 24, 28, 0.05);
-    border-right: 1px solid rgba(120, 120, 120, 0.12);
+    border-right: 1px solid var(--border);
     min-height: 100%;
 }
 
@@ -829,12 +839,14 @@ body.home .profile .button-inner {
     height: 100%;
     object-fit: cover;
     object-position: center top;
-    transition: transform 0.45s ease, filter 0.45s ease;
+    transition: transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1),
+                filter 0.4s ease;
+    will-change: transform;
 }
 
 .project-card:hover .project-card__image {
     transform: scale(1.04);
-    filter: brightness(1.07);
+    filter: brightness(1.05);
 }
 
 .project-card__body {
@@ -853,6 +865,7 @@ body.home .profile .button-inner {
     margin: 0;
     font-size: 1.22rem;
     line-height: 1.25;
+    text-wrap: balance;
 }
 
 .project-card__description {
@@ -860,6 +873,7 @@ body.home .profile .button-inner {
     color: var(--secondary);
     font-size: 0.95rem;
     line-height: 1.62;
+    text-wrap: pretty;
 }
 
 .project-card__tags {
@@ -877,8 +891,8 @@ body.home .profile .button-inner {
     min-height: 1.55rem;
     padding: 0.16rem 0.5rem;
     border-radius: 7px;
-    border: 1px solid rgba(120, 120, 120, 0.12);
-    background: rgba(120, 120, 120, 0.04);
+    border: 1px solid color-mix(in srgb, var(--secondary) 25%, transparent);
+    background: color-mix(in srgb, var(--secondary) 8%, transparent);
     color: var(--secondary);
     font-size: 0.73rem;
     line-height: 1.2;
@@ -890,15 +904,15 @@ body.home .profile .button-inner {
 .project-card__tag:hover,
 .project-card__tag:focus-visible {
     transform: translateY(-1px);
-    border-color: rgba(120, 120, 120, 0.26);
-    background: rgba(120, 120, 120, 0.12);
+    border-color: color-mix(in srgb, var(--secondary) 45%, transparent);
+    background: color-mix(in srgb, var(--secondary) 16%, transparent);
     color: var(--primary);
 }
 
 .project-card__actions {
     margin-top: auto;
     padding-top: 0.95rem;
-    border-top: 1px solid rgba(120, 120, 120, 0.12);
+    border-top: 1px solid var(--border);
 }
 
 .project-card__button-row {
@@ -944,7 +958,7 @@ body.home .profile .button-inner {
 }
 
 .project-card__button--secondary {
-    border-color: rgba(120, 120, 120, 0.22);
+    border-color: color-mix(in srgb, var(--secondary) 30%, transparent);
     background: transparent;
     color: var(--primary);
 }
@@ -953,7 +967,7 @@ body.home .profile .button-inner {
     min-width: 7.2rem;
     padding: 0.46rem 0.82rem;
     border-radius: 7px;
-    border: 1px solid rgba(120, 120, 120, 0.16);
+    border: 1px solid color-mix(in srgb, var(--secondary) 25%, transparent);
     background: transparent;
     color: var(--secondary);
     font-size: 0.86rem;
@@ -964,19 +978,19 @@ body.home .profile .button-inner {
 
 .project-card__link:hover,
 .project-card__link:focus-visible {
-    border-color: rgba(120, 120, 120, 0.28);
+    border-color: color-mix(in srgb, var(--secondary) 50%, transparent);
     color: var(--primary);
 }
 
 html[data-theme="dark"] .project-card {
     background: rgba(42, 24, 10, 0.92);
-    border-color: rgba(200, 140, 80, 0.1);
-    box-shadow: 0 16px 38px rgba(0, 0, 0, 0.35);
+    border-color: rgba(200, 140, 80, 0.12);
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.38);
 }
 
 html[data-theme="dark"] .project-card:hover {
-    border-color: rgba(200, 140, 80, 0.22);
-    box-shadow: 0 22px 52px rgba(0, 0, 0, 0.48);
+    border-color: var(--accent);
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.52);
 }
 
 html[data-theme="dark"] .project-card__media {
@@ -1015,12 +1029,9 @@ html[data-theme="dark"] .project-card__link:focus-visible {
   margin-bottom: 0;
   padding: 1.2rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  /* scale 是滚动呼吸动效的独立通道（见下方 is-scrolling 规则），
-     与 transform 上的 hover/入场动画互不干扰 */
   transition: transform 0.25s cubic-bezier(0.22, 0.61, 0.36, 1),
               box-shadow 0.25s cubic-bezier(0.22, 0.61, 0.36, 1),
-              border-color 0.25s ease,
-              scale 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+              border-color 0.25s ease;
   /* 圆角对齐封面图——overflow hidden 让背景被 clip，视觉上下一致 */
   overflow: hidden;
 }
@@ -1041,12 +1052,14 @@ html[data-theme="dark"] .project-card__link:focus-visible {
 .posts-grid .post-entry .entry-header h2 {
   font-size: 1.22rem;
   line-height: 1.34;
+  text-wrap: balance;
 }
 
 .posts-grid .post-entry .entry-content {
   flex: 1;
   margin: 0.6rem 0 0.75rem;
   -webkit-line-clamp: 3;
+  text-wrap: pretty;
 }
 
 .posts-grid .post-entry .entry-footer {
@@ -1060,6 +1073,8 @@ html[data-theme="dark"] .project-card__link:focus-visible {
   margin: -1.2rem -1.2rem 1rem;
   border-radius: var(--radius) var(--radius) 0 0;
   overflow: hidden;
+  isolation: isolate;
+  transform: translateZ(0);
 }
 
 .posts-grid .post-entry .entry-cover img {
@@ -1067,22 +1082,61 @@ html[data-theme="dark"] .project-card__link:focus-visible {
   aspect-ratio: 21 / 9;
   object-fit: cover;
   width: 100%;
+  transition: transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1),
+              filter 0.4s ease;
+  will-change: transform;
+}
+
+.posts-grid .post-entry:hover .entry-cover img {
+  transform: scale(1.04);
+  filter: brightness(1.05);
 }
 
 .posts-grid .post-entry:active {
   transform: scale(0.98);
 }
 
-/* --- Dark mode card grid --- */
-html[data-theme="dark"] .posts-grid .post-entry {
-  /* 居中白色辉光，不偏移——避免双层矩形错位 */
-  box-shadow: 0 0 24px rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.06);
+/* ===== Blog card tag badges ===== */
+.entry-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.38rem;
+  margin-bottom: 0.55rem;
 }
 
-html[data-theme="dark"] .posts-grid .post-entry:hover {
-  box-shadow: 0 0 48px rgba(255, 255, 255, 0.14);
+.entry-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.14rem 0.5rem;
+  border-radius: 6px;
+  border: 1px solid color-mix(in srgb, var(--secondary) 25%, transparent);
+  background: color-mix(in srgb, var(--secondary) 8%, transparent);
+  color: var(--secondary);
+  font-size: 0.72rem;
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+html[data-theme="dark"] .entry-tag {
+  border-color: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--secondary);
+}
+
+/* --- Dark mode card grid --- */
+html[data-theme="dark"] .posts-grid .post-entry,
+html[data-theme="dark"] .home-recent-posts .post-entry {
+  border-color: rgba(200, 140, 80, 0.12);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.38);
+}
+
+html[data-theme="dark"] .posts-grid .post-entry:hover,
+html[data-theme="dark"] .home-recent-posts .post-entry:hover {
   border-color: var(--accent);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.52);
 }
 
 @media (max-width: 768px) {
@@ -1104,12 +1158,22 @@ html[data-theme="dark"] .posts-grid .post-entry:hover {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .posts-grid .post-entry {
+  .posts-grid .post-entry,
+  .project-card,
+  .posts-grid .post-entry .entry-cover img,
+  .project-card__image {
     transition: none;
   }
 
-  .posts-grid .post-entry:hover {
+  .posts-grid .post-entry:hover,
+  .project-card:hover {
     transform: none;
+  }
+
+  .posts-grid .post-entry:hover .entry-cover img,
+  .project-card:hover .project-card__image {
+    transform: none;
+    filter: none;
   }
 }
 
@@ -1151,11 +1215,6 @@ html[data-theme="dark"] .post-entry:hover {
 .home-recent-posts .post-entry:hover {
     transform: translateY(-3px);
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.14);
-    border-color: var(--accent);
-}
-
-html[data-theme="dark"] .home-recent-posts .post-entry:hover {
-    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5);
     border-color: var(--accent);
 }
 
@@ -1201,11 +1260,27 @@ html[data-theme="dark"] .projects-filter__link.is-active {
     .project-card__media {
         aspect-ratio: 16 / 10;
         border-right: 0;
-        border-bottom: 1px solid rgba(120, 120, 120, 0.12);
+        border-bottom: 1px solid var(--border);
     }
 
     html[data-theme="dark"] .project-card__media {
-        border-bottom-color: rgba(255, 255, 255, 0.08);
+        border-bottom-color: var(--border);
+    }
+}
+
+/* ===== Mobile Tap Target Accessibility ===== */
+@media (pointer: coarse), (max-width: 768px) {
+    .project-card__tag,
+    .about-page__tag,
+    .projects-filter__link {
+        position: relative;
+    }
+
+    .project-card__tag::after,
+    .about-page__tag::after {
+        content: '';
+        position: absolute;
+        inset: -6px -4px;
     }
 }
 
@@ -1223,8 +1298,7 @@ html[data-theme="dark"] .projects-filter__link.is-active {
     opacity: 1;
     transform: translateY(0);
     transition: opacity 0.55s cubic-bezier(0.22, 0.61, 0.36, 1),
-                transform 0.55s cubic-bezier(0.22, 0.61, 0.36, 1),
-                scale 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+                transform 0.55s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
 .project-card--revealed:hover {
@@ -1265,15 +1339,7 @@ html[data-theme="dark"] .projects-filter__link.is-active {
     opacity: 1;
     transform: translateY(0);
     transition: opacity 0.5s cubic-bezier(0.22, 0.61, 0.36, 1),
-                transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1),
-                scale 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
-}
-
-/* 滚动呼吸：JS (card-scroll-shrink.js) 滚动时给卡片容器加
-   is-scrolling，停止约 120ms 后移除；scale 独立通道，与 hover 抬升叠加 */
-.posts-grid.is-scrolling .post-entry,
-.projects-grid.is-scrolling .project-card {
-    scale: 0.97;
+                transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1284,13 +1350,6 @@ html[data-theme="dark"] .projects-filter__link.is-active {
         opacity: 1;
         transform: none;
         transition: none;
-    }
-
-    /* card-scroll-shrink.js 在此偏好下不绑监听；这里兜底，
-       即使 is-scrolling 类存在也保持原尺寸 */
-    .posts-grid.is-scrolling .post-entry,
-    .projects-grid.is-scrolling .project-card {
-        scale: none;
     }
 }
 
@@ -1358,7 +1417,7 @@ html[data-theme="dark"] body.favorite-websites-page .favorite-site-card:focus-vi
   max-height: calc(100vh - var(--header-height, 60px) - 4rem);
   overflow-y: auto;
   scrollbar-width: thin;
-  scrollbar-color: rgba(120, 120, 120, 0.3) transparent;
+  scrollbar-color: color-mix(in srgb, var(--secondary) 35%, transparent) transparent;
   z-index: 5;
 }
 
@@ -1367,7 +1426,7 @@ html[data-theme="dark"] body.favorite-websites-page .favorite-site-card:focus-vi
 }
 
 .post-toc-sidebar::-webkit-scrollbar-thumb {
-  background: rgba(120, 120, 120, 0.3);
+  background: color-mix(in srgb, var(--secondary) 35%, transparent);
   border-radius: 2px;
 }
 
@@ -1401,7 +1460,7 @@ html[data-theme="dark"] body.favorite-websites-page .favorite-site-card:focus-vi
 
 .post-toc-sidebar .toc a:hover {
   color: var(--primary);
-  background: rgba(120, 120, 120, 0.08);
+  background: color-mix(in srgb, var(--primary) 6%, transparent);
 }
 
 .post-toc-sidebar .toc a.is-active {
@@ -1414,7 +1473,7 @@ html[data-theme="dark"] .post-toc-sidebar .toc a.is-active {
   background: rgba(212, 128, 74, 0.12);
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1300px) {
   .post-toc-sidebar {
     position: static;
     width: auto;
@@ -1613,11 +1672,6 @@ html[data-theme="dark"] .lang-nudge-tooltip::before {
 }
 
 /* ===== 3.4 Dark mode polish ===== */
-/* List page background: subtle warmth instead of flat */
-html[data-theme="dark"] .list {
-  background: rgb(9, 9, 11);
-}
-
 /* Post tags in dark mode */
 html[data-theme="dark"] .post-tags a {
   background: rgba(255, 255, 255, 0.04);
@@ -1728,8 +1782,8 @@ html[data-theme="dark"] .archive-link {
     align-items: center;
     padding: 0.38rem 0.72rem;
     border-radius: 7px;
-    border: 1px solid rgba(120, 120, 120, 0.18);
-    background: rgba(120, 120, 120, 0.04);
+    border: 1px solid color-mix(in srgb, var(--secondary) 25%, transparent);
+    background: color-mix(in srgb, var(--secondary) 8%, transparent);
     color: var(--secondary);
     text-decoration: none;
     font-weight: 600;
@@ -1740,8 +1794,8 @@ html[data-theme="dark"] .archive-link {
 .project-backlink__link:hover,
 .project-backlink__link:focus-visible {
     transform: translateY(-1px);
-    border-color: rgba(120, 120, 120, 0.32);
-    background: rgba(120, 120, 120, 0.12);
+    border-color: color-mix(in srgb, var(--secondary) 45%, transparent);
+    background: color-mix(in srgb, var(--secondary) 16%, transparent);
     color: var(--primary);
 }
 

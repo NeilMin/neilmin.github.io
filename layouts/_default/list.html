@@ -11,6 +11,13 @@
   </h2>
   {{- range $recentPosts }}
   <article class="post-entry post-entry--awaiting">
+    {{- if .Params.tags }}
+    <div class="entry-tags">
+      {{- range .Params.tags }}
+      <span class="entry-tag">{{ . }}</span>
+      {{- end }}
+    </div>
+    {{- end }}
     <header class="entry-header">
       <h2 class="entry-hint-parent">
         {{- .Title }}
@@ -101,6 +108,13 @@
 <article class="{{ $class }}{{ if eq $.Section "posts" }} post-entry--awaiting{{ end }}">
   {{- $isHidden := (.Param "cover.hiddenInList") | default (.Param "cover.hidden") | default false }}
   {{- partial "cover.html" (dict "cxt" . "IsSingle" false "isHidden" $isHidden) }}
+  {{- if .Params.tags }}
+  <div class="entry-tags">
+    {{- range .Params.tags }}
+    <span class="entry-tag">{{ . }}</span>
+    {{- end }}
+  </div>
+  {{- end }}
   <header class="entry-header">
     <h2 class="entry-hint-parent">
       {{- .Title }}
@@ -157,11 +171,6 @@
 {{- if or (eq .Section "posts") .IsHome }}
 {{- $animScript := resources.Get "js/post-entries-animation.js" | resources.Minify | fingerprint }}
 <script defer src="{{ $animScript.RelPermalink }}" integrity="{{ $animScript.Data.Integrity }}"></script>
-{{- end }}
-
-{{- if eq .Section "posts" }}
-{{- $shrinkScript := resources.Get "js/card-scroll-shrink.js" | resources.Minify | fingerprint }}
-<script defer src="{{ $shrinkScript.RelPermalink }}" integrity="{{ $shrinkScript.Data.Integrity }}"></script>
 {{- end }}
 
 {{- end }}{{- /* end main */ -}}
