@@ -22,31 +22,31 @@ alt = '阳光木桌上摊开的剪贴本，贴满复古明信片与照片'
 这个网站最有意思的地方，就是作者先给自己做了一个坐在桌子前面的虚拟形象。然后你去点画面里的每一个东西，不管是人、桌上的物件，还是后面的画板，都会把你带到不同的子页面。第一次看到的时候我就觉得，原来个人网站还能这么玩。
 {{< /site-card >}}
 
-{{< site-card url="https://www.alanagoyal.com/finder" title="alanagoyal.com/finder" image="/images/favorite-personal-websites/alanagoyal-finder-homepage.png" alt="alanagoyal.com/finder 页面截图" >}}
+{{< site-card url="https://www.alanagoyal.com/finder" title="alanagoyal.com/finder" image="/images/favorite-personal-websites/alanagoyal-finder-homepage.jpg" alt="alanagoyal.com/finder 页面截图" >}}
 这个网站很厉害的一点，是它几乎把整个界面都做得像苹果系统一样，而且不是那种只做个样子，很多地方都是真的可以交互的。整个体验非常轻巧，也非常有趣，会让人忍不住到处点一遍。
 {{< /site-card >}}
 
-{{< site-card url="https://www.sharyap.com" title="sharyap.com" image="/images/favorite-personal-websites/sharyap-homepage.png" alt="sharyap.com 首页截图" >}}
+{{< site-card url="https://www.sharyap.com" title="sharyap.com" image="/images/favorite-personal-websites/sharyap-homepage.png" alt="sharyap.com：手绘风格的 about 窗口叠在 home 窗口上" >}}
 这个网站跟刚才那个有点像，也是你每打开一个新的页面，就像在电脑上新开了一个窗口一样。更可爱的是，网站里的很多图、标志，还有各种小元素，都是作者自己画的，整个感觉就特别统一，也特别可爱。
 {{< /site-card >}}
 
-{{< site-card url="https://merodev.net" title="merodev.net" image="/images/favorite-personal-websites/merodev-homepage.png" alt="merodev.net 首页截图" >}}
+{{< site-card url="https://merodev.net" title="merodev.net" image="/images/favorite-personal-websites/merodev-homepage.png" alt="merodev.net 的 3D 总览地图，发光线路连接到各个板块" >}}
 这是一个非常炫酷、非常有科技感的 3D 网站。你一打开就能感受到那个渲染出来的质感，光影、场景、整体氛围都很抓人，属于那种会让人下意识多停几秒看一看的页面。
 {{< /site-card >}}
 
-{{< site-card url="https://bruno-simon.com" title="bruno-simon.com" image="/images/favorite-personal-websites/bruno-simon-homepage.png" alt="bruno-simon.com 首页截图" >}}
+{{< site-card url="https://bruno-simon.com" title="bruno-simon.com" image="/images/favorite-personal-websites/bruno-simon-homepage.jpg" alt="bruno-simon.com 的 3D 世界里，小车撞翻了巨大的 BRUNO SIMON 字母" >}}
 这个网站非常有名，我很久以前就看过。现在再看，它又进化了。它最离谱、也最让人忘不掉的地方在于，作者居然把自己的个人网站做成了一个 3D 开车小游戏。你一边开车，一边看他的作品和介绍。我到现在都还是会想，他到底是怎么把这么多东西全都塞进一个网站里的。而且他还有自己的 YouTube 频道，专门讲这些东西是怎么做出来的。
 {{< /site-card >}}
 
-{{< site-card url="https://logartis.info" title="logartis.info" image="/images/favorite-personal-websites/logartis-homepage.png" alt="logartis.info 首页截图" >}}
+{{< site-card url="https://logartis.info" title="logartis.info" image="/images/favorite-personal-websites/logartis-homepage.jpg" alt="logartis.info 的自由飞行模式：「Cotton candy」天色下的松林，右侧是天气切换面板" >}}
 这个网站给我的感觉很像在看电影。你像是在树林里穿来穿去，整个场景的氛围特别完整。尤其是它对天气和环境变化的处理，真的做得很好，所以你在里面待着的时候会很有沉浸感。
 {{< /site-card >}}
 
-{{< site-card url="https://wodniack.dev" title="wodniack.dev" image="/images/favorite-personal-websites/wodniack-homepage.png" alt="wodniack.dev 首页截图" >}}
+{{< site-card url="https://wodniack.dev" title="wodniack.dev" image="/images/favorite-personal-websites/wodniack-homepage.png" alt="wodniack.dev 首屏：线条波浪动画与「CREATIVE DEVELOPER」大标题" >}}
 这个网站也是个人风格非常鲜明的那一类。它里面的很多互动，还有滚动时触发出来的效果，都做得很独特，也很有艺术感。你能感觉到作者不是在套一个模板，而是真的在用网站表达自己的审美。
 {{< /site-card >}}
 
-{{< site-card url="https://getcoleman.com" title="getcoleman.com" image="/images/favorite-personal-websites/getcoleman-homepage.png" alt="getcoleman.com 首页截图" >}}
+{{< site-card url="https://getcoleman.com" title="getcoleman.com" image="/images/favorite-personal-websites/getcoleman-homepage.png" alt="getcoleman.com 把「Hard Sell」滑块拉到接近最右：滑板上的小狗举着「Book me now」牌子" >}}
 这个网站最让我眼前一亮的地方，是它介绍自己的方式特别有创意。作者用进度条去展示自己的人生时间线，还有不同阶段的变化。你一看就会觉得，原来自我介绍这件事还可以这样做，真的很有意思。
 {{< /site-card >}}
 
@@ -58,7 +58,7 @@ alt = '阳光木桌上摊开的剪贴本，贴满复古明信片与照片'
 这个网站整体做得特别舒服。无论是字体、配色，还是首页上的互动小游戏，都会让人觉得这个人的审美真的很好，而且是那种越看越觉得舒服的好。再加上他还写了很多技术文章，所以它不只是好看，也很值得学习。
 {{< /site-card >}}
 
-{{< site-card url="https://portfolio.ohevan.com" title="portfolio.ohevan.com" image="/images/favorite-personal-websites/ohevan-portfolio-homepage.png" alt="portfolio.ohevan.com 首页截图" >}}
+{{< site-card url="https://portfolio.ohevan.com" title="portfolio.ohevan.com" image="/images/favorite-personal-websites/ohevan-portfolio-homepage.jpg" alt="portfolio.ohevan.com：他在蒙特利尔拍的公路车灯长曝光照片，配上超大号「Lights in Motion」标题" >}}
 这个网站更像是在展示一个人的作品集、去过的地方，还有他拍过的照片，而且那些照片拍得真的很像大片一样。我自己也非常喜欢这种方向，等以后我有更多值得分享的照片时，也很想认真想一想，要不要做一个类似的页面。
 {{< /site-card >}}
 

@@ -23,31 +23,31 @@ They are not all chasing the same style. Some are very restrained, some go reall
 What makes this one so fun is that the author built a virtual version of himself sitting at a desk. Then you can click almost everything in the scene, whether it's the person, the objects on the desk, or even the board behind him, and each one takes you to a different page. The first time I saw it, I immediately thought: wow, so this is another way a personal website can work.
 {{< /site-card >}}
 
-{{< site-card url="https://www.alanagoyal.com/finder" title="alanagoyal.com/finder" image="/images/favorite-personal-websites/alanagoyal-finder-homepage.png" alt="Screenshot of alanagoyal.com/finder" >}}
+{{< site-card url="https://www.alanagoyal.com/finder" title="alanagoyal.com/finder" image="/images/favorite-personal-websites/alanagoyal-finder-homepage.jpg" alt="Screenshot of alanagoyal.com/finder" >}}
 One of the coolest things about this site is that it turns almost the entire interface into something that feels like macOS. And it's not just for show. A lot of it is actually interactive. The whole experience feels light, playful, and very hard not to click through.
 {{< /site-card >}}
 
-{{< site-card url="https://www.sharyap.com" title="sharyap.com" image="/images/favorite-personal-websites/sharyap-homepage.png" alt="Homepage screenshot of sharyap.com" >}}
+{{< site-card url="https://www.sharyap.com" title="sharyap.com" image="/images/favorite-personal-websites/sharyap-homepage.png" alt="sharyap.com with the hand-drawn 'about' window open on top of the home window" >}}
 This one is a bit similar to the previous site. Every time you open a new page, it feels like opening a new window on a desktop. What makes it even more charming is that many of the graphics, logos, and little visual details were drawn by the author herself, which makes the whole thing feel cohesive and incredibly cute.
 {{< /site-card >}}
 
-{{< site-card url="https://merodev.net" title="merodev.net" image="/images/favorite-personal-websites/merodev-homepage.png" alt="Homepage screenshot of merodev.net" >}}
+{{< site-card url="https://merodev.net" title="merodev.net" image="/images/favorite-personal-websites/merodev-homepage.png" alt="merodev.net's 3D hub map, with glowing circuit lines leading to each section" >}}
 This is a very cool, very futuristic 3D website. The rendering quality grabs you right away. The lighting, the scene, and the overall atmosphere all feel polished in a way that makes you stop and stare for a few seconds.
 {{< /site-card >}}
 
-{{< site-card url="https://bruno-simon.com" title="bruno-simon.com" image="/images/favorite-personal-websites/bruno-simon-homepage.png" alt="Homepage screenshot of bruno-simon.com" >}}
+{{< site-card url="https://bruno-simon.com" title="bruno-simon.com" image="/images/favorite-personal-websites/bruno-simon-homepage.jpg" alt="The car tumbling through the giant BRUNO SIMON letters in bruno-simon.com's 3D world" >}}
 This site is famous, and I first saw it years ago. Looking at it again now, it has evolved even more. The most ridiculous and unforgettable thing about it is that Bruno somehow turned his personal website into a 3D driving game. You drive around while exploring his work and personal info. Even now, I still wonder how he managed to fit all of that into one website. He also has a YouTube channel where he talks about how he built it.
 {{< /site-card >}}
 
-{{< site-card url="https://logartis.info" title="logartis.info" image="/images/favorite-personal-websites/logartis-homepage.png" alt="Homepage screenshot of logartis.info" >}}
+{{< site-card url="https://logartis.info" title="logartis.info" image="/images/favorite-personal-websites/logartis-homepage.jpg" alt="logartis.info free-flight mode over a pine forest under the 'Cotton candy' sky, with the weather picker open" >}}
 This site feels a bit like watching a movie. You move through a forest-like environment, and the whole atmosphere feels incredibly complete. What I especially like is how well the weather and environmental transitions are handled. It creates a really strong sense of immersion.
 {{< /site-card >}}
 
-{{< site-card url="https://wodniack.dev" title="wodniack.dev" image="/images/favorite-personal-websites/wodniack-homepage.png" alt="Homepage screenshot of wodniack.dev" >}}
+{{< site-card url="https://wodniack.dev" title="wodniack.dev" image="/images/favorite-personal-websites/wodniack-homepage.png" alt="wodniack.dev hero with its line-wave animation and 'CREATIVE DEVELOPER' headline" >}}
 This is another site with a very strong personal style. A lot of the interactions and scroll-triggered effects feel unique and artistic. You can tell the author is not just using a template, but actually using the website as a way to express a distinct visual point of view.
 {{< /site-card >}}
 
-{{< site-card url="https://getcoleman.com" title="getcoleman.com" image="/images/favorite-personal-websites/getcoleman-homepage.png" alt="Homepage screenshot of getcoleman.com" >}}
+{{< site-card url="https://getcoleman.com" title="getcoleman.com" image="/images/favorite-personal-websites/getcoleman-homepage.png" alt="getcoleman.com with the 'hard sell' slider pushed almost all the way: a dog on a skateboard holding a 'book me now' sign" >}}
 The thing that really made me stop here is how creatively the author introduces himself. He uses progress bars to show his timeline and different stages of his life. It instantly makes you think: oh, so this is another way to do a personal introduction.
 {{< /site-card >}}
 
@@ -59,7 +59,7 @@ This isn't a personal website, but a product showcase site. Still, the animation
 This site feels great from top to bottom. The typography, the colors, and even the little interactive game on the homepage all make you feel that the author's taste is excellent, not in a flashy way, but in a way that keeps feeling better the longer you look at it. On top of that, he writes a lot of technical articles, so it's not just beautiful, it's genuinely useful too.
 {{< /site-card >}}
 
-{{< site-card url="https://portfolio.ohevan.com" title="portfolio.ohevan.com" image="/images/favorite-personal-websites/ohevan-portfolio-homepage.png" alt="Homepage screenshot of portfolio.ohevan.com" >}}
+{{< site-card url="https://portfolio.ohevan.com" title="portfolio.ohevan.com" image="/images/favorite-personal-websites/ohevan-portfolio-homepage.jpg" alt="portfolio.ohevan.com: a long-exposure shot of light trails on a Montreal highway under oversized 'Lights in Motion' type" >}}
 This site feels more like a personal showcase of someone's portfolio, the places they've been, and the photos they've taken, and those photos genuinely look cinematic. I really like this direction myself. If I ever end up with enough photos that feel worth sharing, I'd love to seriously think about making something like this too.
 {{< /site-card >}}
 
