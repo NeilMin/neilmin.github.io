@@ -43,7 +43,7 @@ This site is famous, and I first saw it years ago. Looking at it again now, it h
 This site feels a bit like watching a movie. You move through a forest-like environment, and the whole atmosphere feels incredibly complete. What I especially like is how well the weather and environmental transitions are handled. It creates a really strong sense of immersion.
 {{< /site-card >}}
 
-{{< site-card url="https://wodniack.dev" title="wodniack.dev" image="/images/favorite-personal-websites/wodniack-homepage.png" alt="wodniack.dev hero with its line-wave animation and 'CREATIVE DEVELOPER' headline" >}}
+{{< site-card url="https://wodniack.dev" title="wodniack.dev" image="/images/favorite-personal-websites/wodniack-homepage.png" alt="wodniack.dev hero: the line field crumpled by the cursor, above the 'CREATIVE DEVELOPER' headline" >}}
 This is another site with a very strong personal style. A lot of the interactions and scroll-triggered effects feel unique and artistic. You can tell the author is not just using a template, but actually using the website as a way to express a distinct visual point of view.
 {{< /site-card >}}
 
@@ -59,7 +59,7 @@ This isn't a personal website, but a product showcase site. Still, the animation
 This site feels great from top to bottom. The typography, the colors, and even the little interactive game on the homepage all make you feel that the author's taste is excellent, not in a flashy way, but in a way that keeps feeling better the longer you look at it. On top of that, he writes a lot of technical articles, so it's not just beautiful, it's genuinely useful too.
 {{< /site-card >}}
 
-{{< site-card url="https://portfolio.ohevan.com" title="portfolio.ohevan.com" image="/images/favorite-personal-websites/ohevan-portfolio-homepage.jpg" alt="portfolio.ohevan.com: a long-exposure shot of light trails on a Montreal highway under oversized 'Lights in Motion' type" >}}
+{{< site-card url="https://portfolio.ohevan.com" title="portfolio.ohevan.com" image="/images/favorite-personal-websites/ohevan-portfolio-homepage.jpg" alt="portfolio.ohevan.com opening screen: oversized 'THIS IS EVAN' type layered over a glowing cloud image and a water-splash photo" >}}
 This site feels more like a personal showcase of someone's portfolio, the places they've been, and the photos they've taken, and those photos genuinely look cinematic. I really like this direction myself. If I ever end up with enough photos that feel worth sharing, I'd love to seriously think about making something like this too.
 {{< /site-card >}}
 

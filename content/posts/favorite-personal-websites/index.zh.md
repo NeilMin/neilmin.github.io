@@ -42,7 +42,7 @@ alt = '阳光木桌上摊开的剪贴本，贴满复古明信片与照片'
 这个网站给我的感觉很像在看电影。你像是在树林里穿来穿去，整个场景的氛围特别完整。尤其是它对天气和环境变化的处理，真的做得很好，所以你在里面待着的时候会很有沉浸感。
 {{< /site-card >}}
 
-{{< site-card url="https://wodniack.dev" title="wodniack.dev" image="/images/favorite-personal-websites/wodniack-homepage.png" alt="wodniack.dev 首屏：线条波浪动画与「CREATIVE DEVELOPER」大标题" >}}
+{{< site-card url="https://wodniack.dev" title="wodniack.dev" image="/images/favorite-personal-websites/wodniack-homepage.png" alt="wodniack.dev 首屏：鼠标划过后皱成一团的线条波浪，下方是「CREATIVE DEVELOPER」大标题" >}}
 这个网站也是个人风格非常鲜明的那一类。它里面的很多互动，还有滚动时触发出来的效果，都做得很独特，也很有艺术感。你能感觉到作者不是在套一个模板，而是真的在用网站表达自己的审美。
 {{< /site-card >}}
 
@@ -58,7 +58,7 @@ alt = '阳光木桌上摊开的剪贴本，贴满复古明信片与照片'
 这个网站整体做得特别舒服。无论是字体、配色，还是首页上的互动小游戏，都会让人觉得这个人的审美真的很好，而且是那种越看越觉得舒服的好。再加上他还写了很多技术文章，所以它不只是好看，也很值得学习。
 {{< /site-card >}}
 
-{{< site-card url="https://portfolio.ohevan.com" title="portfolio.ohevan.com" image="/images/favorite-personal-websites/ohevan-portfolio-homepage.jpg" alt="portfolio.ohevan.com：他在蒙特利尔拍的公路车灯长曝光照片，配上超大号「Lights in Motion」标题" >}}
+{{< site-card url="https://portfolio.ohevan.com" title="portfolio.ohevan.com" image="/images/favorite-personal-websites/ohevan-portfolio-homepage.jpg" alt="portfolio.ohevan.com 首屏：超大号「THIS IS EVAN」叠在发光的云朵图和水花照片上" >}}
 这个网站更像是在展示一个人的作品集、去过的地方，还有他拍过的照片，而且那些照片拍得真的很像大片一样。我自己也非常喜欢这种方向，等以后我有更多值得分享的照片时，也很想认真想一想，要不要做一个类似的页面。
 {{< /site-card >}}
 
